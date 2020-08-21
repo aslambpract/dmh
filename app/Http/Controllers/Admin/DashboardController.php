@@ -98,6 +98,8 @@ class DashboardController extends AdminController
  
         $payout_wallet = Settings::find(1)->wallet_address ;
 
+        
+
        
         return view('app.admin.dashboard.index', compact('title', 'total_users', 'total_amount', 'sub_title', 'base', 'method', 'weekly_users_count', 'monthly_users_count', 'yearly_users_count','user_account_count','payout','user_phase1','user_phase2','user_phase3','wallet_data','payout_wallet','approved_positions','pending_positions','total_payout','system_btc','positions_wallet','admin_wallet','system_wallet','positions_infinity','user_phase4','user_phase5','special_wallet','user_phase6'));
     }

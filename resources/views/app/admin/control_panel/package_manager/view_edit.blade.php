@@ -35,50 +35,26 @@
 
 
 <div id="settings-page">
-
     <div class="card card-white">
-
         <div class="card-header pb-1 pt-1 bg-dark" style="">
-
             <h5 class="mb-0 font-weight-light">
-
-              {{trans('Edit Circle Settings')}}
-
+              {{trans('Edit Stage Settings')}}
             </h5>
-
              <div class="text-right d-lg-none w-100">
-
                     <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
-
                 </div>
-
         </div>
-
-        <div class="card-body bordered">
-
-                         
-
-
-
+        <div class="card-body bordered">                       
   <fieldset class="mb-3">
-
     <legend class="text-uppercase font-size-sm font-weight-bold">
-
-                   {{trans('Circle Settings')}}
-
+                   {{trans('Stage Settings')}}
     </legend>
-
     <div class="row">
-
         <div class="col-sm-9">
-
             <div class="form-group row">
-
               <label class="col-form-label col-lg-6 text-right"></label>  
-
                <div class="col-lg-6">
-
-               <div class="input-group">         
+               <div class="input-group">       
 
                  <div class="media-left">
 
@@ -140,27 +116,16 @@
 
             <input type="hidden" name="_token" value="{{ csrf_token()}}"/>
 
-                
+                 <div class="form-group row">
 
-
-
-                    
-
-
-
-                        
-
-
-
-                        <div class="form-group row">
-
-                            <label class="col-form-label col-lg-6 text-right">{{trans('Circle Settings')}}</label>
+                            <label class="col-form-label col-lg-6 text-right">Stages</label>
 
                             <div class="col-lg-6">
 
                                 <div class="input-group">
 
-                                    <input class="form-control" type="text" name="package" value="{{$package->package}}">
+                                    <input class="form-control" type="text" name="package" value="{{$package->package}}" readonly="">
+                                    
 
                                 </div>
 
@@ -172,13 +137,13 @@
 
                         <div class="form-group row">
 
-                            <label class="col-form-label col-lg-6 text-right">{{trans('Amount')}}</label>
+                            <label class="col-form-label col-lg-6 text-right">Fee</label>
 
                             <div class="col-lg-6">
 
                                 <div class="input-group">
 
-                                    <input class="form-control" type="text" name="amount" value="{{$package->amount}}">
+                                    <input class="form-control" type="text" name="fee" value="{{$package->fee}}">
 
                                 </div>
 
@@ -190,13 +155,13 @@
 
                          <div class="form-group row">
 
-                            <label class="col-form-label col-lg-6 text-right">{{trans('Positions In Fly')}}(BTC)</label>
+                            <label class="col-form-label col-lg-6 text-right">Upgrade Fee</label>
 
                             <div class="col-lg-6">
 
                                 <div class="input-group">
 
-                                    <input class="form-control" type="text" name="positions_in_fly" value="{{$package->positions_in_fly}}">
+                                    <input class="form-control" type="text" name="upgrade_fee" value="{{$package->upgrade_fee}}">
 
                                 </div>
 
@@ -208,13 +173,13 @@
 
                         <div class="form-group row">
 
-                            <label class="col-form-label col-lg-6 text-right">{{trans('Accounts In Infinity')}} (Count)</label>
+                            <label class="col-form-label col-lg-6 text-right">Charge</label>
 
                             <div class="col-lg-6">
 
                                 <div class="input-group">
 
-                                    <input class="form-control" type="text" name="accounts_in_infinity" value="{{$package->accounts_in_infinity}}">
+                                    <input class="form-control" type="text" name="charge" value="{{$package->charge}}">
 
                                 </div>
 
@@ -226,13 +191,13 @@
 
                         <div class="form-group row">
 
-                            <label class="col-form-label col-lg-6 text-right">{{trans('Positions In Infinity')}}(Count)</label>
+                            <label class="col-form-label col-lg-6 text-right">Member Benefit</label>
 
                             <div class="col-lg-6">
 
                                 <div class="input-group">
 
-                                    <input class="form-control" type="text" name="positions_in_infinity" value="{{$package->positions_in_infinity}}">
+                                    <input class="form-control" type="text" name="member_benefit" value="{{$package->member_benefit}}">
 
                                 </div>
 
@@ -242,13 +207,29 @@
 
                          <div class="form-group row">
 
-                            <label class="col-form-label col-lg-6 text-right">{{trans('Payout')}}(BTC)</label>
+                            <label class="col-form-label col-lg-6 text-right">Downline Bonus</label>
 
                             <div class="col-lg-6">
 
                                 <div class="input-group">
 
-                                    <input class="form-control" type="text" name="payout" value="{{$package->payout}}">
+                                    <input class="form-control" type="text" name="downline_bonus" value="{{$package->downline_bonus}}">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                         <div class="form-group row">
+
+                            <label class="col-form-label col-lg-6 text-right">Insurace Completing Fee</label>
+
+                            <div class="col-lg-6">
+
+                                <div class="input-group">
+
+                                    <input class="form-control" type="text" name="insurace_completing_fee" value="{{$package->insurace_completing_fee}}">
 
                                 </div>
 
@@ -257,15 +238,17 @@
                         </div>
 
 
-            <div class="form-group row">
+                  
 
-                            <label class="col-form-label col-lg-6 text-right">{{trans('Special wallet')}}(BTC)</label>
+                         <div class="form-group row">
+
+                            <label class="col-form-label col-lg-6 text-right">Insurace Completing Fee</label>
 
                             <div class="col-lg-6">
 
                                 <div class="input-group">
 
-                                    <input class="form-control" type="text" name="special_wallet" value="{{$package->special_wallet}}">
+                                    <input class="form-control" type="text" name="insurace_completing_fee" value="{{$package->insurace_completing_fee}}">
 
                                 </div>
 
@@ -273,36 +256,41 @@
 
                         </div>
 
+                         <div class="form-group row">
 
+                            <label class="col-form-label col-lg-6 text-right">Longrich Registration Fee</label>
 
+                            <div class="col-lg-6">
 
+                                <div class="input-group">
 
-                        
+                                    <input class="form-control" type="text" name="longrich_reg_fee" value="{{$package->longrich_reg_fee}}">
 
+                                </div>
 
+                            </div>
 
+                        </div>
 
-                        
+                          <div class="form-group row">
 
+                            <label class="col-form-label col-lg-6 text-right">Insurance Registration Fee</label>
 
-       
+                            <div class="col-lg-6">
 
+                                <div class="input-group">
 
+                                    <input class="form-control" type="text" name="insurance_reg_fee" value="{{$package->insurance_reg_fee}}">
 
+                                </div>
 
+                            </div>
 
-
+                        </div>                
 
                     </div>
 
-                    
-
-
-
-
-
-            
-
+                
                 </div>
 
 
@@ -326,6 +314,8 @@
     </div>
 
 </div>
+
+<!-- ********************************************************************* -->
 
 @stop
 

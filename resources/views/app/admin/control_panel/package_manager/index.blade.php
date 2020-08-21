@@ -35,106 +35,320 @@
 
 
 <div id="settings-page">
-
     <div class="card card-white">
-
         <div class="card-header pb-1 pt-1 bg-dark" style="">
-
             <h5 class="mb-0 font-weight-light">
-
-                Circle Settings
-
+                Bronze
             </h5>
-
              <div class="text-right d-lg-none w-100">
-
                     <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
-
                 </div>
-
         </div>
-
         <div class="card-body bordered">
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <thead> 
+                    <th>Stages</th>
+                    <th>Fee</th>
+                    <th>Upgrade Fee</th>
+                    <th>Charge</th>
+                    <th>Member Benefit</th>
+                    <th>Downline Bonus</th>
+                    <th>Insurance Completing Fee</th>
+                    <th>LongRich Registration Fee</th>
+                    <th>Insurance Registration Fee</th>
+                </thead>
 
+                <tbody>
 
+                    @foreach($bronze as $package)
+                    <tr>
+                        <td>{{$package->package}} </td>
+                        <td>{{$package->fee}}  </td>
+                        <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
+                        <td>{{$package->member_benefit}}  </td>  
+                        <td>{{$package->downline_bonus}}  </td>
+                        <td>{{$package->insurace_completing_fee}}  </td>
+                        <td>{{$package->longrich_reg_fee}}  </td>
+                        <td>{{$package->insurance_reg_fee}}  </td>
 
+                        <td>
+                        <a href="{{url('admin/control-panel/package-manager/edit/'.$package->id)}}"> {{trans('controlpanel.view')}}/{{trans('controlpanel.edit')}} <i class="icon-play3 ml-2"></i></a>
+                        </td> 
 
+                    </tr>  
 
-             <div class="table-responsive">
+                    @endforeach                               
 
-             <table class="table table-striped">
-
-                            <thead> 
-
-                                <th>{{ trans('Circle') }} </th>
-
-                                <th>{{ trans('Amount') }}</th>
-
-                                 <th>{{ trans('Position In Fly') }}(BTC)</th>
-
-                                <th>{{ trans('Accounts In Infinity') }}</th>
-
-                                <th>{{ trans('Positions In Infinitiy') }}(Count)</th>
-
-                                <th>{{ trans('Payout') }}(BTC) </th>                                
-
-                                <th>{{ trans('Special Wallet') }} </th>                                
-
-                            </thead>
-
-                            <tbody>
-
-                                @foreach($packages as $package)
-
-
-
-                                <tr>
-
-                                    <td>   {{$package->package}} </td>
-                                     <td>  {{$package->amount}}  </td>
-                                     <td>  {{$package->positions_in_fly}} </td>                   
-                                    <td> {{$package->accounts_in_infinity}} </td>
-                                     <td>  {{$package->positions_in_infinity}}  </td>  
-                                     <td>  {{$package->payout}}  </td>
-                                     <td>  {{$package->special_wallet}}  </td>
-                                      <td>
-
-                                         <a href="{{url('admin/control-panel/package-manager/edit/'.$package->id)}}"> {{trans('controlpanel.view')}}/{{trans('controlpanel.edit')}} <i class="icon-play3 ml-2"></i></a>
-
-                                        
-
-                                       </td> 
-
-                                </tr>  
-
-                                @endforeach
-
-                                
-
-                            </tbody>
-
-
-
-
-
-                          </table>  
-
-                      </div>
-
-
-
-           
-
-
-
-
-
-
-
+             </tbody>
+            </table> 
+           </div>     
         </div>
-
     </div>
+</div>
 
+<div id="settings-page">
+    <div class="card card-white">
+        <div class="card-header pb-1 pt-1 bg-dark" style="">
+            <h5 class="mb-0 font-weight-light">
+               Silver
+            </h5>
+             <div class="text-right d-lg-none w-100">
+                    <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
+                </div>
+        </div>
+        <div class="card-body bordered">
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <thead> 
+                    <th>Stages</th>
+                    <th>Fee</th>
+                    <th>Upgrade Fee</th>
+                    <th>Charge</th>
+                    <th>Member Benefit</th>
+                    <th>Downline Bonus</th>
+                    <th>Insurance Completing Fee</th>
+                    <th>LongRich Registration Fee</th>
+                    <th>Insurance Registration Fee</th>
+                </thead>
+
+                <tbody>
+
+                    @foreach($silver as $package)
+                    <tr>
+                        <td>{{$package->package}} </td>
+                        <td>{{$package->fee}}  </td>
+                        <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
+                        <td>{{$package->member_benefit}}  </td>  
+                        <td>{{$package->downline_bonus}}  </td>
+                        <td>{{$package->insurace_completing_fee}}  </td>
+                        <td>{{$package->longrich_reg_fee}}  </td>
+                        <td>{{$package->insurance_reg_fee}}  </td>
+
+                        <td>
+                        <a href="{{url('admin/control-panel/package-manager/edit/'.$package->id)}}"> {{trans('controlpanel.view')}}/{{trans('controlpanel.edit')}} <i class="icon-play3 ml-2"></i></a>
+                        </td> 
+
+                    </tr>  
+
+                    @endforeach                               
+
+             </tbody>
+            </table> 
+           </div>     
+        </div>
+    </div>
+</div>
+<div id="settings-page">
+    <div class="card card-white">
+        <div class="card-header pb-1 pt-1 bg-dark" style="">
+            <h5 class="mb-0 font-weight-light">
+               Gold
+            </h5>
+             <div class="text-right d-lg-none w-100">
+                    <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
+                </div>
+        </div>
+        <div class="card-body bordered">
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <thead> 
+                    <th>Stages</th>
+                    <th>Fee</th>
+                    <th>Upgrade Fee</th>
+                    <th>Charge</th>
+                    <th>Member Benefit</th>
+                    <th>Downline Bonus</th>
+                    <th>Insurance Completing Fee</th>
+                    <th>LongRich Registration Fee</th>
+                    <th>Insurance Registration Fee</th>
+                </thead>
+
+                <tbody>
+
+                    @foreach($gold as $package)
+                    <tr>
+                        <td>{{$package->package}} </td>
+                        <td>{{$package->fee}}  </td>
+                        <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
+                        <td>{{$package->member_benefit}}  </td>  
+                        <td>{{$package->downline_bonus}}  </td>
+                        <td>{{$package->insurace_completing_fee}}  </td>
+                        <td>{{$package->longrich_reg_fee}}  </td>
+                        <td>{{$package->insurance_reg_fee}}  </td>
+
+                        <td>
+                        <a href="{{url('admin/control-panel/package-manager/edit/'.$package->id)}}"> {{trans('controlpanel.view')}}/{{trans('controlpanel.edit')}} <i class="icon-play3 ml-2"></i></a>
+                        </td> 
+
+                    </tr>  
+
+                    @endforeach                               
+
+             </tbody>
+            </table> 
+           </div>     
+        </div>
+    </div>
+</div>
+
+<div id="settings-page">
+    <div class="card card-white">
+        <div class="card-header pb-1 pt-1 bg-dark" style="">
+            <h5 class="mb-0 font-weight-light">
+               Platinum
+            </h5>
+             <div class="text-right d-lg-none w-100">
+                    <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
+                </div>
+        </div>
+        <div class="card-body bordered">
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <thead> 
+                    <th>Stages</th>
+                    <th>Fee</th>
+                    <th>Upgrade Fee</th>
+                    <th>Charge</th>
+                    <th>Member Benefit</th>
+                    <th>Downline Bonus</th>
+                    <th>Insurance Completing Fee</th>
+                    <th>LongRich Registration Fee</th>
+                    <th>Insurance Registration Fee</th>
+                </thead>
+
+                <tbody>
+
+                    @foreach($platinum as $package)
+                    <tr>
+                        <td>{{$package->package}} </td>
+                        <td>{{$package->fee}}  </td>
+                        <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
+                        <td>{{$package->member_benefit}}  </td>  
+                        <td>{{$package->downline_bonus}}  </td>
+                        <td>{{$package->insurace_completing_fee}}  </td>
+                        <td>{{$package->longrich_reg_fee}}  </td>
+                        <td>{{$package->insurance_reg_fee}}  </td>
+
+                        <td>
+                        <a href="{{url('admin/control-panel/package-manager/edit/'.$package->id)}}"> {{trans('controlpanel.view')}}/{{trans('controlpanel.edit')}} <i class="icon-play3 ml-2"></i></a>
+                        </td> 
+
+                    </tr>  
+
+                    @endforeach                               
+
+             </tbody>
+            </table> 
+           </div>     
+        </div>
+    </div>
+</div>
+
+<div id="settings-page">
+    <div class="card card-white">
+        <div class="card-header pb-1 pt-1 bg-dark" style="">
+            <h5 class="mb-0 font-weight-light">
+               Diamond
+            </h5>
+             <div class="text-right d-lg-none w-100">
+                    <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
+                </div>
+        </div>
+        <div class="card-body bordered">
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <thead> 
+                    <th>Stages</th>
+                    <th>Fee</th>
+                    <th>Upgrade Fee</th>
+                    <th>Charge</th>
+                    <th>Member Benefit</th>
+                    <th>Downline Bonus</th>
+                    <th>Insurance Completing Fee</th>
+                    <th>LongRich Registration Fee</th>
+                    <th>Insurance Registration Fee</th>
+                </thead>
+
+                <tbody>
+
+                    @foreach($diamond as $package)
+                    <tr>
+                        <td>{{$package->package}} </td>
+                        <td>{{$package->fee}}  </td>
+                        <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
+                        <td>{{$package->member_benefit}}  </td>  
+                        <td>{{$package->downline_bonus}}  </td>
+                        <td>{{$package->insurace_completing_fee}}  </td>
+                        <td>{{$package->longrich_reg_fee}}  </td>
+                        <td>{{$package->insurance_reg_fee}}  </td>
+
+                        <td>
+                        <a href="{{url('admin/control-panel/package-manager/edit/'.$package->id)}}"> {{trans('controlpanel.view')}}/{{trans('controlpanel.edit')}} <i class="icon-play3 ml-2"></i></a>
+                        </td> 
+
+                    </tr>  
+
+                    @endforeach                               
+
+             </tbody>
+            </table> 
+           </div>     
+        </div>
+    </div>
+</div>
+
+<div id="settings-page">
+    <div class="card card-white">
+        <div class="card-header pb-1 pt-1 bg-dark" style="">
+            <h5 class="mb-0 font-weight-light">
+               Diamond 1
+            </h5>
+             <div class="text-right d-lg-none w-100">
+                    <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
+                </div>
+        </div>
+        <div class="card-body bordered">
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <thead> 
+                    <th>Stages</th>
+                    <th>Fee</th>
+                    <th>Upgrade Fee</th>
+                    <th>Charge</th>
+                    <th>Member Benefit</th>
+                    <th>Downline Bonus</th>
+                    <th>Insurance Completing Fee</th>
+                    <th>LongRich Registration Fee</th>
+                    <th>Insurance Registration Fee</th>
+                </thead>
+
+                <tbody>
+
+                    @foreach($diamond1 as $package)
+                    <tr>
+                        <td>{{$package->package}} </td>
+                        <td>{{$package->fee}}  </td>
+                        <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
+                        <td>{{$package->member_benefit}}  </td>  
+                        <td>{{$package->downline_bonus}}  </td>
+                        <td>{{$package->insurace_completing_fee}}  </td>
+                        <td>{{$package->longrich_reg_fee}}  </td>
+                        <td>{{$package->insurance_reg_fee}}  </td>
+
+                        <td>
+                        <a href="{{url('admin/control-panel/package-manager/edit/'.$package->id)}}"> {{trans('controlpanel.view')}}/{{trans('controlpanel.edit')}} <i class="icon-play3 ml-2"></i></a>
+                        </td> 
+
+                    </tr>  
+
+                    @endforeach                               
+
+             </tbody>
+            </table> 
+           </div>     
+        </div>
+    </div>
 </div>
 
 

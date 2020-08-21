@@ -14,7 +14,7 @@ class Packages extends Model
 
     protected $table = 'packages' ;
 
-    protected $fillable = ['package','positions_in_fly','accounts_in_infinity','amount','positions_in_infinity','payout','special_wallet'];
+    protected $fillable = ['package','positions_in_fly','accounts_in_infinity','amount','positions_in_infinity','payout','special_wallet','stage','fee','upgrade_fee','charge','member_benefit','downline_bonus','insurace_reg_fee','insurace_completing_fee','longrich_reg_fee','insurance_reg_fee'];
 
     public static function TopUPAutomatic($user_id)
     {

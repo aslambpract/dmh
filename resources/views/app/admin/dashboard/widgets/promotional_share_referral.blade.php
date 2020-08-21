@@ -22,15 +22,15 @@
             </div>
             <div class="card-body">
                 <div class="input-group">
-                                            <a target="_blank" href="{{url('/register')}}" class="btn btn-info ">  {{url('/register')}}</a>
+                                           <!--  <a target="_blank" href="{{url('/register')}}" class="btn btn-info ">  {{url('/register')}}</a> -->
 
-                    <!-- <input class="selectall form-control" id="replicationlink" readonly="true" spellcheck="false" type="text" value="{{url('/register')}}"/>
+                    <input class="selectall form-control" id="replicationlink" readonly="true" spellcheck="false" type="text" value="{{url('/register')}}"/>
                     <span class="input-group-append copylink">
                          <button class="btn btn-copy input-group-text" data-clipboard-target="#replicationlink" style="font-size: 12px;">
                             <i class="fa fa-copy">
                             </i>
                         </button>                       
-                    </span> -->
+                    </span>
                 </div>
             </div>
             <div class="card-footer">

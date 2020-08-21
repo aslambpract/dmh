@@ -136,10 +136,12 @@ class DatabaseSeeder extends Seeder
         $this->call('SignupBonusSeeder');
         $this->call('PurchaseHistory');
         $this->call('SignUpSeeder');
-         $this->call('UserAccountsSeeder');
+        $this->call('UserAccountsSeeder');
         $this->call('TreeTable2Seeder');
-         $this->call('TreeTable3Seeder');
-         $this->call('TreeTable4n5Seeder');
+        $this->call('TreeTable3Seeder');
+        $this->call('TreeTable4n5Seeder');
+
+        $this->call('StagesTableSeeder');
 
 
 

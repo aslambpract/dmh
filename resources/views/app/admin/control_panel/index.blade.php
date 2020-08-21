@@ -328,7 +328,7 @@
 
                         <div class="quickLink">
 
-                            <a href="{{url('admin/control-panel/package-manager')}}" data-popup="tooltip" data-html="true" data-original-title=" {{trans('Circle Settings')}}" data-placement="top">
+                            <a href="{{url('admin/control-panel/package-manager')}}" data-popup="tooltip" data-html="true" data-original-title=" Stage Settings" data-placement="top">
 
                                 <i class="icon-calculator3">
 
@@ -336,7 +336,7 @@
 
                                 <span>
 
-                                    Circle Settings
+                                    Stage Settings
 
                                 </span>
 
