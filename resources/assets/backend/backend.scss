@@ -1,0 +1,47 @@
+@import "./themes/limitless/global_assets/scss/layouts/layout_1/default/compile/bootstrap";
+@import "./themes/limitless/global_assets/scss/layouts/layout_1/default/compile/bootstrap_limitless";
+@import "./themes/limitless/global_assets/scss/layouts/layout_1/default/compile/layout";
+@import "./themes/limitless/global_assets/scss/layouts/layout_1/default/compile/components";
+@import "./themes/limitless/global_assets/scss/layouts/layout_1/default/compile/colors";
+
+
+
+//EXTRA STYLESHEETS
+
+//Animate.css - CSS Animation library
+@import "./themes/limitless/global_assets/css/extras/animate.scss";
+
+//We have removed default sweetalert and replaced with bootstrap-sweetalert
+@import "~bootstrap-sweetalert/dist/sweetalert.css";
+
+//Feathericons library especially for menu items
+@import "./themes/limitless/global_assets/scss/shared/icons/feather/style";
+
+//Icomoon library for themewide styles
+@import "./themes/limitless/global_assets/scss/shared/icons/icomoon/compile/styles";
+
+//Flaticons libaries - Optional
+// @import "./themes/limitless/global_assets/scss/shared/icons/flaticon/styles";
+// @import "./themes/limitless/global_assets/scss/shared/icons/flaticon2/styles";
+
+//flipclock - only use if counters are used
+@import "./extra-aslamise/plugins/flipclock/flipclock.scss";
+
+//Language icons 
+@import "./extra-aslamise/css/languages/languages.scss";
+
+//Flag icons 
+@import "~flag-icon-css/css/flag-icon.min.css";
+
+//Orgchart
+@import "~orgchart/dist/css/jquery.orgchart.min.css";
+
+//JSTree
+@import "~jstree/dist/themes/default/style.min.css";
+
+//WebUI popover
+@import "~webui-popover/dist/jquery.webui-popover.css";
+
+ 
+@import "./themes/limitless/css/extra.css";
+
