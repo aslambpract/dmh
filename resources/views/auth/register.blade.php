@@ -206,7 +206,7 @@ background-color: #fff;
     </div>
 
 
-    <div class="row"> 
+  <!--   <div class="row"> 
         <div class="col-md-6">
             <div class="passy required form-group-feedback-right {{ $errors->has('security_question') ? ' has-error' : '' }}">
                 {!! Form::label('security_question', 'Security question', array('class' => 'col-form-label')) !!}
@@ -238,7 +238,7 @@ background-color: #fff;
                 </span>
             </div>
         </div> 
-    </div>
+    </div> -->
 
     <div class="row">
             <div class="col-sm-6 ">

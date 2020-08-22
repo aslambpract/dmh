@@ -9,7 +9,7 @@
 
 				<div class="navbar-collapse collapse" id="navbar-footer">
 					<span class="navbar-text">
-						&copy; {{date('Y')}}. <a href="#">Fly.Infinty BTC</a> by <a href="https://Infinty-btc.com" target="_blank">Infinty-btc</a>
+						&copy; {{date('Y')}}. <a href="#">DMH</a> by <a href="https://Infinty-btc.com" target="_blank">DMH</a>
 					</span>
 
 					<ul class="navbar-nav ml-lg-auto">

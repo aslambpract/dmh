@@ -178,9 +178,9 @@
 
 
 
+    <!-- juan genealogy start -->
 
-
-                <li class="nav-item-header">
+               <!--  <li class="nav-item-header">
 
                     <div class="text-uppercase font-size-xs line-height-xs">{{trans('menu.network')}} </div> 
 
@@ -248,6 +248,312 @@
 
                                 href="{{url('admin/tree')}}">{{trans('menu.tree-genealogy')}}</a></li>
 
+
+
+                    </ul>
+
+                </li> -->
+ <!-- juan genealogy end -->
+
+                 <li class="nav-item-header mt-1">
+
+                    <div class="text-uppercase font-size-xs line-height-xs">{{trans('menu.network')}} </div> 
+
+                </li>
+
+
+
+
+
+                <li
+
+                    class="nav-item nav-item-submenu {{set_active('admin/genealogy')}}{{set_active('admin/sponsortree')}}{{set_active('admin/tree')}} {{set_active('admin/genealogy1')}} {{set_active('admin/genealogy2')}} {{set_active('admin/genealogy3')}} {{set_active('admin/genealogy4')}} {{set_active('admin/genealogy5')}} {{set_active('admin/genealogy6')}} {{set_active('admin/genealogy7')}} mt-1">
+
+                    <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
+
+                        <span class="badge pull-right"></span>
+
+                        <svg class="feather">
+
+                            <use xlink:href="/backend/icons/feather/feather-sprite.svg#layers" />
+
+                        </svg>
+
+                        <span>{{trans('menu.genealogy')}}</span>
+
+                    </a>
+                    
+                    <ul class="nav nav-group-sub p-1"
+
+                        style="{{set_active_display('admin/genealogy')}}{{set_active_display('admin/sponsortree')}}{{set_active_display('admin/tree')}} {{set_active('admin/referral_list')}}"
+
+                        data-submenu-title="Network Explorers">
+
+                      
+                        <li
+
+                        class="nav-item nav-item-submenu {{set_active('admin/genealogy')}}{{set_active('admin/genealogy1')}} {{set_active('admin/genealogy2')}} {{set_active('admin/genealogy3')}} {{set_active('admin/genealogy4')}} {{set_active('admin/genealogy5')}} {{set_active('admin/genealogy6')}} {{set_active('admin/genealogy7')}} {{set_active('admin/sponsortree')}}{{set_active('admin/tree')}} mt-1">
+
+                        <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
+
+                            <span class="badge pull-right"></span>
+
+                            <span>Bronze</span>
+
+                        </a>
+                                 <ul class="nav nav-group-sub p-1"
+
+                                style="{{set_active_display('admin/genealogy')}}{{set_active_display('admin/sponsortree')}}{{set_active_display('admin/tree')}} {{set_active('admin/referral_list')}}"
+
+                                data-submenu-title="Network Explorers">
+
+                                
+                                <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/1')}}">
+                                  
+                                Level 1  </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/2')}}">
+                                  
+                                Leve 2 </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/3')}}">
+                                  
+                                Level 3 </a></li>
+                              
+
+                            </ul>
+
+                        </li>
+
+
+
+                        <li
+
+                        class="nav-item nav-item-submenu {{set_active('admin/genealogy')}}{{set_active('admin/genealogy1')}} {{set_active('admin/genealogy2')}} {{set_active('admin/genealogy3')}} {{set_active('admin/genealogy4')}} {{set_active('admin/genealogy5')}} {{set_active('admin/genealogy6')}} {{set_active('admin/genealogy7')}} {{set_active('admin/sponsortree')}}{{set_active('admin/tree')}} mt-1">
+
+                        <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
+
+                            <span class="badge pull-right"></span>
+
+                            <span>Silver</span>
+
+                        </a>
+                                 <ul class="nav nav-group-sub p-1"
+
+                                style="{{set_active_display('admin/genealogy')}}{{set_active_display('admin/sponsortree')}}{{set_active_display('admin/tree')}} {{set_active('admin/referral_list')}}"
+
+                                data-submenu-title="Network Explorers">
+
+                                
+                                <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/1')}}">
+                                  
+                                Level 1  </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/2')}}">
+                                  
+                                Leve 2 </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/3')}}">
+                                  
+                                Level 3 </a></li>
+                              
+
+                            </ul>
+
+                        </li>
+
+
+                          <li
+
+                        class="nav-item nav-item-submenu {{set_active('admin/genealogy')}}{{set_active('admin/genealogy1')}} {{set_active('admin/genealogy2')}} {{set_active('admin/genealogy3')}} {{set_active('admin/genealogy4')}} {{set_active('admin/genealogy5')}} {{set_active('admin/genealogy6')}} {{set_active('admin/genealogy7')}} {{set_active('admin/sponsortree')}}{{set_active('admin/tree')}} mt-1">
+
+                        <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
+
+                            <span class="badge pull-right"></span>
+
+                            <span>Gold</span>
+
+                        </a>
+                                 <ul class="nav nav-group-sub p-1"
+
+                                style="{{set_active_display('admin/genealogy')}}{{set_active_display('admin/sponsortree')}}{{set_active_display('admin/tree')}} {{set_active('admin/referral_list')}}"
+
+                                data-submenu-title="Network Explorers">
+
+                                
+                                <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/1')}}">
+                                  
+                                Level 1  </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/2')}}">
+                                  
+                                Leve 2 </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/3')}}">
+                                  
+                                Level 3 </a></li>
+                              
+
+                            </ul>
+
+                        </li>
+
+
+
+                        <li
+
+                        class="nav-item nav-item-submenu {{set_active('admin/genealogy')}}{{set_active('admin/genealogy1')}} {{set_active('admin/genealogy2')}} {{set_active('admin/genealogy3')}} {{set_active('admin/genealogy4')}} {{set_active('admin/genealogy5')}} {{set_active('admin/genealogy6')}} {{set_active('admin/genealogy7')}} {{set_active('admin/sponsortree')}}{{set_active('admin/tree')}} mt-1">
+
+                        <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
+
+                            <span class="badge pull-right"></span>
+
+                            <span>Platinum</span>
+
+                        </a>
+                                 <ul class="nav nav-group-sub p-1"
+
+                                style="{{set_active_display('admin/genealogy')}}{{set_active_display('admin/sponsortree')}}{{set_active_display('admin/tree')}} {{set_active('admin/referral_list')}}"
+
+                                data-submenu-title="Network Explorers">
+
+                                
+                                <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/1')}}">
+                                  
+                                Level 1  </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/2')}}">
+                                  
+                                Leve 2 </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/3')}}">
+                                  
+                                Level 3 </a></li>
+                              
+
+                            </ul>
+
+                        </li>
+
+                         <li
+
+                        class="nav-item nav-item-submenu {{set_active('admin/genealogy')}}{{set_active('admin/genealogy1')}} {{set_active('admin/genealogy2')}} {{set_active('admin/genealogy3')}} {{set_active('admin/genealogy4')}} {{set_active('admin/genealogy5')}} {{set_active('admin/genealogy6')}} {{set_active('admin/genealogy7')}} {{set_active('admin/sponsortree')}}{{set_active('admin/tree')}} mt-1">
+
+                        <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
+
+                            <span class="badge pull-right"></span>
+
+                            <span>Diamond</span>
+
+                        </a>
+                                 <ul class="nav nav-group-sub p-1"
+
+                                style="{{set_active_display('admin/genealogy')}}{{set_active_display('admin/sponsortree')}}{{set_active_display('admin/tree')}} {{set_active('admin/referral_list')}}"
+
+                                data-submenu-title="Network Explorers">
+
+                                
+                                <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/1')}}">
+                                  
+                                Level 1  </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/2')}}">
+                                  
+                                Leve 2 </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/3')}}">
+                                  
+                                Level 3 </a></li>
+                              
+
+                            </ul>
+
+                        </li>
+
+                         <li
+
+                        class="nav-item nav-item-submenu {{set_active('admin/genealogy')}}{{set_active('admin/genealogy1')}} {{set_active('admin/genealogy2')}} {{set_active('admin/genealogy3')}} {{set_active('admin/genealogy4')}} {{set_active('admin/genealogy5')}} {{set_active('admin/genealogy6')}} {{set_active('admin/genealogy7')}} {{set_active('admin/sponsortree')}}{{set_active('admin/tree')}} mt-1">
+
+                        <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
+
+                            <span class="badge pull-right"></span>
+
+                            <span>Diamond 1</span>
+
+                        </a>
+                                 <ul class="nav nav-group-sub p-1"
+
+                                style="{{set_active_display('admin/genealogy')}}{{set_active_display('admin/sponsortree')}}{{set_active_display('admin/tree')}} {{set_active('admin/referral_list')}}"
+
+                                data-submenu-title="Network Explorers">
+
+                                
+                                <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/1')}}">
+                                  
+                                Level 1  </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/2')}}">
+                                  
+                                Leve 2 </a></li>
+
+                                <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
+
+                                        href="{{url('admin/genealogy/3')}}">
+                                  
+                                Level 3 </a></li>
+                              
+
+                            </ul>
+
+                        </li>
+
+
+
+
+
+
+                       <!--  <li class="nav-item {{set_active('admin/genealogy')}}"><a class="nav-link"
+
+                                href="{{url('admin/genealogy/8')}}">
+                          
+                        Pearl Genealogy</a></li> -->
+
+
+                       
 
 
                     </ul>
@@ -358,7 +664,7 @@
 
 
 
-                <li class="nav-item-header">
+              <!--   <li class="nav-item-header">
                     <div class="text-uppercase font-size-xs line-height-xs">Circle user</div>
                 </li>
 
@@ -392,7 +698,7 @@
 
                     </ul>
 
-                </li>
+                </li> -->
 
 
 
@@ -628,22 +934,22 @@
 
                      <li class="nav-item {{set_active('admin/control-panel/package-manager')}}"><a class="nav-link"
 
-                                href="{{url('admin/control-panel/package-manager')}}">Circle settings </a></li>
+                                href="{{url('admin/control-panel/package-manager')}}">Stage settings </a></li>
 
-  <li class="nav-item {{set_active('admin/control-panel/ewallet_settings')}}"><a class="nav-link"
+                               <!-- <li class="nav-item {{set_active('admin/control-panel/ewallet_settings')}}"><a class="nav-link"
 
-                                href="{{url('admin/control-panel/ewallet_settings')}}">{{trans('menu.payment_settings')}}</a></li>                         <li class="nav-item {{set_active('admin/approve_payments')}}"><a class="nav-link"
+                                href="{{url('admin/control-panel/ewallet_settings')}}">{{trans('menu.payment_settings')}}</a></li> -->                         <li class="nav-item {{set_active('admin/approve_payments')}}"><a class="nav-link"
 
                                 href="{{url('admin/approve_payments')}}">{{trans('menu.pay_status')}}</a></li>
 
 
-                                 <li class="nav-item {{set_active('admin/users/positions')}}"><a class="nav-link"
+                               <!--   <li class="nav-item {{set_active('admin/users/positions')}}"><a class="nav-link"
 
                                 href="{{url('admin/users/positions')}}">Activate positions </a></li>
 
                           <li class="nav-item {{set_active('admin/users/reavtivation')}}"><a class="nav-link"
 
-                                href="{{url('admin/users/reavtivation')}}">Reactivate account</a></li>  
+                                href="{{url('admin/users/reavtivation')}}">Reactivate account</a></li>   -->
 
                     </ul>
 

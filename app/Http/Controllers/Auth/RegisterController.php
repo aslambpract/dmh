@@ -143,8 +143,8 @@ class RegisterController extends Controller
 
             //Contact Information
             'country' => 'required|max:255',
-            'security_answer' => 'required|max:255',
-            'security_question' => 'required|max:255',
+            // 'security_answer' => 'required|max:255',
+            // 'security_question' => 'required|max:255',
              'post_code' => 'max:255',//OPTIONAL
              'email' => 'required|email|max:255|unique:pending_transactions',
             'phone' => 'max:255',//OPTIONAL

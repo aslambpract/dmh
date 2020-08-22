@@ -1158,7 +1158,7 @@
                                 </div> 
 
                             </div>
-                            <div class="row">
+                          <!--   <div class="row">
                                     <div class="col-md-6">
                                         <label>Security question </label>
                                     <input class="form-control" name="security_question" type="text" value="{{ $selecteduser->profile_info->security_question }}" readonly="">
@@ -1167,7 +1167,7 @@
                                         <label>Security answer </label>
                                     <input class="form-control" name="answer" type="text" value="" required="">
                                 </div> 
-                            </div>
+                            </div> -->
                         </div>
 
                             

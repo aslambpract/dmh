@@ -212,18 +212,18 @@
 
                          <ul class="nav nav-group-sub" style="{{set_active_display('user/genealogy/*')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}}"  data-submenu-title="Network Explorers">
 
-                            <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/1')}}">{{trans('Circle 0 Genealogy')}}</a></li>
-
-                         <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/2')}}">{{trans('Circle 1 Genealogy')}}</a></li>
+                            <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/1')}}">
+                                Broze
+                            <!-- {{trans('Circle 0 Genealogy')}} -->
+                            </a></li>
+<!-- juan side bar tree start -->
+                        <!--  <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/2')}}">{{trans('Circle 1 Genealogy')}}</a></li>
                          <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/3')}}">{{trans('Circle 2 Genealogy')}}</a></li>
                          <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/4')}}">{{trans('Circle 3 Genealogy')}}</a></li>
-                         <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/5')}}">{{trans('Circle 4 Genealogy')}}</a></li>
+                         <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/5')}}">{{trans('Circle 4 Genealogy')}}</a></li> -->
 
-                        <!--  <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/3')}}">
-                           
-                        {{trans('Phase3 Genealogy')}}</a></li> -->
-
-                           
+                       
+<!-- juan side bar tree end -->                           
 
                            
 
@@ -313,7 +313,7 @@
 
 
 
-                     <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">My Account</div> <i class="icon-menu" title="{{trans('menu.myaccount')}}"></i></li>
+                 <!--     <li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">My Account</div> <i class="icon-menu" title="{{trans('menu.myaccount')}}"></i></li>
 
                      <li class="nav-item {{set_active('user/myaccount*')}}">
 
@@ -329,7 +329,7 @@
 
                         </a>
 
-                    </li>
+                    </li> -->
 
 
                     @if(App\Payout::where('user_id',Auth::user()->id)->exists())

@@ -21,7 +21,7 @@
                                     {{trans('dashboard.weekly_joining')}}
                                 </div>
                                 <div class="text-muted">
-                                    {{$weekly_users_count}}
+                                    {{0}}
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                                     {{trans('dashboard.monthly_joining')}}
                                 </div>
                                 <div class="text-muted">
-                                   {{$monthly_users_count}}
+                                   {{0}}
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                       {{trans('dashboard.yearly_joining')}}
                                 </div>
                                 <div class="text-muted">
-                                  {{$yearly_users_count}}
+                                  {{0}}
                                 </div>
                             </div>
                         </div>

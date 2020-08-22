@@ -126,7 +126,7 @@
 
                      
 
-                     <div class="col-md-3 col-sm-6">
+                     <!-- <div class="col-md-3 col-sm-6">
                      	<div class="card metric bg-sty1 text-dark">
                      		<div class="card-header border-0 header-elements-inline pb-0">
                      			<h6 class="card-title">Circle 0</h6>
@@ -181,7 +181,7 @@
                      			<h3 class="text-4xl no-margin  font-weight-semibold mt-1 mb-0">{{ $user_phase5 }} </h3>
                      		</div>
                      	</div>
-                     </div>
+                     </div> -->
 
 
 
@@ -189,22 +189,35 @@
 
        
 
-            
 
 
+<div class="row display-flex">
+ 
+    <div class="col-xl-6 col-sm-6">
+       
+        @include('app.user.dashboard.widget_join_graph')
+       
+    </div>
 
+        <div class="col-xl-6 col-sm-6">
+       
+        @include('app.user.dashboard.widget_maps')
+       
+    </div>
 
+   
+</div>
 
-
+<br>
 
 <div class="panel panel-inverse">
 
     <div class="panel-body"> 
 
 
-
-            <!-- @include('app.admin.dashboard.widgets.promotional_share_referral') -->
-            @include('app.user.dashboard.widget_share_referral')
+           
+            @include('app.admin.dashboard.widgets.promotional_share_referral')
+            <!-- @include('app.user.dashboard.widget_share_referral') -->
 
 
 

@@ -51,16 +51,13 @@ min-height: auto !important;
        
     </div>
 
-    <!-- <div class="col-xl-6 col-sm-6"> -->
-        <!--JOIN_MAP WIDGET START-->
-        <!-- @include('app.admin.dashboard.widgets.promotional_share_referral') -->
-        <!--JOIN_MAP WIDGET END-->
-    <!-- </div> -->
-    <div class="col-xl-6">
-        <!--JOIN_MAP WIDGET START-->
+        <div class="col-xl-6 col-sm-6">
+       
         @include('app.admin.dashboard.widgets.map_maps')
-        <!--JOIN_MAP WIDGET END-->
+       
     </div>
+
+   
 </div>
 
 
