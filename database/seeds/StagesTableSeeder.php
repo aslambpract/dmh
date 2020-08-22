@@ -7,7 +7,7 @@ class StagesTableSeeder extends Seeder
     /**
      * Run the database seeds.
      *
-     * @return void
+     * @return 
      */
     public function run() 
     {
