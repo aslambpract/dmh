@@ -142,6 +142,7 @@ class DatabaseSeeder extends Seeder
         $this->call('TreeTable4n5Seeder');
 
         $this->call('StagesTableSeeder');
+        $this->call('TreeTable6n18Seeder');
 
 
 

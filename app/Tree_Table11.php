@@ -10,7 +10,7 @@ use Storage;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tree_Table5 extends Model
+class Tree_Table11 extends Model
 {
     public static $downline_users = '';
     public static $downline_users_count = '';
@@ -22,7 +22,7 @@ class Tree_Table5 extends Model
 
     public static $MODEL_NOT_FOUND = '-1';
 
-    protected $table = 'tree_table5';
+    protected $table = 'tree_table11';
 
     protected $fillable = ['user_id', 'sponsor', 'placement_id', 'leg'];
 

@@ -353,19 +353,19 @@
                                 
                                 <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/1')}}">
+                                        href="{{url('admin/genealogy/4')}}">
                                   
                                 Level 1  </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/2')}}">
+                                        href="{{url('admin/genealogy/5')}}">
                                   
                                 Leve 2 </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/3')}}">
+                                        href="{{url('admin/genealogy/6')}}">
                                   
                                 Level 3 </a></li>
                               
@@ -395,19 +395,19 @@
                                 
                                 <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/1')}}">
+                                        href="{{url('admin/genealogy/7')}}">
                                   
                                 Level 1  </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/2')}}">
+                                        href="{{url('admin/genealogy/8')}}">
                                   
                                 Leve 2 </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/3')}}">
+                                        href="{{url('admin/genealogy/9')}}">
                                   
                                 Level 3 </a></li>
                               
@@ -438,19 +438,19 @@
                                 
                                 <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/1')}}">
+                                        href="{{url('admin/genealogy/10')}}">
                                   
                                 Level 1  </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/2')}}">
+                                        href="{{url('admin/genealogy/11')}}">
                                   
                                 Leve 2 </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/3')}}">
+                                        href="{{url('admin/genealogy/1')}}">
                                   
                                 Level 3 </a></li>
                               
@@ -479,19 +479,19 @@
                                 
                                 <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/1')}}">
+                                        href="{{url('admin/genealogy/13')}}">
                                   
                                 Level 1  </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/2')}}">
+                                        href="{{url('admin/genealogy/14')}}">
                                   
                                 Leve 2 </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/3')}}">
+                                        href="{{url('admin/genealogy/15')}}">
                                   
                                 Level 3 </a></li>
                               
@@ -520,19 +520,19 @@
                                 
                                 <li class="nav-item {{set_active('admin/genealogy1')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/1')}}">
+                                        href="{{url('admin/genealogy/16')}}">
                                   
                                 Level 1  </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy2')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/2')}}">
+                                        href="{{url('admin/genealogy/17')}}">
                                   
                                 Leve 2 </a></li>
 
                                 <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/3')}}">
+                                        href="{{url('admin/genealogy/18')}}">
                                   
                                 Level 3 </a></li>
                               

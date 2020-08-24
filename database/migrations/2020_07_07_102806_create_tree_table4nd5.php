@@ -49,7 +49,7 @@ class CreateTreeTable4nd5 extends Migration
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
