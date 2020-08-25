@@ -627,7 +627,7 @@
                     </li> -->
 
 
-                    @if(App\Payout::where('user_id',Auth::user()->id)->exists())
+                   <!--  @if(App\Payout::where('user_id',Auth::user()->id)->exists())
 
 
 
@@ -651,7 +651,7 @@
 
 
 
-                    @endif
+                    @endif -->
 
 
 
