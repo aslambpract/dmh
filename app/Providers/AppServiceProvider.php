@@ -24,6 +24,24 @@ use App\Tree_Table;
 use App\SystemLanguages;
 use Larinfo;
 use Config;
+use App\Tree_Table2;
+use App\Tree_Table3;
+use App\Tree_Table4;
+use App\Tree_Table5;
+use App\Tree_Table6;
+use App\Tree_Table7;
+use App\Tree_Table8;
+use App\Tree_Table9;
+use App\Tree_Table10;
+use App\Tree_Table11;
+use App\Tree_Table12;
+use App\Tree_Table13;
+use App\Tree_Table14;
+use App\Tree_Table15;
+use App\Tree_Table16;
+use App\Tree_Table17;
+use App\Tree_Table18;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -178,6 +196,10 @@ class AppServiceProvider extends ServiceProvider
             // $activities = Activity::with('user')->where('user_id',Auth::id())->orderBy('created_at','desc')->paginate(5);
 
             $activities = Activity::with('user')->where('user_id', Auth::id())->paginate(5);
+
+          
+
+
           
             
             $view
@@ -206,6 +228,9 @@ class AppServiceProvider extends ServiceProvider
             ->with('gtag', $gtag_value)
             ->with('voucher_user_request', $voucher_user_request)
             ->with('voucher_admin_approval', $voucher_admin_approval)
+
+
+           
             ->with('activities', $activities);
         });
 
@@ -350,6 +375,25 @@ class AppServiceProvider extends ServiceProvider
                     $logoimg = 'logo.png';
                 }
             }
+              $stage1 = Tree_Table::where('user_id','=',Auth::user()->id)->count();
+            $stage2 = Tree_Table2::where('user_id','=',Auth::user()->id)->count();
+            $stage3 = Tree_Table3::where('user_id','=',Auth::user()->id)->count();
+            $stage4 = Tree_Table4::where('user_id','=',Auth::user()->id)->count();
+            $stage5 = Tree_Table5::where('user_id','=',Auth::user()->id)->count();
+            $stage6 = Tree_Table6::where('user_id','=',Auth::user()->id)->count();
+            $stage7 = Tree_Table7::where('user_id','=',Auth::user()->id)->count();
+            $stage8 = Tree_Table8::where('user_id','=',Auth::user()->id)->count();
+            $stage9 = Tree_Table9::where('user_id','=',Auth::user()->id)->count();
+            $stage10 = Tree_Table10::where('user_id','=',Auth::user()->id)->count();
+            $stage11 = Tree_Table11::where('user_id','=',Auth::user()->id)->count();
+            $stage12 = Tree_Table12::where('user_id','=',Auth::user()->id)->count();
+            $stage13= Tree_Table13::where('user_id','=',Auth::user()->id)->count();
+            $stage14= Tree_Table14::where('user_id','=',Auth::user()->id)->count();
+            $stage15= Tree_Table15::where('user_id','=',Auth::user()->id)->count();
+            $stage16= Tree_Table16::where('user_id','=',Auth::user()->id)->count();
+            $stage17= Tree_Table17::where('user_id','=',Auth::user()->id)->count();
+            $stage18= Tree_Table18::where('user_id','=',Auth::user()->id)->count();
+
             $user_registration = option('app.user_registration');
             // dd($activities);
             $view
@@ -378,6 +422,24 @@ class AppServiceProvider extends ServiceProvider
             ->with('gtag', $gtag_value)
              ->with('voucher_user_request', $voucher_user_request)
             ->with('voucher_admin_approval', $voucher_admin_approval)
+             ->with('stage1', $stage1)
+            ->with('stage2', $stage2)
+            ->with('stage3', $stage3)
+            ->with('stage4', $stage4)
+            ->with('stage5', $stage5)
+            ->with('stage6', $stage6) 
+            ->with('stage7', $stage7)
+            ->with('stage8', $stage8)
+            ->with('stage9', $stage9)
+            ->with('stage10', $stage10)
+            ->with('stage11', $stage11)
+            ->with('stage12', $stage12)
+            ->with('stage13', $stage13)
+            ->with('stage14', $stage14)
+            ->with('stage15', $stage15)
+            ->with('stage16', $stage16)
+            ->with('stage17', $stage17)
+            ->with('stage18', $stage18)
             ->with('GLOBAL_RANK', $GLOBAL_RANK);
         });
 

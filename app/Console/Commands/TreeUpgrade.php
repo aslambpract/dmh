@@ -141,10 +141,11 @@ class TreeUpgrade extends Command
 
             if(DB::table('pending_table')->where('status','=','pending')->count()){
                 $this->callsilent('tree:upgrade') ;
-            }else{
-            // $this->callsilent('transaction:payout') ;
-                
             }
+            // else{
+            // // $this->callsilent('transaction:payout') ;
+                
+            // }
      }
 
     public function getflyplacement($next){
