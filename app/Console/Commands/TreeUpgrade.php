@@ -46,7 +46,7 @@ class TreeUpgrade extends Command
     public function handle()
     {
         $data = DB::table('pending_table')->where('status','=','pending')->get() ;
- 
+
         foreach ($data as $key => $value) 
         {
             
@@ -108,11 +108,11 @@ class TreeUpgrade extends Command
 
                    
 
-                    if($user_leg == 2 && $upline_leg == 2){
+                    // if($user_leg == 2 && $upline_leg == 2){
                     
                         Packages::calculations($circle_commission_to,$value->next,1);
 
-                    }
+                    // }
                                                       
                       
                 
