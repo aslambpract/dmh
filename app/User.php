@@ -643,21 +643,21 @@ class User extends Authenticatable
 
             /* vincy for infinity-btc : checking completion of first tree on Augest 1st*/
 
-            $user_leg = $tree->leg;
-            $upline_leg = Tree_Table::where('user_id',$tree->placement_id)->value('leg');
+            // $user_leg = $tree->leg;
+            // $upline_leg = Tree_Table::where('user_id',$tree->placement_id)->value('leg');
 
-            EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
+            // EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
 
-            if($user_leg == 2 && $upline_leg == 2){
+            // if($user_leg == 2 && $upline_leg == 2){
 
-                Packages::calculations($circle_commission_to,1);
-            }
-
-            //$vaccant_count=Tree_Table::where('placement_id',$placement_id)->where('type','vaccant')->count();
-
-            // if($vaccant_count ==0){
-            //     Packages::calculations($placement_id,1);
+            //     Packages::calculations($circle_commission_to,1);
             // }
+
+            $vaccant_count=Tree_Table::where('placement_id',$placement_id)->where('type','vaccant')->count();
+
+            if($vaccant_count ==0){
+                Packages::calculations($placement_id,1);
+            }
              
            // User::addAccount();      
 

@@ -80,40 +80,48 @@ class TreeUpgrade extends Command
                         $this->createVaccant($value->account_id,$next) ;
                         
                         $placement_id = DB::table('tree_table'.$next)->find($placement->id)->placement_id ;
+
+
           
                     }
 
-                    if($placement_id == 1){
+                    // if($placement_id == 1){
                 
-                        $circle_commission_to = $placement_id; //admin itself
-                    }else{
+                    //     $circle_commission_to = $placement_id; //admin itself
+                    // }else{
 
-                        $circle_commission_to = DB::table('tree_table'.$next)->where('user_id',$placement_id)->value('placement_id'); //second upline
-                    }
+                    //     $circle_commission_to = DB::table('tree_table'.$next)->where('user_id',$placement_id)->value('placement_id'); //second upline
+                    // }
 
                     
-                    if($circle_commission_to >0){
+                    // if($circle_commission_to >0){
 
-                        Commission::phase_commission($circle_commission_to,$value->next,$value->account_id) ;
+                    //     Commission::phase_commission($circle_commission_to,$value->next,$value->account_id) ;
+                    // }
+                    // PendingTable::where('account_id',$value->account_id)->update(['status'=>'finish']);
+
+                   
+
+                    /* added for dmh by anitta*/
+                     // if(DB::table('tree_table'.$next)->where('placement_id',$placement_id)->where('type','=','vaccant')->count() == 0){
+                     //    if($placement_id > 0){
+                     //      Packages::calculations($placement_id,$value->next,$cyclecount);
+                     //    }
+
+                     // }
+                   /* added for dmh by anitta*/
+                    if($placement_id >0){
+
+                        Commission::phase_commission($placement_id,$value->next,$value->account_id) ;
                     }
                     PendingTable::where('account_id',$value->account_id)->update(['status'=>'finish']);
 
-                        
-                    /* vincy for infinity-btc : checking completion of current circle on Augest 1st*/
-                    
-                   
-                    $user_leg = DB::table('tree_table'.$next)->where('user_id','=',$value->account_id)->value('leg');
-                   
-                    $upline_leg =  DB::table('tree_table'.$next)->where('user_id',$placement_id)->value('leg');
+                            
+                      if(DB::table('tree_table'.$next)->where('placement_id',$placement_id)->where('type','=','yes')->count() == 2){
+                          Packages::calculations($placement_id,$value->next,$cyclecount);
 
-                   
-
-                    if($user_leg == 2 && $upline_leg == 2){
-                    
-                        Packages::calculations($circle_commission_to,$value->next,1);
-
-                    }
-                                                      
+                     }
+                   /* */                                    
                       
                 
                 DB::commit();
