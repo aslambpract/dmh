@@ -69,7 +69,7 @@ class Packages extends Model
             $user_id = UserAccounts::find($account_id)->user_id ;
             $account_type = UserAccounts::find($account_id)->account_type ;
 
-            if($phase ==6){
+            if($phase ==18){
                 $next = 1 ;
             }else{
                 $next = $phase +1 ;
@@ -78,7 +78,7 @@ class Packages extends Model
             $phase_settings = Packages::find($phase) ;
             $next_phase_settings = Packages::find($next) ;
 
-            if($phase == 6){
+            if($phase == 18){
                 // Reactivation::create([
                 //     'account_id'=>$account_id,
                 //     'status'=>'approved',                                                            

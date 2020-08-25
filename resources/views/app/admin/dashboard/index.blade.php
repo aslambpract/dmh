@@ -16,11 +16,13 @@ min-height: auto !important;
 <div class="row dashboard-records" id="dashboard-records-1">
 
  
-     <div class="col-xl-12">
-            <a href="http://infinity-btc.cloudmlm.online/cron/dbclear" class="btn btn-danger"> Database refresh</a>
-            <a href="http://dmh.demo/cron/register/2" class="btn btn-info">Register 100 Users</a>
+
+     <!-- <div class="col-xl-12"> -->
+            <!-- <a href="http://infinity-btc.cloudmlm.online/cron/dbclear" class="btn btn-danger"> Database refresh</a> -->
+            <!-- <a href="http://dmh.cloudmlm.online/cron/register/10" class="btn btn-info">Register 100 Users</a> -->
             <!-- <a href="http://infinity-btc.cloudmlm.online/cron/register/200" class="btn btn-info">Register 200 Users</a> -->
-    </div>
+    <!-- </div> -->
+
     <div class="col-xl-12">
 
 

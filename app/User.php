@@ -651,29 +651,18 @@ class User extends Authenticatable
 
             // EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
 
+
             // if($user_leg == 2 && $upline_leg == 2){
 
             //     Packages::calculations($circle_commission_to,1);
             // }
 
-            Commission::phase_commission($tree->placement_id,1,$useraccounts->id);
-
-            $placement_id = $tree->placement_id ;
-
 
             $vaccant_count=Tree_Table::where('placement_id',$placement_id)->where('type','vaccant')->count();
-
-            EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
 
             if($vaccant_count ==0){
                 Packages::calculations($placement_id,1);
             }
-
-            //$vaccant_count=Tree_Table::where('placement_id',$placement_id)->where('type','vaccant')->count();
-
-            // if($vaccant_count ==0){
-            //     Packages::calculations($placement_id,1);
-            // }
              
            // User::addAccount();      
 
