@@ -450,7 +450,7 @@
 
                                 <li class="nav-item {{set_active('admin/genealogy3')}} mt-1"><a class="nav-link pt-2 pb-1"
 
-                                        href="{{url('admin/genealogy/1')}}">
+                                        href="{{url('admin/genealogy/12')}}">
                                   
                                 Level 3 </a></li>
                               
