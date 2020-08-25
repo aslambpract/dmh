@@ -127,21 +127,80 @@ class Commission extends Model
     {
        
         $user_id=UserAccounts::where('id',$account_id)->value('user_id');
-        $package_amount=Packages::find($package_id)->amount;
+        $package_amount=Packages::find($package_id)->upgrade_fee;
         
             $commision = self::create([
                   'user_id'        => $user_id,
-                  'account_id'     => $account_id,
+                  'account_id'     => $user_id,
                   'from_id'        => $from_id,
                   'total_amount'   => $package_amount,
                   'tds'            => '0',
                   'service_charge' => '0',
                   'payable_amount' => $package_amount,
-                  'payment_type'   => 'circle'.$package_id.'_commission',
+                  'payment_type'   => 'stage'.$package_id.'_commission',
                   'payment_status' => 'Yes',
             ]);
 
             User::upadteUserBalance($user_id, $package_amount);
+        
+    }
+
+     public static function registerFee($from_id,$package_id)
+    {
+       
+       
+        $package_amount=Packages::find($package_id)->fee;
+        $account_id=UserAccounts::where('user_id',$from_id)->value('id');
+        
+        
+            $commision = self::create([
+                  'user_id'        => 1,
+                  'account_id'     => 1,
+                  'from_id'        => $from_id,
+                  'total_amount'   => $package_amount,
+                  'tds'            => '0',
+                  'service_charge' => '0',
+                  'payable_amount' => $package_amount,
+                  'payment_type'   => 'register_fee',
+                  'payment_status' => 'Yes',
+            ]);
+
+            User::upadteUserBalance(1, $package_amount);
+
+             /* charge */
+
+                $charge=Packages::find($package_id)->charge;
+                if($charge > 0){
+
+                $commision = Commission::create([
+                        'user_id'        => $from_id,
+                        'account_id'     => $from_id,
+                        'from_id'        => $from_id,
+                        'total_amount'   => -$charge,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => -$charge,
+                        'payment_type'   => 'charge',
+                        'payment_status' => 'Yes',
+                  ]) ;
+              }
+
+               /* memeber benift */
+
+                $member_benefit=Packages::find($package_id)->member_benefit;
+                if($member_benefit > 0){ 
+                $commision = Commission::create([
+                        'user_id'        => $from_id,
+                        'account_id'     => $from_id,
+                        'from_id'        => $from_id,
+                        'total_amount'   => +$member_benefit,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => +$member_benefit,
+                        'payment_type'   => 'benifit',
+                        'payment_status' => 'Yes',
+                  ]) ;
+              }
         
     }
 }

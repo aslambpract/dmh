@@ -104,17 +104,18 @@ class EwalletController extends AdminController
             ->join('users as user', 'user.id', '=', 'commission.user_id')
             ->orderBy('commission.id', 'desc');
 
-        $users2 = Payout::select('payout_request.id', 'users.username', 'users.username as fromuser', 'payout_request.status as payment_type', 'payout_request.amount as payable_amount', 'payout_request.created_at')
-            ->join('users', 'users.id', '=', 'payout_request.user_id')
+        // $users2 = Payout::select('payout_request.id', 'users.username', 'users.username as fromuser', 'payout_request.status as payment_type', 'payout_request.amount as payable_amount', 'payout_request.created_at')
+        //     ->join('users', 'users.id', '=', 'payout_request.user_id')
 
-            ->orderBy('payout_request.id', 'desc');
+        //     ->orderBy('payout_request.id', 'desc');
 
 
 
-        $ewallet_count = $users1->union($users2)->orderBy('created_at', 'DESC')->get()->count();
-        // $ewallet_count = $users2->orderBy('created_at', 'DESC')->get()->count();
+        $ewallet_count = $users1->orderBy('created_at', 'DESC')->get()->count();
+        // $ewallet_count = $users1->union($users2)->orderBy('created_at', 'DESC')->get()->count();
 
-        $users = $users1->union($users2)->orderBy('created_at', 'DESC')
+        $users = $users1->orderBy('created_at', 'DESC')
+        // $users = $users1->union($users2)->orderBy('created_at', 'DESC')
         // $users = $users2->orderBy('created_at', 'DESC')
 
 

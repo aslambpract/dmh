@@ -625,21 +625,29 @@ class User extends Authenticatable
             
             $balanceupdate = self::insertToBalance($userresult->id);
 
-            /* vincy for infinity-btc circle plan on Augest 1st*/
-
-            if($tree->placement_id == 1){
-                
-                $circle_commission_to = $tree->placement_id; //admin itself
-            }else{
-
-                $circle_commission_to = Tree_Table::where('user_id',$tree->placement_id)->value('placement_id'); //second upline
-            }
-
-
-            $package_amount = Packages::find(1)->amount ;
-            Commission::phase_commission($circle_commission_to,1,$useraccounts->id);
+             $package_amount = Packages::find(1)->fee ;
+            Commission::phase_commission($tree->placement_id,1,$useraccounts->id);
 
             $placement_id = $tree->placement_id ;
+
+            /* vincy for infinity-btc circle plan on Augest 1st*/
+
+//             if($tree->placement_id == 1){
+                
+//                 $circle_commission_to = $tree->placement_id; //admin itself
+//             }else{
+// // juan
+//                 // $circle_commission_to = Tree_Table::where('user_id',$tree->placement_id)->value('placement_id'); //second upline
+//                 // juan
+//                 // add for dmh
+//                  $circle_commission_to = Tree_Table::where('user_id',$useraccounts->id)->value('placement_id'); //second upline
+//             }
+
+
+//             $package_amount = Packages::find(1)->amount ;
+            // Commission::phase_commission($circle_commission_to,1,$useraccounts->id);
+
+            // $placement_id = $tree->placement_id ;
 
             /* vincy for infinity-btc : checking completion of first tree on Augest 1st*/
 
@@ -648,10 +656,12 @@ class User extends Authenticatable
 
             // EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
 
+
             // if($user_leg == 2 && $upline_leg == 2){
 
             //     Packages::calculations($circle_commission_to,1);
             // }
+            Commission::registerFee($useraccounts->id,1);
 
             $vaccant_count=Tree_Table::where('placement_id',$placement_id)->where('type','vaccant')->count();
 

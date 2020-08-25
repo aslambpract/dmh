@@ -46,7 +46,7 @@ class TreeUpgrade extends Command
     public function handle()
     {
         $data = DB::table('pending_table')->where('status','=','pending')->get() ;
- 
+
         foreach ($data as $key => $value) 
         {
             
@@ -108,6 +108,7 @@ class TreeUpgrade extends Command
                      //      Packages::calculations($placement_id,$value->next,$cyclecount);
                      //    }
 
+
                      // }
                    /* added for dmh by anitta*/
                     if($placement_id >0){
@@ -122,6 +123,7 @@ class TreeUpgrade extends Command
 
                      }
                    /* */                                    
+
                       
                 
                 DB::commit();
@@ -139,10 +141,11 @@ class TreeUpgrade extends Command
 
             if(DB::table('pending_table')->where('status','=','pending')->count()){
                 $this->callsilent('tree:upgrade') ;
-            }else{
-            // $this->callsilent('transaction:payout') ;
-                
             }
+            // else{
+            // // $this->callsilent('transaction:payout') ;
+                
+            // }
      }
 
     public function getflyplacement($next){

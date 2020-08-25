@@ -89,27 +89,7 @@ class Packages extends Model
                 //     'status'     => "pending",  
                 //     'from_id'    => 0,                                       
                 // ]);
-                // $commision = Commission::create([
-                //       'user_id'        => $user_id,
-                //       'account_id'     => $account_id,
-                //       'from_id'        => $account_id,
-                //       'total_amount'   => -$next_phase_settings->amount,
-                //       'tds'            => '0',
-                //       'service_charge' => '0',
-                //       'payable_amount' => -$next_phase_settings->amount,
-                //       'payment_type'   => 'reactivation', 
-                //       'payment_status' => 'Yes',
-                // ]) ;
-
-                // Transactions::create([
-                //       'user_id'=>$user_id,
-                //       'account_id'=>$account_id,
-                //       'payment_type'=>'reactivation',
-                //       'wallet_address'=>EwalletSettings::find(1)->bitcoin_address,
-                //       'amount'=>$next_phase_settings->amount
-                //     ]);
-
-                //     EwalletSettings::where('id',1)->increment('balance',$next_phase_settings->amount) ;
+                
             }else{
 
                 PendingTable::create([                   
@@ -118,17 +98,129 @@ class Packages extends Model
                       'status'     => "pending",  
                       'from_id'    => 0,                                       
                   ]);
+              
+                /* upgrade fee*/
                 $commision = Commission::create([
                         'user_id'        => $user_id,
                         'account_id'     => $account_id,
                         'from_id'        => $account_id,
-                        'total_amount'   => -$next_phase_settings->amount,
+                        'total_amount'   => -$next_phase_settings->upgrade_fee,
                         'tds'            => '0',
                         'service_charge' => '0',
-                        'payable_amount' => -$next_phase_settings->amount,
-                        'payment_type'   => 'circle_upgrade',
+                        'payable_amount' => -$next_phase_settings->upgrade_fee,
+                        'payment_type'   => 'stage_upgrade',
                         'payment_status' => 'Yes',
                   ]) ;
+                /* charge */
+
+                 if($next_phase_settings->charge > 0){
+
+                $commision = Commission::create([
+                        'user_id'        => $user_id,
+                        'account_id'     => $account_id,
+                        'from_id'        => $account_id,
+                        'total_amount'   => -$next_phase_settings->charge,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => -$next_phase_settings->charge,
+                        'payment_type'   => 'charge',
+                        'payment_status' => 'Yes',
+                  ]) ;
+              }
+
+                  /* memeber benift */
+
+                 if($next_phase_settings->member_benefit > 0){  
+
+                $commision = Commission::create([
+                        'user_id'        => $user_id,
+                        'account_id'     => $account_id,
+                        'from_id'        => $account_id,
+                        'total_amount'   => +$next_phase_settings->member_benefit,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => +$next_phase_settings->member_benefit,
+                        'payment_type'   => 'benift',
+                        'payment_status' => 'Yes',
+                  ]) ;
+              }
+
+               /* insurace_completing_fee */
+
+                 if($next_phase_settings->insurace_completing_fee > 0){  
+
+                $commision = Commission::create([
+                        'user_id'        => $user_id,
+                        'account_id'     => $account_id,
+                        'from_id'        => $account_id,
+                        'total_amount'   => -$next_phase_settings->insurace_completing_fee,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => -$next_phase_settings->insurace_completing_fee,
+                        'payment_type'   => 'benift',
+                        'payment_status' => 'Yes',
+                  ]) ;
+              }
+
+              /*  longrich_reg_fee */
+
+                 if($next_phase_settings->longrich_reg_fee > 0){  
+
+                $commision = Commission::create([
+                        'user_id'        => $user_id,
+                        'account_id'     => $account_id,
+                        'from_id'        => $account_id,
+                        'total_amount'   => -$next_phase_settings->longrich_reg_fee,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => -$next_phase_settings->longrich_reg_fee,
+                        'payment_type'   => 'benift',
+                        'payment_status' => 'Yes',
+                  ]) ;
+              }
+
+              /*  insurance_reg_fee */
+
+                 if($next_phase_settings->insurance_reg_fee > 0){  
+
+                $commision = Commission::create([
+                        'user_id'        => $user_id,
+                        'account_id'     => $account_id,
+                        'from_id'        => $account_id,
+                        'total_amount'   => -$next_phase_settings->insurance_reg_fee,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => -$next_phase_settings->insurance_reg_fee,
+                        'payment_type'   => 'benift',
+                        'payment_status' => 'Yes',
+                  ]) ;
+              }
+
+               /*  downline_bonus */
+
+              //    if($next_phase_settings->downline_bonus > 0){  
+
+               // $dowmline_user=DB::table('tree_table'.$next)->where('placement_id',$user_id)->get();
+               // foreach ($dowmline_user as $key => $value) {
+
+                 //   $commision = Commission::create([
+              //           'user_id'        => $value[user_id],
+              //           'account_id'     => $account_id,
+              //           'from_id'        => $account_id,
+              //           'total_amount'   => -$next_phase_settings->downline_bonus,
+              //           'tds'            => '0',
+              //           'service_charge' => '0',
+              //           'payable_amount' => -$next_phase_settings->downline_bonus,
+              //           'payment_type'   => 'benift',
+              //           'payment_status' => 'Yes',
+              //     ]) ;
+              // }
+                 
+               // }
+
+
+             
+
             }
 
             $first_phase_settings = Packages::find(1) ;
