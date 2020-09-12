@@ -35,6 +35,8 @@ class CreatePendingTransactionsTable extends Migration
              $table->text('payment_response_data', 1000)->nullable();
              $table->string('payment_status')->default('pending');
              $table->string('approved_by')->nullable();
+             $table->string('paytoken')->nullable();
+             $table->string('ordercode')->nullable();
              $table->timestamps();
              $table->softDeletes();
         });
