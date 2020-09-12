@@ -265,6 +265,7 @@ use App\Jobs\SendEmail;
 
  Route::get('register/preview/{idencrypt}', 'Auth\RegisterController@preview')->name('preview');
 
+Route::get('payment/slyde', 'Auth\RegisterController@slyde');
 
 
 //Lead Capture Page

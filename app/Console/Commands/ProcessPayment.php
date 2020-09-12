@@ -79,7 +79,7 @@ class ProcessPayment extends Command
                     $userresult = User::add($data, $payment->username, $payment->email);
                     if ($userresult) {
                         PendingTransactions::where('id', $payment->id)->update(['payment_status' => 'finish']);
-                        SendEmail::dispatch($data, $data['email'], $data['firstname'])->delay(now()->addSeconds(0));
+                     //   SendEmail::dispatch($data, $data['email'], $data['firstname'])->delay(now()->addSeconds(0));
 
                     }
                 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Auth;
 use App\User;
 use App\Packages;
 use App\Country;
@@ -13,6 +13,7 @@ use App\AppSettings;
 use App\Emails;
 use App\Commission;
 use App\EwalletSettings;
+//use App\TempUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -38,6 +39,8 @@ use App\Shippingaddress;
 use App\PendingTransactions;
 use App\PaymentGatewayDetails;
 use App\VoucherHistory;
+use App\SlydeDetails;
+use App\Pending_Temp;
 use Stripe\Stripe;
 use Stripe\Charge;
 use Stripe\Customer;
@@ -48,10 +51,11 @@ use Rave;
 use Redirect;
 use App\Models\Marketing\Contact;
 use App\Models\ControlPanel\Options;
-
-
+//use Qodehub\SlydePay\Slydepay;
+use Qodehub\Slydepay\Laravel\Facades\Slydepay;
 use App\Jobs\SendEmail;
 use Artisan ;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -296,17 +300,17 @@ class RegisterController extends Controller
                                                       ->first();
 
 
-            $register=PendingTransactions::create([
+            // $register=PendingTransactions::create([
 
-                 'order_id' =>$orderid,
-                 'username' =>$request->username,
-                  'email' =>$request->email,
-                 'sponsor' => 'admin',
-                 'request_data' =>json_encode($data),
-                 'payment_method'=>$request->payment,
-                 'payment_type' =>'register',
-                 'amount' => $joiningfee,
-                ]);
+            //      'order_id' =>$orderid,
+            //      'username' =>$request->username,
+            //       'email' =>$request->email,
+            //      'sponsor' => 'admin',
+            //      'request_data' =>json_encode($data),
+            //      'payment_method'=>$request->payment,
+            //      'payment_type' =>'register',
+            //      'amount' => $joiningfee,
+            //     ]);
 
       
 
@@ -330,14 +334,135 @@ class RegisterController extends Controller
  
                 $package_amount=round($joiningfee, 8);
 
-             PendingTransactions::where('id', $register->id)->update(['payment_code'=>$payment_details->payment_code,'invoice'=>$payment_details->invoice,'payment_address'=>$payment_details->address,'payment_data'=>json_encode($payment_details)]);
+             $random = Str::random(45);
+             $payment_gateway=PaymentGatewayDetails::find(1);
+            $joiningfee = Packages::where('id','=',$request->package)->value('amount');
+          //  $orderid = mt_rand();
+            
+           $slydepay = new Slydepay('baffour@thedreammakershome.com','1597297635004'); 
+                 $send=Slydepay::createAndSendInvoice()
+                       ->amount($joiningfee) 
+                       ->orderCode($random) 
+                       ->description('check') 
+                       ->orderItems([]) 
+                       ->payoption('SLYDEPAY') 
+                       ->sendInvoice(true) 
+                       ->customerName($request->username) 
+                       ->customerEmail($request->email) 
+                       ->from(233593034332)
+                       ->run();
+                // dd($send);
+                 if($send->success==false){
+               //     dd($send);
+                Session::flash('flash_notification', array( 'message' =>$send->errorMessage));
+                  return redirect()->back();
+                 }
+                else{
+                $result=$send->result;
+                $ordercode=$result->orderCode;
+                $paymentcode=$result->paymentCode;
+                $paytoken=$result->payToken;
+                $qrcodeurl=$result->qrCodeUrl;
+           
+               
+                $invoicesend=Slydepay::sendInvoice()
+                             ->payoption('SLYDEPAY') 
+                             ->payToken($paytoken) 
+                             ->customerName($request->username) 
+                             ->customerEmail($request->email)
+                             ->from(233593034332) 
+                             ->run();
 
-             $trans_id=$register->id;
+                $register=PendingTransactions::create([
 
-             return view('auth.bitaps', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id'));
-       
+                 'order_id' =>$ordercode,
+                 'username' =>$request->username,
+                  'email' =>$request->email,
+                 'sponsor' => 'admin',
+                 'request_data' =>json_encode($data),
+                 'payment_method'=>$request->payment,
+                 'payment_type' =>'register',
+                 'amount' => $joiningfee,
+                ]);             
+                 Pending_Temp::create([
+                  
+                 'order_id' =>$ordercode,
+                 'username' =>$request->username,
+                  'email' =>$request->email,
+                 'sponsor' => 'admin',
+                 'request_data' =>json_encode($data),
+                 'payment_method'=>$request->payment,
+                 'payment_type' =>'register',
+                 'amount' => $joiningfee,
+                'paytoken'         => $paytoken,
+                   'ordercode'        => $ordercode ,
+                ]);   
+               
+// return view('auth.bitaps', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id'));
+
+return view('auth.slyde', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id','qrcodeurl','ordercode','paytoken'));
+       }
     }
+    public function slyde(Request $request)
+    {   
+ 
+       
+     // $pay= PendingTransactions::where('username','=' ,$details)->pluck('paytoken');
+     $test= Pending_Temp::where('paytoken','=',$request->pay_token)->get();
+    
+      $pay= Pending_Temp::where('paytoken','=',$request->pay_token)->value('paytoken');
 
+      $order=Pending_Temp::where('paytoken','=',$request->pay_token)->value('ordercode');
+
+       $status=Slydepay::checkPaymentStatus()
+                   ->confirmTransaction(true) 
+                   ->payToken($pay) 
+                   ->run();
+        $confirm=SlydePay::confirmTransaction()
+                         ->payToken($pay) 
+                         ->orderCode($order)
+                         ->run();
+      $result=$status->result;
+     //dd($status);
+        if($result =="PENDING"){
+
+    Session::flash('flash_notification', array( 'message' =>' When the order is payed for but you have not confirmed it'));  
+           return redirect()->back();
+         }
+         elseif($result =="NEW"){
+          
+             $cust= Pending_Temp::where('paytoken','=',$request->pay_token)->value('username');
+           
+            $item = PendingTransactions::where('username','=',$cust)->first();  
+          
+            if($item->payment_status == 'pending'){
+                 $item->payment_status='complete';
+                 $item->approved_by='manual';
+                 $item->save();
+            
+            Artisan::call("process:payment");      
+           
+           
+         }
+            return view('auth.slydepreview');
+
+         } 
+      
+         if($result =="CONFIRMED"){
+            dd("CONFIRMED");
+         }
+         elseif($result =="DISPUTED"){
+    Session::flash('flash_notification', array( 'message' =>'When you or Slydepay cancelled the payment'));  
+           return redirect()->back();
+          
+         } 
+          else{
+
+            Session::flash('flash_notification', array( 'message' =>'Payment Cancelled'));  
+           return redirect()->back();
+         }
+    }
+      
 
     public function preview($idencrypt)
     {
@@ -661,7 +786,7 @@ class RegisterController extends Controller
 
     public function ravecallback(Request $request)
     {
-
+        
         $resp = Rave::verifyTransaction(request()->txref);
  
         if ($resp <> null) {
