@@ -450,7 +450,7 @@ class RegisterController extends Controller
             
             Artisan::call("process:payment"); 
             
-            $userresult = User::where('username','=',$cust)->first(); 
+             $userresult = User::where('username','=',$cust)->first(); 
              
          }
           
