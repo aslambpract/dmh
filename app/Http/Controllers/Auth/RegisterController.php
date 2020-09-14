@@ -393,7 +393,7 @@ class RegisterController extends Controller
                 
             return view('auth.slyde', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id','qrcodeurl','ordercode','paytoken'));
         }
-        
+
       } 
    
     }
@@ -430,10 +430,16 @@ class RegisterController extends Controller
          }
 
          elseif ($result =="NEW") {
+
+    Session::flash('flash_notification', array( 'message' =>'When there is a an order but no transaction. Happens when in integration mode or customer abandoned payment'));       
           
-            $cust= PendingTransactions::where('paytoken','=',$request->pay_token)->value('username');
+         } 
+      
+         if ($result =="CONFIRMED") {
+
+             $cust= PendingTransactions::where('paytoken','=',$request->pay_token)->value('username');
            
-            $item = PendingTransactions::where('username','=',$cust)->first();  
+             $item = PendingTransactions::where('username','=',$cust)->first();  
          
              
          if ($item->payment_status == 'pending') {
@@ -446,16 +452,10 @@ class RegisterController extends Controller
             
             $userresult = User::where('username','=',$cust)->first(); 
              
-           
-           
          }
           
-            return redirect("register/preview/" . Crypt::encrypt($userresult->id));  
-         } 
-      
-         if ($result =="CONFIRMED") {
+            return redirect("register/preview/" . Crypt::encrypt($userresult->id)); 
 
-            dd("CONFIRMED");
          }
          elseif ($result =="DISPUTED") {
 
