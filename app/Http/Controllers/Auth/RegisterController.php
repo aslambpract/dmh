@@ -391,32 +391,37 @@ class RegisterController extends Controller
                  'ordercode'     => $ordercode ,
                 ]);             
                 
-// return view('auth.bitaps', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id'));
-
             return view('auth.slyde', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id','qrcodeurl','ordercode','paytoken'));
         }
+        
       } 
    
     }
     public function slyde(Request $request)
     {   
- 
-        $test= PendingTransactions::where('paytoken','=',$request->pay_token)->get();
+         $input = $request->all();
+         $payment_response  = json_encode($input);
+        
+         $update=PendingTransactions::where('paytoken','=',$request->pay_token)
+                                     ->update(array('payment_response_data' => $payment_response)); 
+
+         $test= PendingTransactions::where('paytoken','=',$request->pay_token)->get();
     
-        $pay= PendingTransactions::where('paytoken','=',$request->pay_token)->value('paytoken');
+         $pay= PendingTransactions::where('paytoken','=',$request->pay_token)->value('paytoken');
 
-        $order=PendingTransactions::where('paytoken','=',$request->pay_token)->value('ordercode');
+         $order=PendingTransactions::where('paytoken','=',$request->pay_token)->value('ordercode');
 
-        $status=Slydepay::checkPaymentStatus()
+         $status=Slydepay::checkPaymentStatus()
                          ->confirmTransaction(true) 
                          ->payToken($pay) 
                          ->run();
-        $confirm=SlydePay::confirmTransaction()
+         $confirm=SlydePay::confirmTransaction()
                          ->payToken($pay) 
                          ->orderCode($order)
                          ->run();
-        $result=$status->result;
-     //dd($status);
+        
+         $result=$status->result;
+    
          if ($result =="PENDING") {
 
     Session::flash('flash_notification', array( 'message' =>' When the order is payed for but you have not confirmed it')); 
@@ -429,19 +434,23 @@ class RegisterController extends Controller
             $cust= PendingTransactions::where('paytoken','=',$request->pay_token)->value('username');
            
             $item = PendingTransactions::where('username','=',$cust)->first();  
-          
+         
+             
          if ($item->payment_status == 'pending') {
 
                  $item->payment_status='complete';
                  $item->approved_by='manual';
                  $item->save();
             
-            Artisan::call("process:payment");      
+            Artisan::call("process:payment"); 
+            
+            $userresult = User::where('username','=',$cust)->first(); 
+             
            
            
          }
-            return view('auth.slydepreview');
-
+          
+            return redirect("register/preview/" . Crypt::encrypt($userresult->id));  
          } 
       
          if ($result =="CONFIRMED") {
@@ -450,13 +459,15 @@ class RegisterController extends Controller
          }
          elseif ($result =="DISPUTED") {
 
-    Session::flash('flash_notification', array( 'message' =>'When you or Slydepay cancelled the payment'));  
+    Session::flash('flash_notification', array( 'message' =>'When you or Slydepay cancelled the payment'));
+
            return redirect()->back();
           
          } 
           else {
 
-    Session::flash('flash_notification', array( 'message' =>'Payment Cancelled'));  
+    Session::flash('flash_notification', array( 'message' =>'Payment Cancelled')); 
+
            return redirect()->back();
          }
     }
