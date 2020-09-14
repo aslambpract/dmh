@@ -28,7 +28,7 @@ background-color: #fff;
 <form class="form-vertical" action="{{url('register')}}" method="POST" data-parsley-validate="true" name="form-wizard" id="regform">
 {!! csrf_field() !!}
 <input type="hidden" name="payable_vouchers[]" value="">
-<input type="hidden" name="payment" id="payment" value="bitaps">
+<input type="hidden" name="payment" id="payment" value="slydepay">
  <input type="hidden" name="amount" value="{{$joiningfee}}"> 
 <input type="hidden" name="payment_method" value="card">
 <input type="hidden" name="currency" value="USD">
@@ -239,6 +239,7 @@ background-color: #fff;
             </div>
         </div> 
     </div> -->
+    
 
     <div class="row">
             <div class="col-sm-6 ">
