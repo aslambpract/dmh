@@ -123,12 +123,12 @@ background-color: #fff;
 
          <div class="col-md-6">
             <div class="required form-group-feedback-right {{ $errors->has('bitcoin_address') ? ' has-error' : '' }}">
-                {!! Form::label('bitcoin_address', trans("States"), array('class' => 'col-form-label')) !!} {!! Form::text('bitcoin_address', Input::old('bitcoin_address'), ['class' => 'form-control','required' => 'required','id' => 'bitcoin_address','data-parsley-required-message' => trans("all.please_enter_bitcoin_address"),'data-parsley-group' => 'block-0']) !!}
+                {!! Form::label('bitcoin_address', trans("States"), array('class' => 'col-form-label')) !!} {!! Form::text('bitcoin_address', Input::old('bitcoin_address'), ['class' => 'form-control','required' => 'required','id' => 'bitcoin_address','data-parsley-required-message' => trans("Enter States"),'data-parsley-group' => 'block-0']) !!}
                 <div class="form-control-feedback">
                     <i class="icon-user-check text-muted"></i>
                 </div>
                 <span class="form-text">
-                    <small>{!!trans("all.type_your_bitcoin_address") !!}</small>
+                    <small>{!!trans("Enter Your States") !!}</small>
                     @if ($errors->has('bitcoin_address'))
                     <strong>{{ $errors->first('bitcoin_address') }}</strong>
                     @endif
