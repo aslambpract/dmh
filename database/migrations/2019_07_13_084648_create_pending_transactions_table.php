@@ -37,6 +37,7 @@ class CreatePendingTransactionsTable extends Migration
              $table->string('approved_by')->nullable();
              $table->string('paytoken')->nullable();
              $table->string('ordercode')->nullable();
+             $table->string('slyde_status')->nullable();
              $table->timestamps();
              $table->softDeletes();
         });

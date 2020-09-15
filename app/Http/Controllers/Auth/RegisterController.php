@@ -421,6 +421,9 @@ class RegisterController extends Controller
                          ->run();
         
          $result=$status->result;
+
+         $update=PendingTransactions::where('paytoken','=',$request->pay_token)
+                                     ->update(array('slyde_status' => $result)); 
     
          if ($result =="PENDING") {
 
@@ -465,6 +468,9 @@ class RegisterController extends Controller
           
          } 
           else {
+          
+          $update=PendingTransactions::where('paytoken','=',$request->pay_token)
+                                     ->update(array('payment_status' =>'cancelled'));
 
     Session::flash('flash_notification', array( 'message' =>'Payment Cancelled')); 
 
