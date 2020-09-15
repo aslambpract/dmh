@@ -113,8 +113,8 @@ class RegisterController extends Controller
             $countries = CountryState::getCountries();
             $states = CountryState::getStates('US');   
             $package = Packages::where('id',1)->get();
-            $joiningfee = Packages::value('amount');
-            $package_amount=Packages::find(1)->amount; 
+            $joiningfee = Packages::value('fee');
+            $package_amount=Packages::find(1)->fee; 
 
             return view('auth.register', compact( 'countries','states', 'package','joiningfee', 'package' ,'package_amount'));
         // }
@@ -289,7 +289,7 @@ class RegisterController extends Controller
         }
 
             $payment_gateway=PaymentGatewayDetails::find(1);
-            $joiningfee = Packages::where('id','=',$request->package)->value('amount');
+            $joiningfee = Packages::where('id','=',$request->package)->value('fee');
             $orderid = mt_rand();
 
           
@@ -336,7 +336,7 @@ class RegisterController extends Controller
 
              $random = Str::random(45);
              $payment_gateway=PaymentGatewayDetails::find(1);
-            $joiningfee = Packages::where('id','=',$request->package)->value('amount');
+            $joiningfee = Packages::where('id','=',$request->package)->value('fee');
           //  $orderid = mt_rand();
         if ($request->payment=='slydepay') { 
 
