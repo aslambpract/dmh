@@ -374,7 +374,7 @@ class RegisterController extends Controller
                              ->payToken($paytoken) 
                              ->customerName($request->username) 
                              ->customerEmail($request->email)
-                             ->from(233593034332) 
+                             ->from($request->phone) 
                              ->run();
 
                 $register=PendingTransactions::create([
