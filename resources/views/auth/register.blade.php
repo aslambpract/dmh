@@ -86,24 +86,28 @@ background-color: #fff;
                 </span>
             </div>
         </div>
-         <div class="col-md-6">
-            <div class="required form-group-feedback-right {{ $errors->has('gender') ? ' has-error' : '' }}">
-                {!! Form::label('gender', trans("register.gender"), array('class' => 'col-form-label')) !!} {!! Form::select('gender', array('m' => trans("all.male"), 'f' => trans("all.female")),NULL,['class' => 'form-control select2','required' => 'required','data-parsley-required-message' => trans("all.please_select_gender"),'data-parsley-group' => 'block-0']) !!}
-                <div class="form-control-feedback">
-                    <i class="fa fa-neuter text-muted"></i>
-                </div>
-                <span class="form-text">
-                    <small>{!!trans("all.select_your_gender_from_list") !!}</small>
-                    @if ($errors->has('gender'))
-                    <strong>{{ $errors->first('gender') }}</strong>
-                    @endif
-                </span>
-            </div>
-        </div>
+        <div class="col-md-6">
+                        <div class="required form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                        {!! Form::label('state', trans("register.state"), array('class' => 'col-form-label')) !!} 
+                            <select name="state" class="form-control" data-parsley-group="wizard-step-2" id="state" required >
+                                @foreach($states as $key=>$state)
+                                <option value="{{$key}}">{{$state}}</option>
+                                @endforeach
+                            </select>
+                            <span class="form-text">
+                                <small>{!!trans("all.select_your_state") !!}</small>
+                                @if ($errors->has('state'))
+                                <strong>{{ $errors->first('state') }}</strong>
+                                @endif
+                            </span>
+                        </div>
+                    </div>
          
     </div>
      
     <div class="row">
+
+
           
        
         <div class="col-md-6">
@@ -135,22 +139,21 @@ background-color: #fff;
                 </span>
             </div>
         </div> -->
-         <div class="col-md-6">
-                        <div class="required form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-                        {!! Form::label('state', trans("register.state"), array('class' => 'col-form-label')) !!} 
-                            <select name="state" class="form-control" data-parsley-group="wizard-step-2" id="state" required >
-                                @foreach($states as $key=>$state)
-                                <option value="{{$key}}">{{$state}}</option>
-                                @endforeach
-                            </select>
-                            <span class="form-text">
-                                <small>{!!trans("all.select_your_state") !!}</small>
-                                @if ($errors->has('state'))
-                                <strong>{{ $errors->first('state') }}</strong>
-                                @endif
-                            </span>
-                        </div>
-                    </div>
+    <div class="col-md-6">
+            <div class="required form-group-feedback-right {{ $errors->has('gender') ? ' has-error' : '' }}">
+                {!! Form::label('gender', trans("register.gender"), array('class' => 'col-form-label')) !!} {!! Form::select('gender', array('m' => trans("all.male"), 'f' => trans("all.female")),NULL,['class' => 'form-control select2','required' => 'required','data-parsley-required-message' => trans("all.please_select_gender"),'data-parsley-group' => 'block-0']) !!}
+                <div class="form-control-feedback">
+                    <i class="fa fa-neuter text-muted"></i>
+                </div>
+                <span class="form-text">
+                    <small>{!!trans("all.select_your_gender_from_list") !!}</small>
+                    @if ($errors->has('gender'))
+                    <strong>{{ $errors->first('gender') }}</strong>
+                    @endif
+                </span>
+            </div>
+        </div>
+        
     </div>
     <div class="row">
         <!-- begin col-6 -->
