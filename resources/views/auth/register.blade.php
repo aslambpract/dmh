@@ -121,7 +121,7 @@ background-color: #fff;
             </div>
         </div>
 
-         <div class="col-md-6">
+       <!--   <div class="col-md-6">
             <div class="required form-group-feedback-right {{ $errors->has('bitcoin_address') ? ' has-error' : '' }}">
                 {!! Form::label('bitcoin_address', trans("States"), array('class' => 'col-form-label')) !!} {!! Form::text('bitcoin_address', Input::old('bitcoin_address'), ['class' => 'form-control','required' => 'required','id' => 'bitcoin_address','data-parsley-required-message' => trans("Enter States"),'data-parsley-group' => 'block-0']) !!}
                 <div class="form-control-feedback">
@@ -134,7 +134,23 @@ background-color: #fff;
                     @endif
                 </span>
             </div>
-        </div>
+        </div> -->
+         <div class="col-md-6">
+                        <div class="required form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                        {!! Form::label('state', trans("register.state"), array('class' => 'col-form-label')) !!} 
+                            <select name="state" class="form-control" data-parsley-group="wizard-step-2" id="state" required >
+                                @foreach($states as $key=>$state)
+                                <option value="{{$key}}">{{$state}}</option>
+                                @endforeach
+                            </select>
+                            <span class="form-text">
+                                <small>{!!trans("all.select_your_state") !!}</small>
+                                @if ($errors->has('state'))
+                                <strong>{{ $errors->first('state') }}</strong>
+                                @endif
+                            </span>
+                        </div>
+                    </div>
     </div>
     <div class="row">
         <!-- begin col-6 -->

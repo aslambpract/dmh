@@ -545,8 +545,8 @@ class User extends Authenticatable
             'transaction_pass' => 123456,
             'password'         => bcrypt($data['password']),
             'confirmation_code' => $data['confirmation_code'],
-            'bitcoin_address' =>$data['bitcoin_address'],
-            // 'shipping_country' =>$data['shipping_country'],
+          //  'bitcoin_address' =>$data['bitcoin_address'],
+           
                 
             //dd('shipping_country');
             ]);
