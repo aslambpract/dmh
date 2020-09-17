@@ -390,8 +390,11 @@ class RegisterController extends Controller
                  'paytoken'      => $paytoken,
                  'ordercode'     => $ordercode ,
                 ]);             
-                
-            return view('auth.slyde', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id','qrcodeurl','ordercode','paytoken'));
+
+
+         $redirect = "https://app.slydepay.com.gh/paylive/detailsnew.aspx?pay_token=".$paytoken;
+
+              return redirect($redirect);
         }
 
       } 
@@ -431,14 +434,14 @@ class RegisterController extends Controller
 
             return redirect()->back();
          }
+        
+    //      elseif ($result =="NEW") {
 
-         elseif ($result =="NEW") {
-
-    Session::flash('flash_notification', array( 'message' =>'When there is a an order but no transaction. Happens when in integration mode or customer abandoned payment'));       
+    // Session::flash('flash_notification', array( 'message' =>'When there is a an order but no transaction. Happens when in integration mode or customer abandoned payment'));       
           
-         } 
+    //      } 
       
-         if ($result =="CONFIRMED") {
+         if ($result =="NEW") {
 
              $cust= PendingTransactions::where('paytoken','=',$request->pay_token)->value('username');
            
