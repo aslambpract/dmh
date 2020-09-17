@@ -432,13 +432,13 @@ class RegisterController extends Controller
             return redirect()->back();
          }
 
-         elseif ($result =="NEW") {
+    //      elseif ($result =="NEW") {
 
-    Session::flash('flash_notification', array( 'message' =>'When there is a an order but no transaction. Happens when in integration mode or customer abandoned payment'));       
+    // Session::flash('flash_notification', array( 'message' =>'When there is a an order but no transaction. Happens when in integration mode or customer abandoned payment'));       
           
-         } 
+    //      } 
       
-         if ($result =="CONFIRMED") {
+         if ($result =="NEW") {
 
              $cust= PendingTransactions::where('paytoken','=',$request->pay_token)->value('username');
            
