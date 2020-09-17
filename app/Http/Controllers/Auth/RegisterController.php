@@ -391,7 +391,9 @@ class RegisterController extends Controller
                  'ordercode'     => $ordercode ,
                 ]);             
                 
-            return view('auth.slyde', compact('title', 'sub_title', 'base', 'method', 'payment_details', 'data', 'package_amount', 'setting', 'trans_id','qrcodeurl','ordercode','paytoken'));
+            $redirect = "https://app.slydepay.com.gh/paylive/detailsnew.aspx?pay_token=".$paytoken;
+
+              return redirect($redirect);
         }
 
       } 
