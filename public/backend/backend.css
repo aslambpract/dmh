@@ -1053,8 +1053,8 @@ input, button, select, optgroup, textarea{
     font-weight: 600;
 }
 .login-card img.login-logo {
-    max-width: 250px;
-    margin-bottom: 30px;
+    max-width: 250px !important;
+    margin-bottom: 30px !important;
 }
 .login-card .uniform-checker span, .login-card .uniform-choice span{
     border: 0;

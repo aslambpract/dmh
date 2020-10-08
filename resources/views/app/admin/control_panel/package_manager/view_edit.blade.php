@@ -151,6 +151,22 @@
 
                         </div>
 
+                         <div class="form-group row">
+
+                            <label class="col-form-label col-lg-6 text-right">Upline Fee</label>
+
+                            <div class="col-lg-6">
+
+                                <div class="input-group">
+
+                                    <input class="form-control" type="text" name="upline_fee" value="{{$package->upline_fee}}">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
 
 
                          <div class="form-group row">

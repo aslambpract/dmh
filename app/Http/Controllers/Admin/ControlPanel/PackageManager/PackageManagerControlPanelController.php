@@ -96,6 +96,7 @@ class PackageManagerControlPanelController extends AdminController
 
             $package->package = $request->package;
             $package->fee = $request->fee;
+            $package->upline_fee = $request->upline_fee;
             $package->upgrade_fee = $request->upgrade_fee;
             $package->charge = $request->charge;
             $package->member_benefit = $request->member_benefit;
@@ -109,7 +110,7 @@ class PackageManagerControlPanelController extends AdminController
             
 
             if ($package->save()) {
-                Session::flash('flash_notification', array('level' => 'success', 'message' => trans('Successfully Updated Phase Settings!')));
+                Session::flash('flash_notification', array('level' => 'success', 'message' => trans('Successfully Updated Stage Settings!')));
                     return redirect('admin/control-panel/package-manager');
             } else {
                 Session::flash('flash_notification', array('level' => 'danger', 'message' => trans('Could Not Update Phase Setting Details!')));

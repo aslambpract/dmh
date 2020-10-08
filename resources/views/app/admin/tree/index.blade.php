@@ -51,7 +51,7 @@
             <input type="hidden" name="accountid" id="accountid" value="{{$accountid}}"/>
             <canvas id="treemap">
             </canvas>
-            <div id="treediv" class="grab treemapholder {{ ($tree_images_option === "1" ? '' : 'no-images') }} {{ ($tree_grid_option === "1" ? '' : 'no-grid') }} {{ ($tree_map_option === "1" ? '' : 'no-treemap') }} {{ ($tree_zooming_option === "1" ? '' : 'no-zoom') }}{{ ($tree_pan_option === "1" ? '' : 'no-pan') }} {{ ($tree_more_details_option === "1" ? '' : 'no-more-details') }}">
+            <div id="treediv" class="treecontainer grab treemapholder {{ ($tree_images_option === "1" ? '' : 'no-images') }} {{ ($tree_grid_option === "1" ? '' : 'no-grid') }} {{ ($tree_map_option === "1" ? '' : 'no-treemap') }} {{ ($tree_zooming_option === "1" ? '' : 'no-zoom') }}{{ ($tree_pan_option === "1" ? '' : 'no-pan') }} {{ ($tree_more_details_option === "1" ? '' : 'no-more-details') }} ">
             </div>
         </div>
     </div>

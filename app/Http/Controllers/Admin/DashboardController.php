@@ -51,7 +51,7 @@ class DashboardController extends AdminController
          // $positions_infinity  = round(EwalletSettings::find(6)->balance,8) ;
          $positions_infinity  = Transactions::where('created_at','>','2020-07-08 08:04:03')->where('payment_type','positions_infinity_btc')->sum('amount');   
 
-          $total_amount=round(Commission::sum('total_amount'), 8);
+          $total_amount=round(Commission::sum('total_amount'), 2);
          $weekly_users_count = User::where('id', '>', 1)->whereDate('created_at', '>=', date('Y-m-d H:i:s', strtotime('-7 days')))->count();
         $monthly_users_count = User::where('id', '>', 1)->whereDate('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 month')))->count();
         $yearly_users_count = User::where('id', '>', 1)->whereDate('created_at', '>=', date('Y-m-d H:i:s', strtotime('-1 year')))->count();
@@ -98,10 +98,12 @@ class DashboardController extends AdminController
  
         $payout_wallet = Settings::find(1)->wallet_address ;
 
+        $total_messages = Mail::where('to_id', '=', 1)->count();
+
         
 
        
-        return view('app.admin.dashboard.index', compact('title', 'total_users', 'total_amount', 'sub_title', 'base', 'method', 'weekly_users_count', 'monthly_users_count', 'yearly_users_count','user_account_count','payout','user_phase1','user_phase2','user_phase3','wallet_data','payout_wallet','approved_positions','pending_positions','total_payout','system_btc','positions_wallet','admin_wallet','system_wallet','positions_infinity','user_phase4','user_phase5','special_wallet','user_phase6'));
+        return view('app.admin.dashboard.index', compact('title', 'total_users', 'total_amount', 'sub_title', 'base', 'method', 'weekly_users_count', 'monthly_users_count', 'yearly_users_count','user_account_count','payout','user_phase1','user_phase2','user_phase3','wallet_data','payout_wallet','approved_positions','pending_positions','total_payout','system_btc','positions_wallet','admin_wallet','system_wallet','positions_infinity','user_phase4','user_phase5','special_wallet','user_phase6','total_messages'));
     }
 
 

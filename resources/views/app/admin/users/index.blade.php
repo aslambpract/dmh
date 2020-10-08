@@ -54,9 +54,9 @@
                                     <th>
                                        {{ trans("users.username") }}
                                     </th>
-                                    <th>
+                                   <!--  <th>
                                        {{trans('tree.package')}}
-                                    </th>
+                                    </th> -->
                                     <th>
                                        {{ trans("users.email") }}
                                     </th>

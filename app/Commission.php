@@ -123,12 +123,47 @@ class Commission extends Model
             ]);
         }
     }
-    public static function phase_commission($account_id,$package_id,$from_id)
+    // public static function phase_commission($account_id,$package_id,$from_id)
+    // {
+       
+    //     $user_id=UserAccounts::where('id',$account_id)->value('user_id');
+    //     $package_amount=Packages::find($package_id)->upgrade_fee;
+
+    //     // $package_amount=Packages::find($package_id)->upline_fee;
+        
+    //         $commision = self::create([
+    //               'user_id'        => $user_id,
+    //               'account_id'     => $user_id,
+    //               'from_id'        => $from_id,
+    //               'total_amount'   => $package_amount,
+    //               'tds'            => '0',
+    //               'service_charge' => '0',
+    //               'payable_amount' => $package_amount,
+    //               'payment_type'   => 'stage'.$package_id.'_commission',
+    //               'payment_status' => 'Yes',
+    //         ]);
+
+    //         User::upadteUserBalance($user_id, $package_amount);
+        
+    // }
+
+     public static function phase_commission($account_id,$package_id,$from_id)
     {
        
         $user_id=UserAccounts::where('id',$account_id)->value('user_id');
         $package_amount=Packages::find($package_id)->upgrade_fee;
+        if($package_id ==1)
+        { 
+          $package_amount=Packages::find($package_id)->upline_fee;
         
+        // else
+        // { 
+         
+        //   $package_amount=Packages::find($package_id -1)->upgrade_fee;
+        // }
+
+        // dd($package_id);
+       
             $commision = self::create([
                   'user_id'        => $user_id,
                   'account_id'     => $user_id,
@@ -137,11 +172,13 @@ class Commission extends Model
                   'tds'            => '0',
                   'service_charge' => '0',
                   'payable_amount' => $package_amount,
-                  'payment_type'   => 'stage'.$package_id.'_commission',
+                  'payment_type'   => 'stage'.$package_id.'_upgrade',
                   'payment_status' => 'Yes',
             ]);
 
             User::upadteUserBalance($user_id, $package_amount);
+     }
+
         
     }
 
@@ -153,19 +190,19 @@ class Commission extends Model
         $account_id=UserAccounts::where('user_id',$from_id)->value('id');
         
         
-            $commision = self::create([
-                  'user_id'        => 1,
-                  'account_id'     => 1,
-                  'from_id'        => $from_id,
-                  'total_amount'   => $package_amount,
-                  'tds'            => '0',
-                  'service_charge' => '0',
-                  'payable_amount' => $package_amount,
-                  'payment_type'   => 'register_fee',
-                  'payment_status' => 'Yes',
-            ]);
+            // $commision = self::create([
+            //       'user_id'        => 1,
+            //       'account_id'     => 1,
+            //       'from_id'        => $from_id,
+            //       'total_amount'   => $package_amount,
+            //       'tds'            => '0',
+            //       'service_charge' => '0',
+            //       'payable_amount' => $package_amount,
+            //       'payment_type'   => 'register_fee',
+            //       'payment_status' => 'Yes',
+            // ]);
 
-            User::upadteUserBalance(1, $package_amount);
+            // User::upadteUserBalance(1, $package_amount);
 
              /* charge */
 
@@ -183,6 +220,22 @@ class Commission extends Model
                         'payment_type'   => 'charge',
                         'payment_status' => 'Yes',
                   ]) ;
+
+
+                $commision = Commission::create([
+                        'user_id'        => 1,
+                        'account_id'     => 1,
+                        'from_id'        => $from_id,
+                        'total_amount'   => +$charge,
+                        'tds'            => '0',
+                        'service_charge' => '0',
+                        'payable_amount' => +$charge,
+                        'payment_type'   => 'charge',
+                        'payment_status' => 'Yes',
+                  ]) ;
+
+                // $upline_user= DB::table('tree_table')->where('user_id',$from_id)->value('placement_id');
+                // User::upadteUserBalance($upline_user, $charge);
               }
 
                /* memeber benift */
@@ -200,6 +253,8 @@ class Commission extends Model
                         'payment_type'   => 'benifit',
                         'payment_status' => 'Yes',
                   ]) ;
+
+                // User::upadteUserBalance($from_id,$member_benefit);
               }
         
     }

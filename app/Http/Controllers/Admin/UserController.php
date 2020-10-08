@@ -426,7 +426,16 @@ class UserController extends AdminController
 
         // ->join('packages','packages.id','=','users.package')->where('admin','<>',1)
 
-        $users = ProfileInfo::select(array(DB::raw('@rownum  := @rownum  + 1 AS rownum'),'users.id','users.lastname', 'users.name', 'users.username', 'packages.package', 'users.email', 'users.created_at','users.active','users.confirmed'))
+        // $users = ProfileInfo::select(array(DB::raw('@rownum  := @rownum  + 1 AS rownum'),'users.id','users.lastname', 'users.name', 'users.username', 'packages.package', 'users.email', 'users.created_at','users.active','users.confirmed'))
+
+        //                     ->join('users', 'users.id', '=', 'profile_infos.user_id')
+
+        //                     ->join('packages', 'packages.id', '=', 'profile_infos.package')
+
+        //                     ->where('admin', '<>', 1)
+
+        //                     ->get();
+         $users = ProfileInfo::select(array(DB::raw('@rownum  := @rownum  + 1 AS rownum'),'users.id','users.lastname', 'users.name', 'users.username', 'packages.package', 'users.email', 'users.created_at','users.active','users.confirmed'))
 
                             ->join('users', 'users.id', '=', 'profile_infos.user_id')
 
@@ -434,7 +443,7 @@ class UserController extends AdminController
 
                             ->where('admin', '<>', 1)
 
-                            ->get();
+                            ->get();                    
 
 
 

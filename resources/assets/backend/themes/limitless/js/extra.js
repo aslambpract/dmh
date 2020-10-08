@@ -1141,9 +1141,9 @@ $(function () {
                     {
                         "data": "username"
                     },
-                    {
-                        "data": "package"
-                    },
+                    // {
+                    //     "data": "package"
+                    // },
                     {
                         "data": "email"
                     },

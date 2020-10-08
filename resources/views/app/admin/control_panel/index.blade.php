@@ -436,7 +436,7 @@
 
                     </div>  -->  
 
-  <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
+               <!--      <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
 
                         <div class="quickLink">
 
@@ -456,7 +456,7 @@
 
                         </div>
 
-                    </div> 
+                    </div>  -->
 
                       <!--  <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
 
@@ -708,7 +708,7 @@
 
                     </div>  -->
 
-                    <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
+                 <!--    <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
 
                         <div class="quickLink">
 
@@ -728,7 +728,7 @@
 
                         </div>
 
-                    </div> 
+                    </div>  -->
 
                     <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
 
@@ -752,7 +752,7 @@
 
                     </div>
 
-                    <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
+                  <!--   <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
 
                         <div class="quickLink">
 
@@ -772,7 +772,7 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
                   <!--   <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
 
@@ -820,7 +820,7 @@
 
  -->
 
-                    <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
+                  <!--   <div class="col-lg-2 col-md-4 col-sm-6 mb-4 ">
 
                         <div class="quickLink">
 
@@ -840,7 +840,7 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
 
 

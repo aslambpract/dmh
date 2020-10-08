@@ -10,7 +10,7 @@
 
 				<div class="navbar-collapse collapse" id="navbar-footer">
 					<span class="navbar-text">
-						&copy; {{date('Y')}}. <a href="#">Cloud MLM Software</a> by <a href="http://bpract.com" target="_blank">Bpract Software Solutions LLP</a>
+						&copy; {{date('Y')}}. <a href="#">DMH</a> by <a href="http://dmh.cloudmlm.online" target="_blank">DMH</a>
 					</span>
 
 					<ul class="navbar-nav ml-lg-auto">

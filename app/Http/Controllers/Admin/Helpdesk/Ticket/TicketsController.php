@@ -359,7 +359,7 @@ class TicketsController extends AdminController
             } else {
                  // echo "4";
               
-                $tickets = Ticket::join('users', 'users.id', 'tickets.user_id')->select('tickets.id', 'ticket_number', 'users.name', 'subject', 'status', 'priority', 'department', 'category');
+                $tickets = Ticket::join('users', 'users.id', 'tickets.user_id')->select('tickets.id', 'ticket_number', 'users.name', 'subject', 'tickets.status', 'priority', 'department', 'category');
 
         
                 if ($request->input('priority')) {
@@ -367,7 +367,7 @@ class TicketsController extends AdminController
                     if (TicketPriority::where('priority', $request->input('priority'))) {
                         $priority = TicketPriority::where('priority', $request->input('priority'))->value('id');
                         if ($priority) {
-                            $tickets->where('priority', $priority);
+                            $tickets->where('tickets.priority', $priority);
                         }
                     }
                 }
@@ -376,7 +376,7 @@ class TicketsController extends AdminController
                     if (TicketDepartment::where('name', $request->input('department'))) {
                         $department = TicketDepartment::where('name', $request->input('department'))->value('id');
                         if ($department) {
-                            $tickets->where('department', $department);
+                            $tickets->where('tickets.department', $department);
                         }
                     }
                 }
@@ -387,7 +387,7 @@ class TicketsController extends AdminController
                     if (TicketCategory::where('category', $request->input('category'))) {
                         $category = TicketCategory::where('category', $request->input('category'))->value('id');
                         if ($category) {
-                            $tickets->where('category', $category);
+                            $tickets->where('tickets.category', $category);
                         }
                     }
                 }
@@ -398,7 +398,7 @@ class TicketsController extends AdminController
                     if (TicketStatus::where('name', $request->input('status'))) {
                         $status = TicketStatus::where('name', $request->input('status'))->value('id');
                         if ($status) {
-                            $tickets->where('status', $status);
+                            $tickets->where('tickets.status', $status);
                         }
                     }
                 }

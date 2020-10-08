@@ -628,16 +628,16 @@
 
                                 href="{{url('admin/users')}}">{{trans('menu.list_all_members')}}</a></li>
 
-                        <li class="nav-item {{set_active('admin/useraccounts')}}"><a class="nav-link"
+                      <!--   <li class="nav-item {{set_active('admin/useraccounts')}}"><a class="nav-link"
 
-                                href="{{url('admin/useraccounts')}}">{{trans('menu.user_accounts')}}</a></li>
+                                href="{{url('admin/useraccounts')}}">{{trans('menu.user_accounts')}}</a></li> -->
 
  
                         
 
-                        <li class="nav-item {{set_active('admin/users/load_positions')}}"><a class="nav-link"
+                        <!-- <li class="nav-item {{set_active('admin/users/load_positions')}}"><a class="nav-link"
 
-                                href="{{url('admin/users/load_positions')}}">{{trans('menu.load_positions')}}</a></li>        
+                                href="{{url('admin/users/load_positions')}}">{{trans('menu.load_positions')}}</a></li> -->        
 
                                    
                           
@@ -1084,7 +1084,7 @@
                 </li>
 
 
-
+<!-- 
                 <li class="nav-item nav-item-submenu {{set_active('admin/campaign')}}">
 
                     <a href="javascript:void(0);" class="nav-link">
@@ -1161,7 +1161,7 @@
 
                     </ul>
 
-                </li>
+                </li> -->
 
                 @endif
 

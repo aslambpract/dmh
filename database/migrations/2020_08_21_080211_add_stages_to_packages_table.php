@@ -16,13 +16,16 @@ class AddStagesToPackagesTable extends Migration
         Schema::table('packages', function (Blueprint $table) {
              $table->integer('stage')->after('payout');
              $table->double('fee')->after('stage');
-             $table->double('upgrade_fee')->after('fee');
-             $table->double('charge')->after('upgrade_fee');
+             $table->double('upgrade_fee_old')->after('fee');
+             $table->double('charge')->after('upgrade_fee_old');
              $table->double('member_benefit')->after('charge');
              $table->double('downline_bonus')->after('member_benefit');
              $table->double('insurace_completing_fee')->after('downline_bonus');
              $table->double('longrich_reg_fee')->after('insurace_completing_fee');
-              $table->double('insurance_reg_fee')->after('longrich_reg_fee');
+             $table->double('insurance_reg_fee')->after('longrich_reg_fee');
+
+             $table->double('upline_fee')->after('insurance_reg_fee');
+             $table->double('upgrade_fee')->after('upline_fee');
              
         });
     }

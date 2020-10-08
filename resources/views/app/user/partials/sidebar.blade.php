@@ -19,6 +19,13 @@
         display: none;
 
     }
+                    
+      #blur {
+        
+        color: transparent;
+        text-shadow: 0 0 1px #000;
+      }
+    
 
 </style>
 
@@ -219,8 +226,13 @@
                         <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
 
                             <span class="badge pull-right"></span>
+        
+                               @if($stage1 > 0)
+                                <span>Bronze</span>
+                               @else  
+                             <span  id="blur">Bronze</span>
 
-                            <span>Bronze</span>
+                               @endif 
 
                         </a>
                                  <ul class="nav nav-group-sub p-1"
@@ -266,7 +278,12 @@
 
                             <span class="badge pull-right"></span>
 
-                            <span>Silver</span>
+                            @if($stage4 > 0)
+                                <span>Silver</span>
+                               @else  
+                             <span  id="blur">Silver</span>
+                             
+                               @endif 
 
                         </a>
                                  <ul class="nav nav-group-sub p-1"
@@ -311,8 +328,12 @@
 
                             <span class="badge pull-right"></span>
 
-                            <span>Gold</span>
-
+                            @if($stage7 > 0)
+                                <span>Gold</span>
+                               @else  
+                             <span  id="blur">Gold</span>
+                             
+                               @endif 
                         </a>
                                  <ul class="nav nav-group-sub p-1"
 
@@ -364,7 +385,12 @@
 
                             <span class="badge pull-right"></span>
 
-                            <span>Platinum</span>
+                           @if($stage10 > 0)
+                                <span>Platium</span>
+                               @else  
+                             <span  id="blur">Platium</span>
+                             
+                               @endif 
 
                         </a>
                                  <ul class="nav nav-group-sub p-1"
@@ -415,7 +441,12 @@
 
                             <span class="badge pull-right"></span>
 
-                            <span>Diamond</span>
+                           @if($stage13 > 0)
+                                <span>Diamound</span>
+                               @else  
+                             <span  id="blur">Diamound</span>
+                             
+                               @endif 
 
                         </a>
                                  <ul class="nav nav-group-sub p-1"
@@ -466,7 +497,12 @@
 
                             <span class="badge pull-right"></span>
 
-                            <span>Diamond 1</span>
+                            @if($stage16 > 0)
+                                <span>Diamound 1</span>
+                               @else  
+                             <span  id="blur">Diamound 1</span>
+                             
+                               @endif 
 
                         </a>
                                  <ul class="nav nav-group-sub p-1"

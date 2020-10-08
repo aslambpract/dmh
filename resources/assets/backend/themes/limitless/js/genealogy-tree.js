@@ -297,39 +297,7 @@ genealogy_orgchart_options = {
 
                     <hr class="pfcard-details-divider m-1">
 
-                    <div class="m-0 pl-2 pr-2 info-box-levels d-flex justify-content-center">
-
-                            <dl class="row w-100">
-
-                                <dt class="col-sm-6 mb-0">
-
-                                    <div class="pfcard-package-box text-center">  
-
-                                        <div>                       
-
-                                            Cycle 
-
-                                        </div><div class="badge badge-success text-sm">`+data.cycle+`</div>
-
-                                    </div>
-
-                                </dt>                          
-
-                                <dd class="col-sm-6 mb-0 text-center border-left-1 border-rank-split">                        
-
-                                    <div class="pfcard-rank-box">  
-
-                                        <div>Cycle count</div><div class="badge badge-info text-sm">`+data.cyclecount+`</div>
-
-                                        
-
-                                    </div>
-
-                                </dd>                    
-
-                            </dl>
-
-                    </div>
+               
 
 
 
@@ -401,11 +369,30 @@ genealogy_orgchart_options = {
 
             }, 2000); 
 
+           centerChart();
+
     }
 
 };
 
 
+
+function centerChart() {
+            var chartVar = setInterval(chartTimer, 1000);
+            function chartTimer() {
+                $container_wrap = $('.treecontainer .orgchart > table');
+                if (typeof $container_wrap !== "undefined") {
+                    if ($container_wrap.innerWidth() > 0) {
+                        var $container = $('.treecontainer');
+                        $container.scrollLeft(($container[0].scrollWidth - $container.width()) / 2);
+                        stopChartTimerFunction();
+                    }
+                }
+            }
+            function stopChartTimerFunction() {
+                clearInterval(chartVar);
+            }
+        }
 
 function generateLayoutForNodeTemplate(data){ //FOR EMBEDDED ON CLICK EVENT
 
@@ -473,38 +460,7 @@ function generateLayoutForNodeTemplate(data){ //FOR EMBEDDED ON CLICK EVENT
 
             <hr class="tree-node-details-divider">
 
-            <div class="m-0 pl-2 pr-2 info-box-levels">
-
-                <dl class="row">
-
-                    <dt class="col-sm-6 mb-0">
-
-                        <div class="package-box">  
-
-                            <div class="badge badge-success">`+data.cycle+`</div><div>                       
-
-                                Ccycle
-                            </div>
-
-                        </div>
-
-                    </dt>                          
-
-                    <dd class="col-sm-6 mb-0">                        
-
-                        <div class="rank-box">  
-
-                            <div class="badge badge-info">`+data.cyclecount+`</div>
-
-                            <div>Cycle count</div>
-
-                        </div>
-
-                    </dd>                    
-
-                </dl>
-
-            </div>
+           
 
 
 
@@ -616,39 +572,7 @@ function generateLayoutForSponsorTreeNodeTemplate(data){ //FOR EMBEDDED ON CLICK
 
             <hr class="tree-node-details-divider">
 
-            <div class="m-0 pl-2 pr-2 info-box-levels">
-
-                <dl class="row">
-
-                    <dt class="col-sm-6 mb-0">
-
-                        <div class="package-box">  
-
-                            <div class="badge badge-success">`+data.cycle+`</div><div>                       
-
-                                Cycle 
-
-                            </div>
- 
-                        </div>
-
-                    </dt>                          
-
-                    <dd class="col-sm-6 mb-0">                        
-
-                        <div class="rank-box">  
-
-                            <div class="badge badge-info">`+data.cyclecount+`</div>
-
-                            <div>Cycle count</div>
-
-                        </div>
-
-                    </dd>                    
-
-                </dl>
-
-            </div>
+     
 
 
 
@@ -2084,39 +2008,7 @@ $("#sponsortreediv").on('click', '.node .content .tree-node-box', function (e) {
 
                         <hr class="pfcard-details-divider m-1">
 
-                        <div class="m-0 pl-2 pr-2 info-box-levels d-flex justify-content-center">
-
-                                <dl class="row w-100">
-
-                                    <dt class="col-sm-6 mb-0">
-
-                                        <div class="pfcard-package-box text-center">  
-
-                                            <div>                       
-
-                                                Cycle
-
-                                            </div><div class="badge badge-success text-sm">`+data.cycle+`</div>
-
-                                        </div>
-
-                                    </dt>                          
-
-                                    <dd class="col-sm-6 mb-0 text-center border-left-1 border-rank-split">                        
-
-                                        <div class="pfcard-rank-box">  
-
-                                            <div>Cycle count</div><div class="badge badge-info text-sm">`+data.cyclecount+`</div>
-
-                                            
-
-                                        </div>
-
-                                    </dd>                    
-
-                                </dl>
-
-                        </div>
+                    
 
     
 
@@ -2187,6 +2079,8 @@ $("#sponsortreediv").on('click', '.node .content .tree-node-box', function (e) {
                     $('.tree-holder').unblock();
 
                 }, 2000); 
+
+               centerChart();
 
         }
 

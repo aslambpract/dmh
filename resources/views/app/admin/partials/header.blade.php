@@ -57,7 +57,7 @@
                @include('app.admin.partials.developer-panel')
 
 
-               <li class="nav-item dropdown currency-switch">
+             <!--   <li class="nav-item dropdown currency-switch">
                    <a href="#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
                        <i class="fa fa-{{strtolower(currency()->getUserCurrency())}}"></i>
                        <span class="d-md ml-2">{{currency()->getUserCurrency()}} - {{currency()->__get('name')}}</span>
@@ -75,7 +75,7 @@
                                    {{$currency['name']}}</span></a></li>
                        @endforeach
                    </ul>
-               </li>
+               </li> -->
 
                <li class="nav-item dropdown language-switch">
 

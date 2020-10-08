@@ -50,6 +50,7 @@
                 <thead> 
                     <th>Stages</th>
                     <th>Fee</th>
+                    <th>Upline Fee</th>
                     <th>Upgrade Fee</th>
                     <th>Charge</th>
                     <th>Member Benefit</th>
@@ -65,6 +66,7 @@
                     <tr>
                         <td>{{$package->package}} </td>
                         <td>{{$package->fee}}  </td>
+                        <td>{{$package->upline_fee}}  </td>
                         <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
                         <td>{{$package->member_benefit}}  </td>  
                         <td>{{$package->downline_bonus}}  </td>
@@ -103,6 +105,7 @@
                 <thead> 
                     <th>Stages</th>
                     <th>Fee</th>
+                    <th>Upline Fee</th>
                     <th>Upgrade Fee</th>
                     <th>Charge</th>
                     <th>Member Benefit</th>
@@ -118,6 +121,7 @@
                     <tr>
                         <td>{{$package->package}} </td>
                         <td>{{$package->fee}}  </td>
+                        <td>{{$package->upline_fee}}  </td>
                         <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
                         <td>{{$package->member_benefit}}  </td>  
                         <td>{{$package->downline_bonus}}  </td>
@@ -155,6 +159,7 @@
                 <thead> 
                     <th>Stages</th>
                     <th>Fee</th>
+                    <th>Upline Fee</th>
                     <th>Upgrade Fee</th>
                     <th>Charge</th>
                     <th>Member Benefit</th>
@@ -170,6 +175,7 @@
                     <tr>
                         <td>{{$package->package}} </td>
                         <td>{{$package->fee}}  </td>
+                        <td>{{$package->upline_fee}}  </td>
                         <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
                         <td>{{$package->member_benefit}}  </td>  
                         <td>{{$package->downline_bonus}}  </td>
@@ -208,6 +214,7 @@
                 <thead> 
                     <th>Stages</th>
                     <th>Fee</th>
+                    <th>Upline Fee</th>
                     <th>Upgrade Fee</th>
                     <th>Charge</th>
                     <th>Member Benefit</th>
@@ -223,6 +230,7 @@
                     <tr>
                         <td>{{$package->package}} </td>
                         <td>{{$package->fee}}  </td>
+                        <td>{{$package->upline_fee}}  </td>
                         <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
                         <td>{{$package->member_benefit}}  </td>  
                         <td>{{$package->downline_bonus}}  </td>
@@ -261,6 +269,7 @@
                 <thead> 
                     <th>Stages</th>
                     <th>Fee</th>
+                    <th>Upline Fee</th>
                     <th>Upgrade Fee</th>
                     <th>Charge</th>
                     <th>Member Benefit</th>
@@ -276,6 +285,7 @@
                     <tr>
                         <td>{{$package->package}} </td>
                         <td>{{$package->fee}}  </td>
+                         <td>{{$package->upline_fee}}  </td>
                         <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
                         <td>{{$package->member_benefit}}  </td>  
                         <td>{{$package->downline_bonus}}  </td>
@@ -314,6 +324,7 @@
                 <thead> 
                     <th>Stages</th>
                     <th>Fee</th>
+                    <th>Upline Fee</th>
                     <th>Upgrade Fee</th>
                     <th>Charge</th>
                     <th>Member Benefit</th>
@@ -329,6 +340,7 @@
                     <tr>
                         <td>{{$package->package}} </td>
                         <td>{{$package->fee}}  </td>
+                        ]<td>{{$package->upline_fee}}  </td>
                         <td>{{$package->upgrade_fee}} </td> <td>{{$package->charge}} </td>
                         <td>{{$package->member_benefit}}  </td>  
                         <td>{{$package->downline_bonus}}  </td>

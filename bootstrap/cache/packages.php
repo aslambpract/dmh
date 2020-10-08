@@ -145,17 +145,6 @@
       'Shorty' => 'Mbarwick83\\Shorty\\Facades\\Shorty',
     ),
   ),
-  'mews/purifier' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Mews\\Purifier\\PurifierServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Purifier' => 'Mews\\Purifier\\Facades\\Purifier',
-    ),
-  ),
   'nesbot/carbon' => 
   array (
     'providers' => 
@@ -168,6 +157,17 @@
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    ),
+  ),
+  'qodehub/slydepay-php-rest-api' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Qodehub\\Slydepay\\Laravel\\PackageServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Slydepay' => 'Qodehub\\Slydepay\\Laravel\\Facades\\Slydepay',
     ),
   ),
   'spatie/laravel-backup' => 

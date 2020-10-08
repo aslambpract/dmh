@@ -344,7 +344,7 @@ class RegisterController extends Controller
                  $send=Slydepay::createAndSendInvoice()
                        ->amount($joiningfee) 
                        ->orderCode($random) 
-                       ->description('check') 
+                       ->description('Registration_Fee') 
                        ->orderItems([]) 
                        ->payoption('SLYDEPAY') 
                        ->sendInvoice(true) 
@@ -390,8 +390,11 @@ class RegisterController extends Controller
                  'paytoken'      => $paytoken,
                  'ordercode'     => $ordercode ,
                 ]);             
-                
-            $redirect = "https://app.slydepay.com.gh/paylive/detailsnew.aspx?pay_token=".$paytoken;
+
+
+
+         $redirect = "https://app.slydepay.com.gh/paylive/detailsnew.aspx?pay_token=".$paytoken;
+
 
               return redirect($redirect);
         }
@@ -433,10 +436,10 @@ class RegisterController extends Controller
 
             return redirect()->back();
          }
-
+        
     //      elseif ($result =="NEW") {
 
-    // Session::flash('flash_notification', array( 'message' =>'When there is a an order but no transaction. Happens when in integration mode or customer abandoned payment'));       
+  // Session::flash('flash_notification', array( 'message' =>'When there is a an order but no transaction. Happens when in integration mode or customer abandoned payment'));       
           
     //      } 
       

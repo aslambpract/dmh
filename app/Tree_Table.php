@@ -167,7 +167,10 @@ class Tree_Table extends Model
                 $treearray[$value->id]['current_user_id'] = $currentuserid;
                 $treearray[$value->id]['access_id']      = Crypt::encrypt($value->user_id);;
 
-                $treearray[$value->id]['user_name']       =($value->account_type =='account') ? $value->username.'-'.$value->account_no :$value->username.'-POST-'.$value->account_no ;
+                // $treearray[$value->id]['user_name']       =($value->account_type =='account') ? $value->username.'-'.$value->account_no :$value->username.'-POST-'.$value->account_no ;
+
+                $treearray[$value->id]['user_name'] =$value->username;
+
                 $treearray[$value->id]['email']           =$value->username;
                 
                 $treearray[$value->id]['user_photo']       = route('imagecache', ['template' => 'profile', 'filename' => self::profilePhoto($value->username)]);

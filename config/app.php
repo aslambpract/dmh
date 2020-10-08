@@ -203,7 +203,7 @@ return [
 
 
         HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
-        Mews\Purifier\PurifierServiceProvider::class,
+        // Mews\Purifier\PurifierServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         
 
@@ -317,7 +317,7 @@ return [
         
         
         //Purifier
-        'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        // 'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
         //Debugbar
         'Debugbar' => Barryvdh\Debugbar\Facade::class,

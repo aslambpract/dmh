@@ -15,7 +15,7 @@ class Language
     public function handle($request, Closure $next)
     {
 
-        if (Session::has('applocale') and array_key_exists(Session::get('applocale'), Config::get('languages')->toArray())) {
+        if (Session::has('applocale') and array_key_exists(Session::get('applocale'), Config::get('languages'))) {
             App::setLocale(Session::get('applocale'));
         // dd(Config::get('languages'));
             // dd(Session::get('applocale'));

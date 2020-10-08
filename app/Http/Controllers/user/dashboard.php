@@ -29,6 +29,7 @@ use App\Tree_Table3;
 use App\Tree_Table4;
 use App\Tree_Table5;
 
+
 class dashboard extends UserAdminController
 {
 
@@ -52,8 +53,11 @@ class dashboard extends UserAdminController
          $user_phase3=Tree_Table3::where('user_id','>',0)->count('user_id'); 
          $user_phase4=Tree_Table4::where('user_id','>',0)->count('user_id'); 
          $user_phase5=Tree_Table5::where('user_id','>',0)->count('user_id'); 
+
+         $total_credit = Commission::where('user_id', Auth::user()->id)->where('payment_type', 'like', 'fund_credit')->sum('payable_amount');
+         $total_messages = Mail::where('to_id', '=',Auth::user()->id)->count();
         
-           return view('app.user.dashboard.index', compact( 'title', 'sub_title', 'base', 'method','user_phase1','user_phase2','user_phase3','user_phase4','user_phase5'));
+           return view('app.user.dashboard.index', compact( 'title', 'sub_title', 'base', 'method','user_phase1','user_phase2','user_phase3','user_phase4','user_phase5','total_credit','total_messages'));
     }
 
     public function getmonthusers()

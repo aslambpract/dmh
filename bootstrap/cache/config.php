@@ -58,18 +58,17 @@
       35 => 'Yajra\\DataTables\\DataTablesServiceProvider',
       36 => 'Yajra\\DataTables\\ButtonsServiceProvider',
       37 => 'HTMLMin\\HTMLMin\\HTMLMinServiceProvider',
-      38 => 'Mews\\Purifier\\PurifierServiceProvider',
-      39 => 'Barryvdh\\Debugbar\\ServiceProvider',
-      40 => 'Matriphe\\Larinfo\\LarinfoServiceProvider',
-      41 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
-      42 => 'KingFlamez\\Rave\\RaveServiceProvider',
-      43 => 'Laravel\\Passport\\PassportServiceProvider',
-      44 => 'App\\Providers\\MailConfigServiceProvider',
-      45 => 'Spatie\\Backup\\BackupServiceProvider',
-      46 => 'App\\Providers\\GoogleDriveServiceProvider',
-      47 => 'Cohensive\\Embed\\EmbedServiceProvider',
-      48 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-      49 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+      38 => 'Barryvdh\\Debugbar\\ServiceProvider',
+      39 => 'Matriphe\\Larinfo\\LarinfoServiceProvider',
+      40 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
+      41 => 'KingFlamez\\Rave\\RaveServiceProvider',
+      42 => 'Laravel\\Passport\\PassportServiceProvider',
+      43 => 'App\\Providers\\MailConfigServiceProvider',
+      44 => 'Spatie\\Backup\\BackupServiceProvider',
+      45 => 'App\\Providers\\GoogleDriveServiceProvider',
+      46 => 'Cohensive\\Embed\\EmbedServiceProvider',
+      47 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+      48 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     ),
     'aliases' => 
     array (
@@ -117,7 +116,6 @@
       'Currency' => 'Torann\\Currency\\Facades\\Currency',
       'Carbon' => 'Carbon\\Carbon',
       'HTMLMin' => 'HTMLMin\\HTMLMin\\Facades\\HTMLMin',
-      'Purifier' => 'Mews\\Purifier\\Facades\\Purifier',
       'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
       'Datatables' => 'Yajra\\Datatables\\Datatables',
       'PayPal' => 'Srmklive\\PayPal\\Facades\\PayPal',
@@ -605,6 +603,7 @@
     'except' => 
     array (
       0 => 'telescope*',
+      1 => 'horizon*',
     ),
     'storage' => 
     array (
@@ -688,6 +687,7 @@
     'inject' => true,
     'route_prefix' => '_debugbar',
     'route_domain' => NULL,
+    'theme' => 'auto',
     'csp-compatible' => false,
   ),
   'dompdf' => 
@@ -1426,6 +1426,18 @@
     'value_binder' => 
     array (
       'default' => 'Maatwebsite\\Excel\\DefaultValueBinder',
+    ),
+    'cache' => 
+    array (
+      'driver' => 'memory',
+      'batch' => 
+      array (
+        'memory_limit' => 60000,
+      ),
+      'illuminate' => 
+      array (
+        'store' => NULL,
+      ),
     ),
     'transactions' => 
     array (
@@ -2228,5 +2240,13 @@
       0 => '/home/vincy/DMH/resources/views',
     ),
     'compiled' => '/home/vincy/DMH/storage/framework/views',
+  ),
+  'qodehub' => 
+  array (
+    'slydepay' => 
+    array (
+      'email-or-phone' => 'baffour@thedreammakershome.com',
+      'merchant-key' => '1597297635004',
+    ),
   ),
 );
