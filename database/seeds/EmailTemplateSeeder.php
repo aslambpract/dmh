@@ -63,7 +63,7 @@ class EmailTemplateSeeder extends Seeder
 
          App\EmailTemplates::create([
             'subject'=>'Payout Notification',
-            'body'   =>' Your Payout is received ',
+            'body'   =>' Your payout Amount request has been approved ',
             'type'  =>'payout_notify',
             
             ]);
