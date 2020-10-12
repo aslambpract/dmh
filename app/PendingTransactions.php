@@ -13,5 +13,5 @@ class PendingTransactions extends Model
     protected $table = 'pending_transactions';
 
 
-    protected $fillable = ['order_id', 'user_id','username','email','package','sponsor','request_data','payment_method','payment_type','invoice','payment_code','amount','payment_address','rave_ref_id','payment_data','payment_response_data','payment_status','approved_by','paytoken','ordercode','paypal_express_data'];
+    protected $fillable = ['order_id', 'user_id','username','email','package','sponsor','request_data','payment_method','payment_type','invoice','payment_code','amount','payment_address','rave_ref_id','payment_data','payment_response_data','payment_status','approved_by','paytoken','ordercode','paypal_express_data','id_number','account_number'];
 }

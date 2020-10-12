@@ -9,12 +9,7 @@
 @section('styles')
     @parent
     <style type="text/css">
-        @if($theme_font_size)
-            html,body{
-                font-size: {{$theme_font_size}}px;
-
-            }
-        @endif
+        
     </style>
 @endsection
 

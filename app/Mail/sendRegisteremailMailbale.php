@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use \App\Emails ;
 use \App\Welcome ;
+use \App\EmailTemplates ;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -34,21 +35,22 @@ class sendRegisteremailMailbale extends Mailable
     public function build()
     {
         $email = Emails::find(1);
-        // $setting=Welcome::first();
-        
+        $setting=EmailTemplates::first();
+        $content=$setting->body;  
+     
 
        
         $return = $this->view('emails.register')
-                    ->subject('Welcome to flytoinfinity')
-                    ->from('info@flytoinfinity.com', 'Flytoinfinity')
+                    ->subject($setting->subject)
+                    ->from($email->from_email, $email->from_name)
                     ->with([
-                                'email'          => $email,
-                                'company_name'  => 'Fly to inifinity',
+                                'email'          =>  $email,
+                                'company_name'  => 'Dream makers home',
                                 'firstname'  => $this->data['firstname'],
                                 'name'  => $this->data['lastname'],
                                 'login_username'  => $this->data['username'],
                                 'password'  => $this->data['password'],
-                                'content'  =>''
+                                'content'  => $content,
                                  
                             ]);
         return $return ;

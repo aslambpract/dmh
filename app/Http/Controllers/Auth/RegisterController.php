@@ -208,6 +208,13 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'bitcoin_address' => $data['bitcoin_address'],
             'phone' => $data['phone'],
+            'id_number'        => $data['id_number'],
+            'account_number'   => $data['account_number'],
+            'branch'           => $data['branch'],
+            'next_of_kin'      => $data['next_of_kin'],
+            'info'             => $data['info'],
+            'date_of_birth'    => $data['date_of_birth'],
+            'bank_name'        => $data['bank_name'],
             
 
             //Media
@@ -389,6 +396,8 @@ class RegisterController extends Controller
                  'amount'        => $joiningfee,
                  'paytoken'      => $paytoken,
                  'ordercode'     => $ordercode ,
+                 'id_number'     =>$request->id_number,
+                 'account_number'=>$request->account_number,
                 ]);             
 
 

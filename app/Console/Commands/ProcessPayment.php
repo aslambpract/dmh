@@ -81,6 +81,8 @@ class ProcessPayment extends Command
                         PendingTransactions::where('id', $payment->id)->update(['payment_status' => 'finish']);
                      //   SendEmail::dispatch($data, $data['email'], $data['firstname'])->delay(now()->addSeconds(0));
 
+                        SendEmail::dispatch($data, $data['email'], $data['firstname'], 'register')->delay(now()->addSeconds(1));
+
                     }
                 }
             }elseif ($payment->payment_type == 'account') {

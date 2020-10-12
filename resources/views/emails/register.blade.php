@@ -16,7 +16,7 @@
 
             <table border="0" cellpadding="0" align="center" cellspacing="0" class="responsive-table">
 
-            <tbody><tr><td align="left" valign="top" style="padding:10px;font:9px/15px Arial;text-align:justify;color:#a6a6a6">You are receiving this mail as a registered member of  flytoinfinity  Please add <a href="mailto:info@flytoinfinity.com" style="text-decoration:underline;color:#a6a6a6" target="_blank">info@flytoinfinity.com</a> to your address book to ensure delivery into your inbox.</td></tr>
+            <tbody><tr><td></td></tr>
 
             </tbody></table>
 
@@ -32,7 +32,7 @@
 
                 <tr>
 
-                <td style="padding:22px 30px 18px 30px; border-bottom:2px solid #1e2064"><img src="{{ url('img/cache/logo/dalsarulogo.png') }}" height="60" alt="flytoinfinity"></td>    
+                  <td style="padding:22px 30px 18px 30px; border-bottom:2px solid #1e2064"><img src="{{ url('files/images/icons/logo.png') }}" height="60" alt="cloudmlmsoftware"></td>   
 
 
                 </tr>
@@ -55,26 +55,9 @@
                   Hi {{$firstname}} 
 
 
- <p>Welcome to flytoinfinity.com! Thanks so much for joining us. You’re on your way to a brand new business. </p>
-
-<p>flytoinfinity is a MLM app that helps you focus wide range of earning possibilities  by only allowing you to grow your network members at high payout. Set and track daily, weekly, and monthly income.  </p>
-<p>
-Purchase plan regularly to keep earnings from flytoinfinity. Here you can track your growth and monitor your income. 
-</p>
-<p>
-Remember, you can also Add advertising accounts here to make more revenue.  Get merchants who wish to list their business on flytoinfinity app. </p>
-<p>
-Have any questions? Just shoot us an email! We’re always here to help.</p>
+ <p>{{$content}}</p>
 
 
-<p> 
-      
-
-
-Cheerfully yours, <br>
-The flytoinfinity Coach
-
-</p>
 
                     </td>
 

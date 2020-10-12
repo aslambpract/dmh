@@ -465,39 +465,7 @@ class UserController extends AdminController
 
                           <a href="{{{ URL::to(\'admin/users/\' . $id . \'/userlogin\' ) }}}" class="dropdown-item"><i class="fa fa-sign-in" aria-hidden="true"></i>{{trans("users.impersonate")}}</a>
 
-                          <div class="dropdown-divider"></div><br>
-
-                        <?php if($active !="no"){ ?>
-
-                        <a  data-id="{{$username}}" href="{{{ URL::to(\'admin/userprofiles_deactivate/\' . $username) }}}"  class="dropdown-item deactivatelist" > <i class="fa fa-trash "></i> {{trans("users.deactivate")}}  </a>
-
-
-
-
-
-
-
-                             <?php }else{ ?>
-
-                        <a href="{{{ URL::to(\'admin/userprofiles_activate/\' . $username) }}}"  class=" dropdown-item" > <i class="fa fa-check"></i>{{trans("users.activate")}}</a>
-
-                              <?php } ?> 
-
-                           <div class="dropdown-divider"></div><br>
-
-                            <?php if($confirmed == 0){ ?>
-
-                        <a href="{{{ URL::to(\'admin/email_confirm/\' . $id ) }}}" class="dropdown-item"><i class="fa fa-times" aria-hidden="true"></i>{{trans("users.email_confirmation")}}</a>
-
-                         <?php }else{ ?>
-
-                            <a href="#" class="dropdown-item"><i class="fa fa-check" aria-hidden="true"></i>{{trans("users.email_confirmed")}}!</a>
-
-
-
-                         <?php } ?> 
-
-                        </div>
+                        
 
                       </div>
 

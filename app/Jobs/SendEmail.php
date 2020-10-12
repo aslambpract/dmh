@@ -32,7 +32,7 @@ class SendEmail implements ShouldQueue
 
     public function __construct($data, $toemail, $name, $type = 'register')
     {
-
+               
                 $this->data = $data;
                 $this->toemail = $toemail;
                 $this->name = $name;
@@ -45,7 +45,7 @@ class SendEmail implements ShouldQueue
      * @return void
      */
     public function handle()
-    {
+    {    
 
         if ($this->type == 'register') {
                 $emailclass = new sendRegisteremailMailbale($this->data);

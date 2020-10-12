@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-if($('#daterange-single').length){
+// if($('#daterange-single').length){
 
 $('.daterange-single').daterangepicker({
     singleDatePicker: true
 });
 
-}
+// }
 
 
 var clipboard = new Clipboard('.btn-copy', {

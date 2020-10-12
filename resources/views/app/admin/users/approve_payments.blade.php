@@ -44,9 +44,9 @@
                     <th>
                         {{ trans("admin.created_at") }}
                     </th>
-                    <th> CHECK </th>
+              <!--       <th> CHECK </th>
                     <th> Change Email </th>
-                    <th> Change Username  </th>
+                    <th> Change Username  </th> -->
                     <th> Approve </th>
                     <th> Delete </th>
                                     
@@ -70,7 +70,7 @@
                     
 
                     <td>{{$request->created_at}}</td>
-                    <td>
+          <!--           <td>
  
                         <a target="blank" href="https://bitaps.com/{{$request->payment_address}}" class="btn btn-warning" > Check  </a></td>
                        
@@ -88,7 +88,7 @@
                          @else
                             Not available 
                         @endif
-                    </td>
+                    </td> -->
                     <td>
                         <a class="btn btn-info" href="{{{ URL::to('admin/approve/' . $request->id ) }}}">
                             <i class="fa fa-check" aria-hidden="true"></i>

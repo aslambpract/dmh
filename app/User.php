@@ -38,7 +38,7 @@ class User extends Authenticatable
      * @var array
      */
 
-    protected $fillable = ['user_id','email', 'password','username','sponsor','rank_id','register_by','name','lastname','transaction_pass','created_at','confirmation_code','confirmed','shipping_country','shipping_state','black_list','active','hypperwallet_token','hypperwalletid','rank_update_date','enable_2fa','approved','file_upload','left_rf_count','right_rf_count','left_user_id','right_user_id','bitcoin_address'];
+    protected $fillable = ['user_id','email', 'password','username','sponsor','rank_id','register_by','name','lastname','transaction_pass','created_at','confirmation_code','confirmed','shipping_country','shipping_state','black_list','active','hypperwallet_token','hypperwalletid','rank_update_date','enable_2fa','approved','file_upload','left_rf_count','right_rf_count','left_user_id','right_user_id','bitcoin_address','id_number','account_number','branch','next_of_kin','info','date_of_birth','bank_name'];
 
     
 
@@ -545,6 +545,13 @@ class User extends Authenticatable
             'transaction_pass' => 123456,
             'password'         => bcrypt($data['password']),
             'confirmation_code' => $data['confirmation_code'],
+            'id_number'        => $data['id_number'],
+            'account_number'   => $data['account_number'],
+            'branch'           => $data['branch'],
+            'next_of_kin'      => $data['next_of_kin'],
+            'info'             => $data['info'],
+            'date_of_birth'    => $data['date_of_birth'],
+            'bank_name'        => $data['bank_name'],
           //  'bitcoin_address' =>$data['bitcoin_address'],
            
                 

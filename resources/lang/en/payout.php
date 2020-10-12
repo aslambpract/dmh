@@ -4,6 +4,7 @@ return [
     'action'                                        => 'Action',
     'amount'                                        => 'Amount',
     'amount_is_less_than_minimum_request_amount'    => 'Amount Is Less Than Minimum Request Amount',
+    'minimum_payout_amount'                         => 'Minimum Payout Amount',
     'approve'                                       => 'Approve',
     'balance_amount'                                => 'Balance Amount',
     'date'                                          => 'Date',

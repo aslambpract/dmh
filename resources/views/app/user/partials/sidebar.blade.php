@@ -721,6 +721,7 @@
                             
 
                                 <li class="nav-item {{set_active('user/ewallet')}}"><a class="nav-link" href="{{url('user/ewallet')}}">{{trans(' Transaction History')}}</a></li>
+                                <li class="nav-item {{set_active('user/payoutrequest')}}"><a class="nav-link" href="{{url('user/payoutrequest')}}">{{trans('menu.request_payout')}}</a></li>
  
 
  

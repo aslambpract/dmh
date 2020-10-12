@@ -18,7 +18,7 @@ background-color: #fff;
 
 
 
-
+<div class="container">
 <div class="row" style="    margin-top: 28px;">
 
 <div class="col-lg-8 offset-lg-2">
@@ -63,47 +63,32 @@ background-color: #fff;
     </div>
     <!-- end row -->
     <div class="row">
-        <div class="col-md-6">
-            <div class="required form-group-feedback-right {{ $errors->has('country') ? ' has-error' : '' }}">
-            {!! Form::label('country', trans("register.country"), array('class' => 'col-form-label')) !!} 
-                <select name="country" class="form-control" data-parsley-group="wizard-step-2" id="country" required>
-                    @foreach($countries as $key => $country_item)
-                        @if($key=="US")
-                        <option value="{{ $key }}" selected>{{ $country_item }}</option>
-                        @else
-                        <option value="{{$key}}" >{{$country_item}}</option>
-                        @endif
-                    @endforeach
-                </select>
-                <div class="form-control-feedback">
-                    <i class="fa fa-flag-o text-muted"></i>
-                </div>
-                <span class="form-text">
-                    <small>{!!trans("all.select_country") !!}</small>
-                    @if ($errors->has('country'))
-                    <strong>{{ $errors->first('country') }}</strong>
-                    @endif
-                </span>
-            </div>
-        </div>
-        <div class="col-md-6">
+                    <div class="col-md-6">
+                        <div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('country') ? ' has-error' : '' }}">
+                            {!! Form::label('country', trans("register.country"), array('class' => 'control-label')) !!} {!! Form::select('country', $countries ,'US',['class' => 'form-control','id' => 'country','required' => 'required','data-parsley-required-message' => trans("all.please_select_country"),'data-parsley-group' => 'block-1']) !!}
+                            <div class="form-control-feedback">
+                                <i class="fa fa-flag-o text-muted"></i>
+                            </div>
+                            <span class="help-block">
+                                <small>{!!trans("all.select_country") !!}</small>
+                                @if ($errors->has('country'))
+                                <strong>{{ $errors->first('country') }}</strong>
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="required form-group{{ $errors->has('state') ? ' has-error' : '' }}">
-                        {!! Form::label('state', trans("register.state"), array('class' => 'col-form-label')) !!} 
-                            <select name="state" class="form-control" data-parsley-group="wizard-step-2" id="state" required >
-                                @foreach($states as $key=>$state)
-                                <option value="{{$key}}">{{$state}}</option>
-                                @endforeach
-                            </select>
-                            <span class="form-text">
-                                <small>{!!trans("all.select_your_state") !!}</small>
+                            {!! Form::label('state', trans("Region"), array('class' => 'control-label')) !!} {!! Form::text('state', Input::old('state') ,['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Please enter region"),'data-parsley-group' => 'block-0','id' => 'state']) !!}
+                            <span class="help-block">
+                                <small>{!!trans("Select your region") !!}</small>
                                 @if ($errors->has('state'))
                                 <strong>{{ $errors->first('state') }}</strong>
                                 @endif
                             </span>
                         </div>
                     </div>
-         
-    </div>
+                </div>
      
     <div class="row">
 
@@ -155,6 +140,127 @@ background-color: #fff;
         </div>
         
     </div>
+
+     <div class="row">
+
+    <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('id_number') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("ID Number"), array('class' => 'col-form-label')) !!} {!! Form::text('id_number', Input::old('id_number'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("ID Number"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your ID Number") !!}</small>
+                    @if ($errors->has('id_number'))
+                    <strong>{{ $errors->first('id_number') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+      <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Date of Birth"), array('class' => 'col-form-label')) !!} {!! Form::text('date_of_birth', Input::old('date_of_birth'), ['class' => 'form-control daterange-single ','id' => 'dob','required' => 'required','data-parsley-required-message' => trans("Date of Birth"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your Date of birth") !!}</small>
+                    @if ($errors->has('date_of_birth'))
+                    <strong>{{ $errors->first('date_of_birth') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+            
+        </div>  
+
+        <div class="row">
+
+    <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('branch') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Branch"), array('class' => 'col-form-label')) !!} {!! Form::text('branch', Input::old('branch'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Branch"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your Branch") !!}</small>
+                    @if ($errors->has('branch'))
+                    <strong>{{ $errors->first('branch') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+      <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('account_number') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Account Number"), array('class' => 'col-form-label')) !!} {!! Form::text('account_number', Input::old('account_number'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Account Number"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your Account Number") !!}</small>
+                    @if ($errors->has('account_number'))
+                    <strong>{{ $errors->first('Account Number') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+            
+        </div> 
+
+       <div class="row">
+
+    <div class="col-md-6">
+           <div class="required form-group {{ $errors->has('bank_name') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Bank Name"), array('class' => 'col-form-label')) !!} {!! Form::text('bank_name', Input::old('bank_name'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Bank Name"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Bank Name") !!}</small>
+                    @if ($errors->has('bank_name'))
+                    <strong>{{ $errors->first('bank_name') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+    
+          
+
+            </div>
+      <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('next_of_kin') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Next of kin"), array('class' => 'col-form-label')) !!} {!! Form::text('next_of_kin', Input::old('next_of_kin'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Next of kin"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Next of Kin") !!}</small>
+                    @if ($errors->has('next_of_kin'))
+                    <strong>{{ $errors->first('next_of_kin') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+    
+          
+
+            </div>
+            
+        </div>   
+
+      <div class="row">
+
+    <div class="col-md-12">
+            <div class="required form-group {{ $errors->has('info') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Any other info you want to add"), array('class' => 'col-form-label')) !!} {!! Form::text('info', Input::old('info'), ['class' => 'form-control','data-parsley-required-message' => trans("Info"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter other Information") !!}</small>
+                    @if ($errors->has('info'))
+                    <strong>{{ $errors->first('info') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+  
+            
+        </div>                    
     <div class="row">
         <!-- begin col-6 -->
         
@@ -286,8 +392,82 @@ background-color: #fff;
 </div>
 </div>
 </div>
+</div>
 
 
+@endsection  
+@section('scripts')
+@parent
+ 
 
-@endsection   
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<!-- <script>
+        $(document).ready(function(){ 
+            $("#dob").keyup(function(e){
+                if (e.keyCode != 8){   
+                    if ($(this).val().length == 2){
+                        $(this).val($(this).val() + "/");
+                    }else if ($(this).val().length == 5){
+                        $(this).val($(this).val() + "/");
+                    }
+                }
+            });   
+});
+</script> -->
+
+@endsection @section('scripts') @parent
+<script src="//www.paypalobjects.com/api/checkout.js" async></script>
+<script>
+var country_id = $('#country :selected').attr('value');
+   if(country_id){
+       $.ajax({
+
+          type:"GET",
+          url:"{{url('api/get-state-list')}}?country_id="+country_id,
+          success:function(res){               
+           if(res){
+               $("#state").empty();
+               $.each(res,function(key,value){
+                   $("#state").append('<option value="'+key+'">'+value+'</option>');
+               });
+          
+           }else{
+              $("#state").empty();
+           }
+          }
+       });
+   }else{
+       $("#state").empty();
+     
+   }
+
+   $('#country').change(function(){
+   var countryID = $(this).val(); 
+   console.log(1222222222222222);
+   console.log(countryID);
+   if(countryID){
+       $.ajax({
+          type:"GET",
+          url:"{{url('api/get-state-list')}}?country_id="+countryID,
+          success:function(res){               
+           if(res){
+               $("#state").empty();
+               $.each(res,function(key,value){
+                   $("#state").append('<option value="'+key+'">'+value+'</option>');
+               });
+          
+           }else{
+              $("#state").empty();
+           }
+          }
+       });
+   }else{
+       $("#state").empty();
+      
+   }      
+  });
+</script>
+
+@endsection 
 

@@ -1105,6 +1105,8 @@ Route::get('payment/slyde', 'Auth\RegisterController@slyde');
         Route::get('failedpayout', 'PayoutController@failedpayout');
         Route::get('payoutrequest', 'PayoutController@index');
 
+        Route::post('payoutconfirm', 'PayoutController@confirm');
+
         Route::get('payoutconfirm/{id}', 'PayoutController@confirm');
 
         //payoutreject

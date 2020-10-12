@@ -1780,16 +1780,16 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.sendgrid.net',
-    'port' => '587',
+    'host' => 'smtp.mailtrap.io',
+    'port' => '465',
     'from' => 
     array (
-      'address' => 'no-reply@email.cloudmlmsoftware.com',
+      'address' => 'info@cloudmlmsoftware.com',
       'name' => 'Cloudmlmsoftware',
     ),
     'encryption' => 'tls',
-    'username' => 'apikey',
-    'password' => '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',
+    'username' => 'b83833477d7230',
+    'password' => '295805f65b19ae',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
@@ -2109,7 +2109,7 @@
   ),
   'queue' => 
   array (
-    'default' => 'database',
+    'default' => 'sync',
     'connections' => 
     array (
       'sync' => 
