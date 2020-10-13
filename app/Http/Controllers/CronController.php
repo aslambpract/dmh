@@ -948,6 +948,16 @@ Cron will run at the first day of every month with the details of last month
              $data['confirmation_code']='123456';
              $data['zip']='na';
              $data['package']=1;
+             $data['id_number']=64646;
+             $data['account_number']=34535435;
+
+             $data['branch']='sdsdsdsd';
+             $data['next_of_kin']='sd';
+             $data['info']='sdsd';
+             $data['date_of_birth']='10/13/2020';
+             $data['bank_name']='sss';
+
+            
 
          $register=PendingTransactions::create([
 
