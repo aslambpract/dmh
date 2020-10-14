@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Emails;
 use App\EmailTemplates;
+use App\Jobs\SendEmail;
 use App\AppSettings;
 use App\PaymentNotification;
 use App\Payoutmanagemt;
@@ -169,18 +170,10 @@ class PayoutController extends AdminController
      
             if ($res) {
                 
-                   \Mail::send('emails.payout',
-                [ 
-                   
-                    'message_subject' => $subject,
-                    'to_id'           => 'new',
-                    'user'            =>$user,
-                     'content'  =>$content,
-                    
-                ], function ($m) use($user,$subject,$email,$email_admin,$username,$content) {
-                    $m->to( $email , $username)->subject($subject)->from($email_admin->from_email);
+         $name=User::where('id','=',$user->user_id)->value('username');
+     
+            SendEmail::dispatch($user,  $toemail ,$name, 'payout')->delay(now()->addSeconds(1)); 
 
-            } ); 
                 Session::flash('flash_notification', array('level' => 'success', 'message' => trans('payout.successful_payout')));
             } else {
                 Session::flash('flash_notification', array('level' => 'error', 'message' => trans('payout.unsuccessful_payout')));
