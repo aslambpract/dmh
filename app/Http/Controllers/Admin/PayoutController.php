@@ -148,14 +148,14 @@ class PayoutController extends AdminController
                        ->select('users.*', 'profile_infos.*')
                        ->first();
         $amount         =$request->amount;
-        $email          =$user->email;
+        $toemail        =$user->email;
         $pay_reqid      =$request->requestid;
         $payout_request = Payout::find($pay_reqid);
         $currency       =currency()->getUserCurrency();
       
         if ($request->payment_mode=='Manual/Bank') {
       
-        $res = Payout::confirmPayoutRequest($pay_reqid, $amount);
+            $res = Payout::confirmPayoutRequest($pay_reqid, $amount);
                 PayoutcronHistory::create([
                   'user_id'          => $user->id,
                   'receiver_address' => $user->name,
@@ -163,16 +163,14 @@ class PayoutController extends AdminController
                   'response'         => "",
                   'payment_mode'    =>'manual/bank',
                 ]);
-        $email_admin = Emails::find(1);
-        $subject=EmailTemplates::where('id','=','9')->value('subject');
-        $content=EmailTemplates::where('id','=','9')->value('body');
-        $username=User::where('id','=',$user->user_id)->value('username');
+      
      
-            if ($res) {
-                
-         $name=User::where('id','=',$user->user_id)->value('username');
+        if ($res) {
+      
+            $name=User::where('id','=',$user->user_id)->value('username');
      
             SendEmail::dispatch($user,  $toemail ,$name, 'payout')->delay(now()->addSeconds(1)); 
+                
 
                 Session::flash('flash_notification', array('level' => 'success', 'message' => trans('payout.successful_payout')));
             } else {
