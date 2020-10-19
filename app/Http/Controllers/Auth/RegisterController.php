@@ -101,6 +101,13 @@ class RegisterController extends Controller
     public function showRegistrationForm($sponsorname = null)
     {
         $user_registration = option('app.user_registration');
+
+         if (User::where('username', '=',  $sponsorname)->count() > 0) {
+            $sponsor_name = $sponsorname;  
+        }else{
+            $sponsor_name = User::first()->username; 
+        } 
+       
          
         // if ($user_registration == 1 || $user_registration == 2) {
         if (false) {
@@ -115,8 +122,9 @@ class RegisterController extends Controller
             $package = Packages::where('id',1)->get();
             $joiningfee = Packages::value('fee');
             $package_amount=Packages::find(1)->fee; 
+             $placement_user = $sponsor_name;
 
-            return view('auth.register', compact( 'countries','states', 'package','joiningfee', 'package' ,'package_amount'));
+            return view('auth.register', compact( 'countries','states', 'package','joiningfee', 'package' ,'package_amount','sponsor_name','placement_user'));
         // }
           
         // else {
@@ -256,10 +264,10 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
 
-         // dd($request->all());
+        
         $validator = $this->validator($request->all())->validate();
 
-        
+          
 
             $data= $request->all();
             // /dd($data);
@@ -275,13 +283,18 @@ class RegisterController extends Controller
              * Checking if sponsor_id exist in users table
              * @var [boolean]
              */
-            $sponsor_id = 1;  //User::checkUserAvailable($data['sponsor']);
+            // $sponsor_id = 1;  //User::checkUserAvailable($data['sponsor']);
+
+            $sponsor_id = User::checkUserAvailable($data['sponsor']);
             $user_registration = option('app.user_registration');
             /**
              * Checking if placement_user exist in users table
              * @var [type]
              */
-            $placement_id =  1;//$sponsor_id ;// User::checkUserAvailable($data['placement_user']);
+            // $placement_id =  1;//$sponsor_id ;
+ 
+            $placement_id =  $sponsor_id ;
+            // User::checkUserAvailable($data['placement_user']);
         if (!$sponsor_id) {
             /**
              * If sponsor_id validates as false, redirect back without registering , with errors
@@ -389,7 +402,7 @@ class RegisterController extends Controller
                  'order_id'      =>$ordercode,
                  'username'      =>$request->username,
                   'email'        =>$request->email,
-                 'sponsor'       => 'admin',
+                 'sponsor'       => $request->sponsor,
                  'request_data'  =>json_encode($data),
                  'payment_method'=>$request->payment,
                  'payment_type'  =>'register',
@@ -398,7 +411,7 @@ class RegisterController extends Controller
                  'ordercode'     => $ordercode ,
                  'id_number'     =>$request->id_number,
                  'account_number'=>$request->account_number,
-                ]);             
+                ]);   
 
 
 

@@ -67,16 +67,27 @@ class ProcessPayment extends Command
                                              ->where('approved_by', 'manual')
                                              //->where('id', '>',5830)
                                              ->get();
-        foreach ($pending_payments as $key => $payment) {
 
+
+        foreach ($pending_payments as $key => $payment) {
+ 
             // dd($payment->id);
             $data=json_decode($payment->request_data, true);
             if ($payment->payment_type == 'register') {
-            
+                  $sponsor_id = User::checkUserAvailable($payment->sponsor);
+                $placement_id = User::checkUserAvailable($data['placement_user']); 
                  $user_id=User::where('username', $payment->username)->value('id');
                  $user_email=User::where('email', $payment->email)->value('id');
-                if (  $user_id == null && $user_email == null) {
-                    $userresult = User::add($data, $payment->username, $payment->email);
+
+                 if ($sponsor_id <> null && $placement_id <> null && $user_id == null && $user_email == null) {
+                    $userresult = User::add($data, $sponsor_id, $payment->email);
+
+
+
+
+
+                // if (  $user_id == null && $user_email == null) {
+                //     $userresult = User::add($data, $payment->username, $payment->email);
                     if ($userresult) {
                         PendingTransactions::where('id', $payment->id)->update(['payment_status' => 'finish']);
                      //   SendEmail::dispatch($data, $data['email'], $data['firstname'])->delay(now()->addSeconds(0));

@@ -48,26 +48,107 @@ class Tree_Table extends Model
     //     return self::getPlacementId($user_id);
 
     // }
-      public static function getPlacementId($sponsor_id)
-    {        
-      
-        // $placment_id = self::where("type", "=", "vaccant")->orderBy('created_at', 'ASC')->value('placement_id');  
-        $id= self::where('type','vaccant')->orderBy('id')->first() ; 
+    // public static function getPlacementId($sponsor_id)
+    // {  
+       
+    //     $id= self::where('type','vaccant')->orderBy('id')->first() ;         
+    //     return $id->placement_id;
+
+    // }
+    // public static function vaccantId($placement_id)
+    // {       
+    //     $data = self::where('placement_id', $placement_id)->where("type", "=", "vaccant")->value('id');
+    //     return $data;
+    // }
+
+    //  public static function getPlacementId($sponsor_id)
+    // {
+    //    $user_id = self::where('placement_id', $sponsor_id)->where("type", "vaccant")->value('id');
+
+    //     if (!$user_id) {
+    //         return $sponsor_id;
+    //     }
+    
+    //     return self::getPlacementId($user_id);
+
+
+
+
+    //   //   $id = self::where('placement_id', $sponsor_id)->where("type","vaccant")->orderBy('id')->first() ; 
+
+    //   //   if (!$id) {
+    //   //       return $sponsor_id;
+    //   //   } 
+
+    //   //  else{
+    //   // return $id->id;
+    //   //   }
+    // }
+
+
+
+    // public static function vaccantId($placement_id, $leg)
+    // {
+
+    //     $data = self::where('placement_id', $placement_id)->where("leg", $leg)->where("type", "=", "vaccant")->value('id');
+
+    //     return $data;
+    // }
+
+
+    //     public static function getPlacementId($sponsor_id)
+    // {
+    //     $id = self::where('placement_id', $sponsor_id)->where("type","vaccant")->orderBy('id')->first() ; 
+
+    //      if (!$id) {
+    //       dd(999);
+    //     } 
+
+    //     else{
+    //        return $id->id; 
+    //     }
+    
+        
+    // }
+
+
+   //  public static function gettreePlacementId($sponsor_id)
+   // {
+   
+   //    $id =Tree_Table::where("type","=","vaccant")->whereIn('placement_id',$sponsor_id)->where('user_id','=',0)->value('placement_id');
+   //    if(!isset($id)){  
+   //        // $sponsor_list = Tree_Table::whereIn('placement_id',$sponsor_id)->where("type","<>","vaccant")->value('user_id');
+   //         $sponsor_list = Tree_Table::whereIn('placement_id',$sponsor_id)->where('user_id','!=',0)->pluck('user_id');
+   //    return self::gettreePlacementId($sponsor_list);
+         
+   //   }
+
+   //    return $id;        
+
+   // }
+
+
+    public static function getPlacementId($sponsor_id)
+   {
+      $id = self::whereIn('placement_id', $sponsor_id)->where("type","vaccant")->orderBy('id')->first() ; 
      
+            if(!isset($id)){  
+       
+           $sponsor_list = Tree_Table::whereIn('placement_id',$sponsor_id)->pluck('user_id');
+      return self::getPlacementId($sponsor_list);
+         
+     }
 
-        // return $placment_id;
-        return $id->placement_id;
+      return $id;        
 
-    }
+   }
     public static function vaccantId($placement_id)
     {
 
-        // $data = self::where('placement_id', $placement_id)->where("leg", $leg)->where("type", "=", "vaccant")->value('id');
         $data = self::where('placement_id', $placement_id)->where("type", "=", "vaccant")->value('id');
 
-
         return $data;
-    }
+    }  
 
     public static function createVaccant($placement_id)
     {
@@ -427,4 +508,28 @@ class Tree_Table extends Model
         }
             return 1 ;
     }
+
+      public static function maximum_level($user_id,$max)
+   {
+
+     if($max==1)
+     {
+        $max="";
+     }
+
+      $id=DB::table('tree_table'.$max)->where('user_id',$user_id)->count();
+     
+     
+            if($id == 0){  
+            
+           $maxa=$max-1;
+          return self::maximum_level($user_id,$maxa);
+         
+     }
+
+
+
+      return $max;        
+
+   }
 }
