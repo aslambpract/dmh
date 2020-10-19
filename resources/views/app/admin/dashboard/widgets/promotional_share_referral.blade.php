@@ -27,7 +27,7 @@
                     <input class="selectall form-control" id="replicationlink" readonly="true" spellcheck="false" type="text" value="{{url('/register')}}"/>
                     <span class="input-group-append copylink">
                          <button class="btn btn-copy input-group-text" data-clipboard-target="#replicationlink" style="font-size: 12px;">
-                            <i class="fa fa-copy">
+                            <i class="icon-copy">
                             </i>
                         </button>                       
                     </span>

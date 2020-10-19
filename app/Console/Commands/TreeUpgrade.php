@@ -11,6 +11,7 @@ use App\User;
 use App\PendingTable;
 use App\Packages;
 use App\EwalletSettings;
+use App\Tree_Table;
  
 class TreeUpgrade extends Command
 {
@@ -60,9 +61,22 @@ class TreeUpgrade extends Command
                     $package_amount = Packages::find(1)->amount ;
                     EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
                 }
-
-                    
+                // <!-- add for dmh -->
+                if($next ==2){
+                   $aa=Tree_Table::where('user_id',$value->account_id)->value('placement_id');
+                   $b=DB::table('tree_table'.$next)->where('placement_id',$aa)->where('type','vaccant')->value('id');
+                   if(isset($b)) {
+                    $placement =DB::table('tree_table'.$next)->where('id',$b)->first() ;
+                   }else{
+                      $placement  = $this->getflyplacement($next) ;
+                   }
+               }else{
                    $placement  = $this->getflyplacement($next) ;
+               }
+
+                   // cmtd for dmh
+                   // $placement  = $this->getflyplacement($next) ;
+                   
                    $cyclecount = 1 ;
                    if(DB::table('tree_table'.$next)->where('user_id',$value->account_id)->count()){
                         $tree = DB::table('tree_table'.$next)->where('user_id','=',$value->account_id)->increment('cyclecount');
@@ -85,31 +99,7 @@ class TreeUpgrade extends Command
           
                     }
 
-                    // if($placement_id == 1){
-                
-                    //     $circle_commission_to = $placement_id; //admin itself
-                    // }else{
-
-                    //     $circle_commission_to = DB::table('tree_table'.$next)->where('user_id',$placement_id)->value('placement_id'); //second upline
-                    // }
-
-                    
-                    // if($circle_commission_to >0){
-
-                    //     Commission::phase_commission($circle_commission_to,$value->next,$value->account_id) ;
-                    // }
-                    // PendingTable::where('account_id',$value->account_id)->update(['status'=>'finish']);
-
-                   
-
-                    /* added for dmh by anitta*/
-                     // if(DB::table('tree_table'.$next)->where('placement_id',$placement_id)->where('type','=','vaccant')->count() == 0){
-                     //    if($placement_id > 0){
-                     //      Packages::calculations($placement_id,$value->next,$cyclecount);
-                     //    }
-
-
-                     // }
+                 
                    /* added for dmh by anitta*/
                     if($placement_id >0){
 

@@ -517,16 +517,13 @@ class User extends Authenticatable
 
 
 
-    public static function add($data, $username, $email)
+    public static function add($data, $sponsor_id, $email)
     {
-
-     
+   
 
             DB::beginTransaction();
 
         try {
-
-
 
             /**
              * Creates a user with provided data and stores it for temperory usage
@@ -537,7 +534,7 @@ class User extends Authenticatable
             'name'             => $data['firstname'],
             'lastname'         => $data['lastname'],
             'email'            => $email,
-            'username'         => $username,
+            'username'         => $data['username'],
             'rank_id'          => '1',
             'rank_update_date'  => $today,
             'register_by'      => 'NA',
@@ -596,7 +593,7 @@ class User extends Authenticatable
          * Get sponsor tree id where there is a vacant under specified sponsor
          * @var [string]
          */
-         $sponsor_id =1;
+         // $sponsor_id =3;
             $sponsortreeid = Sponsortree::where('sponsor', $sponsor_id)->where('type', 'vaccant')->orderBy('id', 'desc')->take(1)->value('id');
         /**
          * Updates sponsor record linked the sponsor and user
@@ -619,16 +616,33 @@ class User extends Authenticatable
          */
             $uservaccant = Sponsortree::createVaccant($userresult->id, 0);
 
+
+            // $tree = Tree_Table::getPlacementId($sponsor_id);
+
+
+
+            $tree = Tree_Table::getPlacementId([$sponsor_id]);
+          //   $tree = Tree_Table::vaccantId($placement_id); 
+          // dd($tree);  
+             // $tree_id = Tree_Table::vaccantId($placement_id, $data['leg']);
+
  
+            // $tree = Tree_Table::where('type','=','vaccant')->first(); ;      
 
-
-
-            $tree = Tree_Table::where('type','=','vaccant')->first();//->id ;        
+            $tree = Tree_Table::where('id','=',$tree->id)->first();  
             $tree->user_id = $useraccounts->id;
             $tree->sponsor = $sponsor_id;
             $tree->type    = 'yes';
             $tree->save();
             Tree_Table::createVaccant($tree->user_id);
+
+
+            // $tree = Tree_Table::where('type','=','vaccant')->first(); ;        
+            // $tree->user_id = $useraccounts->id;
+            // $tree->sponsor = $sponsor_id;
+            // $tree->type    = 'yes';
+            // $tree->save();
+            // Tree_Table::createVaccant($tree->user_id);
             
             $balanceupdate = self::insertToBalance($userresult->id);
 
@@ -637,37 +651,7 @@ class User extends Authenticatable
 
             $placement_id = $tree->placement_id ;
 
-            /* vincy for infinity-btc circle plan on Augest 1st*/
 
-//             if($tree->placement_id == 1){
-                
-//                 $circle_commission_to = $tree->placement_id; //admin itself
-//             }else{
-// // juan
-//                 // $circle_commission_to = Tree_Table::where('user_id',$tree->placement_id)->value('placement_id'); //second upline
-//                 // juan
-//                 // add for dmh
-//                  $circle_commission_to = Tree_Table::where('user_id',$useraccounts->id)->value('placement_id'); //second upline
-//             }
-
-
-//             $package_amount = Packages::find(1)->amount ;
-            // Commission::phase_commission($circle_commission_to,1,$useraccounts->id);
-
-            // $placement_id = $tree->placement_id ;
-
-            /* vincy for infinity-btc : checking completion of first tree on Augest 1st*/
-
-            // $user_leg = $tree->leg;
-            // $upline_leg = Tree_Table::where('user_id',$tree->placement_id)->value('leg');
-
-            // EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
-
-
-            // if($user_leg == 2 && $upline_leg == 2){
-
-            //     Packages::calculations($circle_commission_to,1);
-            // }
             Commission::registerFee($useraccounts->id,1);
 
             $vaccant_count=Tree_Table::where('placement_id',$placement_id)->where('type','vaccant')->count();
@@ -676,7 +660,7 @@ class User extends Authenticatable
                 Packages::calculations($placement_id,1);
             }
              
-           // User::addAccount();      
+     
 
              
             DB::commit();
