@@ -33,7 +33,7 @@ class sendPayoutmailMailbale extends Mailable
      * @return $this
      */
     public function build()
-    {  
+    { 
         $email = Emails::find(1);
         $subject=EmailTemplates::where('id','=','9')->value('subject');
         $content=EmailTemplates::where('id','=','9')->value('body');
@@ -46,7 +46,7 @@ class sendPayoutmailMailbale extends Mailable
                                 'email'         => $email,
                                 'company_name'  => 'thedreammakershome',
                                 'username'      => $this->data['username'],
-                                'content'       =>$content
+                                'content'       =>$content,
                                  
                             ]);
        
