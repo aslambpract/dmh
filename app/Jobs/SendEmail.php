@@ -7,7 +7,8 @@ use Mail;
 use \App\Mail\sendRegisteremailMailbale ;
 use \App\Mail\sendVerifymailMailbale ;
 use \App\Mail\sendUpgrademailMailbale;
-
+use \App\Mail\sendPayoutmailMailbale;
+use \App\Mail\sendRequestmailMailbale;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -31,8 +32,8 @@ class SendEmail implements ShouldQueue
      public $timeout = 900;
 
     public function __construct($data, $toemail, $name, $type = 'register')
-    {
-               
+    {   
+           
                 $this->data = $data;
                 $this->toemail = $toemail;
                 $this->name = $name;
@@ -47,13 +48,20 @@ class SendEmail implements ShouldQueue
     public function handle()
     {    
 
-        if ($this->type == 'register') {
+        if ($this->type == 'register') {   
                 $emailclass = new sendRegisteremailMailbale($this->data);
         } elseif ($this->type == 'verify') {
                 $emailclass = new sendVerifymailMailbale($this->data);
-        } elseif ($this->type == 'plan_upgrade') {
+        } elseif ($this->type == 'plan_upgrade') { 
                 $emailclass = new sendUpgrademailMailbale($this->data);
+        } elseif ($this->type == 'payout') {
+                $emailclass = new sendPayoutmailMailbale($this->data);
+
+        } elseif ($this->type == 'request') {
+                $emailclass = new sendRequestmailMailbale($this->data);
+
         }
+
         
         Mail::to($this->toemail, $this->name)->send($emailclass);
     }

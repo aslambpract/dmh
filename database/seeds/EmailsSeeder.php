@@ -12,7 +12,7 @@ class EmailsSeeder extends Seeder
     public function run()
     {
         App\Emails::create([
-            'from_email' => 'info@dreammakershome.com',
+            'from_email' => 'baffour@thedreammakershome.com',
             'from_name' => 'dreammakershome',
             'subject' => 'Welcome to dreammakershome',
             'type' => 'register',

@@ -22,6 +22,8 @@ use App\Http\Requests;
 use App\Http\Requests\user\getPayoutRquestingRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\user\UserAdminController;
+use App\Emails;
+use App\Jobs\SendEmail;
 
 class PayoutController extends UserAdminController
 {
@@ -163,15 +165,20 @@ class PayoutController extends UserAdminController
         $user_balance = Balance::getTotalBalance(Auth::user()->id);
         if ($req_amount <= $user_balance and $req_amount > 0 and is_numeric($request->req_amount) and $payout_details->payout_setup_admin == 'no') {
 
-            Payout::create([
+            $payout=Payout::create([
                 'user_id'        => Auth::user()->id,
                 'amount'         => $req_amount,
                 'payment_mode'   => $request->payment_mode,
                 'status'         => 'pending',
             ]);
+          
+            $email = Emails::find(1);
             
             Balance::updateBalance(Auth::user()->id, $req_amount);
             Activity::add("payout requested by ".Auth::user()->username, Auth::user()->username ." requested payout  an amount of $req_amount ");
+
+            SendEmail::dispatch($payout, $email->from_email ,$email->from_name, 'request')->delay(now()->addSeconds(1)); 
+
             Session::flash('flash_notification', array('level'=>'success','message'=>trans('payout.request_completed')));
         } else {
             Session::flash('flash_notification', array('level'=>'error','message'=>trans('payout.payout_is_not_possible')));
