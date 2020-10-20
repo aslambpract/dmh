@@ -106,7 +106,7 @@ class TreeUpgrade extends Command
 
           
                     }
-
+   
                  
                    /* added for dmh by anitta*/
                     if($placement_id >0){
