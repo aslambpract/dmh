@@ -2,17 +2,17 @@
     <div class="card border-top-purple-300 border-bottom-purple-300">
                 <div class="card-header header-elements-inline">
                 <h6 class="card-title">
-                    {{trans('dashboard.referral_link')}}
+                   {{trans('dashboard.referral_link')}}
                 </h6>
             </div>
             <div class="card-body">
                 <div class="input-group">
-                    <a class=" btn btn-info" id="referrallink" readonly="true" spellcheck="false" type="text" target="blank" href="{{url('register')}}"/>{{url('register')}}  </a>
-                    <span class="input-group-append copylink">
-                        <button class="btn btn-copy input-group-text" data-clipboard-target="#referrallink" style="font-size: 12px;">
+                   <input class="selectall form-control" id="replicationlink" readonly="true" spellcheck="false" type="text" value="{{url(Auth::user()->username)}}"/>
+                     <span class="input-group-append copylink">
+                         <button class="btn btn-copy input-group-text" data-clipboard-target="#replicationlink" style="font-size: 12px;">
                             <i class="icon-copy">
                             </i>
-                        </button>
+                        </button>                       
                     </span>
                 </div>
             </div>

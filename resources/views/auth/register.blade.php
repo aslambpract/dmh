@@ -36,6 +36,26 @@ background-color: #fff;
   
 <h6 class="width-full">  {{trans('register.contact_information') }}  </h6>
  <fieldset>
+           <div class="row">
+                      <div class="col-md-6">
+            <div class="required form-group-feedback-right {{ $errors->has('sponsor') ? ' has-error' : '' }}">
+                {!! Form::label('sponsor', trans("all.sponsor"), array('class' => 'col-form-label')) !!}
+              <input class="form-control" value="{!!(Input::old('sponsor_name'))?Input::old('sponsor_name') :$sponsor_name !!}" required="required" data-parsley-required-message="all.please_enter_sponsor_name" name="sponsor" type="text" id="sponsor" data-parsley-group="block-0" data-parsley-sponsor="null" readonly>
+                <!--data-parsley-remote="data-parsley-remote" data-parsley-remote-validator="validate_sponsor" data-parsley-remote-options='{ "type": "POST", "dataType": "jsonp", "data": { "csrf": {{csrf_token()}} } }' data-parsley-remote-message="all.there_is_no_user_with_that_username" data-parsley-trigger-after-failure="change" data-parsley-trigger="change" 
+                -->
+                <div class="form-control-feedback">
+                    <i class="icon-person text-muted"></i>
+                </div>
+                <span class="form-text">
+                    <small>{!!trans("all.type_your_sponsor_username") !!}</small>
+                    @if ($errors->has('sponsor'))
+                    <strong>{{ $errors->first('sponsor') }}</strong>
+                    @endif
+                </span>
+            </div>
+        </div>
+                </div>
+                <input type="hidden" name="placement_user" placeholder="{{trans('register.placement_username')}}" class="form-control" value="{{$placement_user}}" required />
     <div class="row">
         <div class="col-md-6">
             <input type="hidden" name="package" value="1">

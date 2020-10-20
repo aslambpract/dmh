@@ -68,7 +68,7 @@ class PackageSeeder extends Seeder
         'stage'                   =>'1',
         'fee'                     =>'400',
         'upgrade_fee_old'             =>'200',
-        'charge'                  =>'10',
+        'charge'                  =>'40',
         'member_benefit'          =>'160',
         'downline_bonus'          =>'0',
         'insurace_completing_fee' =>'0',
@@ -166,7 +166,7 @@ class PackageSeeder extends Seeder
           'insurance_reg_fee'       =>'0',
 
           // 'upline_fee'       =>'0',
-          // 'upgrade_fee'       =>'1200',
+          'upgrade_fee'       =>'1200',
       ]);
         App\Packages::create([
             'package'=>'level_2',
