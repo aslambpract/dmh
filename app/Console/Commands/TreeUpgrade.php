@@ -63,10 +63,10 @@ class TreeUpgrade extends Command
                 }
                 // <!-- add for dmh -->
                 // if($next ==2){
-                   $aa=Tree_Table::where('user_id',$value->account_id)->value('placement_id');
-                   $b=DB::table('tree_table'.$next)->where('placement_id',$aa)->where('type','vaccant')->value('id');
-                   if(isset($b)) {
-                    $placement =DB::table('tree_table'.$next)->where('id',$b)->first() ;
+                   $placementid=Tree_Table::where('user_id',$value->account_id)->value('placement_id');
+                   $tree_table_id=DB::table('tree_table'.$next)->where('placement_id',$placementid)->where('type','vaccant')->value('id');
+                   if(isset($tree_table_id)) {
+                    $placement =DB::table('tree_table'.$next)->where('id',$tree_table_id)->first() ;
                    }else{
                       $placement  = $this->getflyplacement($next) ;
                    }
