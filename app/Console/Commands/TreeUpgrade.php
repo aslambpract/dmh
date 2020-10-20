@@ -62,7 +62,7 @@ class TreeUpgrade extends Command
                     EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
                 }
                 // <!-- add for dmh -->
-                if($next ==2){
+                // if($next ==2){
                    $aa=Tree_Table::where('user_id',$value->account_id)->value('placement_id');
                    $b=DB::table('tree_table'.$next)->where('placement_id',$aa)->where('type','vaccant')->value('id');
                    if(isset($b)) {
@@ -70,9 +70,9 @@ class TreeUpgrade extends Command
                    }else{
                       $placement  = $this->getflyplacement($next) ;
                    }
-               }else{
-                   $placement  = $this->getflyplacement($next) ;
-               }
+               // }else{
+               //     $placement  = $this->getflyplacement($next) ;
+               // }
 
                    // cmtd for dmh
                    // $placement  = $this->getflyplacement($next) ;
