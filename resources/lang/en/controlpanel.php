@@ -378,4 +378,7 @@ return [
     'with_this_setting_disabled'                                                                                                        => 'With This Setting Disabled',
     'yearly'                                                                                                                            => 'Yearly',
     'yes'                                                                                                                               => 'Yes',
+
+    'enable_and_edit_email_messages_sent_to_admin_when_user_payout_request_is_success'    =>'Enable And Edit Email Messages Sent To Admin When User Payout Request Is Sucess',
+    'edit_request_payout_notification'  =>'Edit Request Payout Notification',
 ];

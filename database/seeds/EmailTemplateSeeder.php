@@ -67,5 +67,12 @@ class EmailTemplateSeeder extends Seeder
             'type'  =>'payout_notify',
             
             ]);
+
+        App\EmailTemplates::create([
+            'subject'=>'Payout Request Notification',
+            'body'   =>'[user:name] request an amount of [user:amount] ',
+            'type'  => 'payout_request_notify',
+            
+            ]);
     }
 }
