@@ -32,10 +32,14 @@
 
                 <tr>
 
+<<<<<<< HEAD
 
                    
 
                   <td style="padding:22px 30px 18px 30px; border-bottom:2px solid #1e2064"><img src="{{ url('files/images/icons/logo.png') }}" height="60" alt="Dream makers home"></td>   
+=======
+                  <td style="padding:22px 30px 18px 30px; border-bottom:2px solid #1e2064"><img src="{{ url('files/images/icons/logo-old.png') }}" height="60" alt="Dream makers home"></td>   
+>>>>>>> a703d3305bf4828057ad5fe26f67e23d234270ef
 
 
 
