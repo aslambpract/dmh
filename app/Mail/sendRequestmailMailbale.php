@@ -35,20 +35,23 @@ class sendRequestmailMailbale extends Mailable
      */
     public function build()
     {   
+   
+      
        
-         
-       
-        $req_name  =User::where('id','=',$this->data['user_id'])->value('username');
+        $req_name   =User::where('id','=',$this->data['user_id'])->value('username');
         $amount     =$this->data['amount'];
+        $subject    =EmailTemplates::where('id','=','10')->value('subject');
+        $content    =EmailTemplates::where('id','=','10')->value('body');
+        $content_replaced=str_replace(array('[user:name]','[user:amount]'), array($req_name,$amount), $content);
         $email_admin = Emails::find(1);
-     
+   
         $return = $this->view('emails.request')
-                    ->subject('Payout request')
+                    ->subject($subject)
                     ->from($email_admin->from_email, $email_admin->from_name)
                     ->with([
-                                'amount'        =>$this->data['amount'],
+                               
                                 'username'      =>$email_admin->from_name,
-                                'content'       =>$req_name.' requested an amount of ' .$amount,
+                                'content'       =>$content_replaced,
                             ]);
        
         return $return ;

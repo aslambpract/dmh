@@ -424,6 +424,16 @@ div#settings-page .form-control {
 
                     </li>
 
+                     <li class="nav-item">
+
+                        <a class="nav-link" data-toggle="tab" href="#edit-request-notification-email">
+
+                            {{trans('Request payout')}}
+
+                        </a>
+
+                    </li>
+
                 </ul>
 
               
@@ -500,7 +510,7 @@ div#settings-page .form-control {
 
                                 <div class="row">
 
-                                    <div class="col-sm-3">
+                                <!--     <div class="col-sm-3">
 
  
 
@@ -532,7 +542,7 @@ div#settings-page .form-control {
 
                               <input {{ ($email[0]->status === "no" ? 'checked' : '') }}  class="radioID" name="mailstatus" id="{{$email[0]->id}}" type="radio" value="no"> {{trans('controlpanel.disable')}}
 
-                        </label>
+                        </label> -->
 
                              </div>
 
@@ -1390,7 +1400,7 @@ div#settings-page .form-control {
 
                                        <div class="row">
 
-                                    <div class="col-sm-3">
+                                <!--     <div class="col-sm-3">
 
  
 
@@ -1422,7 +1432,7 @@ div#settings-page .form-control {
 
                               <input {{ ($email[7]->status === "no" ? 'checked' : '') }}  class="radioID" name="mailstatus" id="{{$email[7]->id}}" type="radio" value="no">{{trans('controlpanel.disable')}}
 
-                        </label>
+                        </label> -->
 
                              </div>
 
@@ -1516,7 +1526,7 @@ div#settings-page .form-control {
 
                                        <div class="row">
 
-                                    <div class="col-sm-3">
+                               <!--      <div class="col-sm-3">
 
  
 
@@ -1548,7 +1558,7 @@ div#settings-page .form-control {
 
                               <input {{ ($email[8]->status === "no" ? 'checked' : '') }}  class="radioID" name="mailstatus" id="{{$email[8]->id}}" type="radio" value="no"> {{trans('controlpanel.disable')}}
 
-                        </label>
+                        </label> -->
 
                              </div>
 
@@ -1563,6 +1573,135 @@ div#settings-page .form-control {
                         </fieldset>
 
                     </div>
+
+
+               <div class="tab-pane fade" id="edit-request-notification-email">
+
+                        <fieldset class="form-wrapper vertical-tabs-pane" id="edit-email-blocked" style="display: block;">
+
+                            <form action="{{url('admin/control-panel/email_settings')}}"  method="post" >
+
+                              {{ csrf_field() }}
+
+                               <input id="type" name="type"type="hidden" value="{{$email[9]->type}}">
+
+                            <legend>
+
+                                <span class="fieldset-legend">
+
+                                    {{trans('controlpanel.edit_request_payout_notification')}}
+
+                                </span>
+
+                            </legend>
+
+                            <div class="fieldset-wrapper">
+
+                                <div class="fieldset-description">
+
+                                   
+
+                                    {{trans('controlpanel.enable_and_edit_email_messages_sent_to_admin_when_user_payout_request_is_success')}}. {{trans('controlpanel.the_list_of_available_tokens_that_can_be_used_in_emails_is_provided_below')}}
+
+                                </div>
+
+                         
+
+                                <div class="form-wrapper" id="edit-settings--4">
+
+                                    <div class="form-item form-type-textfield form-item-user-mail-status-blocked-subject">
+
+                                    <label for="subject">
+
+                                         {{trans('controlpanel.subject')}}
+
+                                    </label>
+
+                                    <input class="form-control" id="subject" maxlength="180" name="subject" size="60" type="text" value="{{$email[9]->subject}}"/>
+
+                                </div>
+
+                                       <div class="form-item form-type-textarea form-item-user-mail-status-blocked-body">
+
+                                    <label for="body">
+
+                                         {{trans('controlpanel.body')}}
+
+                                    </label>
+
+                                    <div class="form-control-wrapper resizable textarea-processed resizable-textarea">
+
+                                        <textarea class="form-control summernote" cols="60" id="body" name="body" rows="4">
+
+                                            {{$email[9]->body}}
+
+                                        </textarea>
+
+                                        <div class="grippie">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                       <div class="row">
+<!-- 
+                                    <div class="col-sm-3">
+
+ 
+
+                                    <label for="status">
+
+                                        {{trans('controlpanel.status')}}
+
+                                    </label>
+
+                                </div>
+
+                                 
+
+                         <label class="radio-inline">
+
+                                  
+
+                          <input {{ ($email[9]->status === "yes" ? 'checked' : '') }}  class="radioID" name="mailstatus" id="{{$email[8]->id}}" type="radio" value="yes"> {{trans('controlpanel.enable')}}
+
+
+
+                        
+
+                        </label>
+
+                        &nbsp&nbsp
+
+                        <label class="radio-inline">
+
+                              <input {{ ($email[9]->status === "no" ? 'checked' : '') }}  class="radioID" name="mailstatus" id="{{$email[8]->id}}" type="radio" value="no"> {{trans('controlpanel.disable')}}
+
+                        </label>
+ -->
+                             </div>
+
+                                </div>
+
+                            </div>
+
+                             <button type="submit" class="btn btn-info"> {{trans('controlpanel.submit')}}</button>
+
+                        </form>
+
+                        </fieldset>
+
+                    </div>
+
+
+
+
+
+
 
                 </div>
 
