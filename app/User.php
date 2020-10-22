@@ -622,6 +622,8 @@ class User extends Authenticatable
 
 
             $tree = Tree_Table::getPlacementId([$sponsor_id]);
+
+
           //   $tree = Tree_Table::vaccantId($placement_id); 
           // dd($tree);  
              // $tree_id = Tree_Table::vaccantId($placement_id, $data['leg']);
@@ -629,7 +631,8 @@ class User extends Authenticatable
  
             // $tree = Tree_Table::where('type','=','vaccant')->first(); ;      
 
-            $tree = Tree_Table::where('id','=',$tree->id)->first();  
+            // $tree = Tree_Table::where('id','=',$tree->id)->first();  
+            $tree = Tree_Table::where('type','=','vaccant')->first();//->id ;
             $tree->user_id = $useraccounts->id;
             $tree->sponsor = $sponsor_id;
             $tree->type    = 'yes';
