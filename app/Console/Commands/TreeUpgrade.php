@@ -62,25 +62,17 @@ class TreeUpgrade extends Command
                     EwalletSettings::where('id',1)->increment('balance',$package_amount) ;
                 }
                 // <!-- add for dmh -->
-                // if($next ==2){
-                   // $placementid=Tree_Table::where('user_id',$value->account_id)->value('placement_id');
-                   // $tree_table_id=DB::table('tree_table'.$next)->where('placement_id',$placementid)->where('type','vaccant')->value('id');
+                    $placement  = $this->getflyplacement($next) ;
+
+
+                   // $sponsor=Tree_Table::where('user_id',$value->account_id)->value('sponsor');
+                   // $tree_table_id=DB::table('tree_table'.$next)->where('placement_id',$sponsor)->where('type','vaccant')->value('id');
                    // if(isset($tree_table_id)) {
                    //  $placement =DB::table('tree_table'.$next)->where('id',$tree_table_id)->first() ;
                    // }
-
-
-                   $sponsor=Tree_Table::where('user_id',$value->account_id)->value('sponsor');
-                   $tree_table_id=DB::table('tree_table'.$next)->where('placement_id',$sponsor)->where('type','vaccant')->value('id');
-                   if(isset($tree_table_id)) {
-                    $placement =DB::table('tree_table'.$next)->where('id',$tree_table_id)->first() ;
-                   }
-                   else{
-                      $placement  = $this->getflyplacement($next) ;
-                   }
-               // }else{
-               //     $placement  = $this->getflyplacement($next) ;
-               // }
+                   // else{
+                   //    $placement  = $this->getflyplacement($next) ;
+                   // }             
 
                    // cmtd for dmh
                    // $placement  = $this->getflyplacement($next) ;

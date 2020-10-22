@@ -199,7 +199,7 @@
 
 
 
-                    <li class="nav-item nav-item-submenu {{set_active('user/genealogy/*')}}{{set_active('user/sponsortree')}}{{set_active('user/tree')}}">
+                    <li class="nav-item nav-item-submenu {{set_active('user/genealogy/*')}}{{set_active('user/tree')}}">
 
                         <a href="javascript:void(0);" class="nav-link">
 
@@ -219,9 +219,11 @@
 
                          <ul class="nav nav-group-sub" style="{{set_active_display('user/genealogy/*')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}}"  data-submenu-title="Network Explorers">
 
+                          <li class="nav-item {{set_active('user/sponsortree')}}"><a class="nav-link" href="{{url('user/sponsortree')}}">{{trans('Sponsor Tree')}}</a></li>   
+
                             <li
 
-                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/sponsortree')}}{{set_active('user/tree')}} mt-1">
+                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/tree')}} mt-1">
 
                         <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
 
@@ -237,7 +239,7 @@
                         </a>
                                  <ul class="nav nav-group-sub p-1"
 
-                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
+                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
 
                                 data-submenu-title="Network Explorers">
 
@@ -272,7 +274,7 @@
 
                             <li
 
-                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/sponsortree')}}{{set_active('user/tree')}} mt-1">
+                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/tree')}} mt-1">
 
                         <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
 
@@ -288,7 +290,7 @@
                         </a>
                                  <ul class="nav nav-group-sub p-1"
 
-                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
+                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
 
                                 data-submenu-title="Network Explorers">
 
@@ -322,7 +324,7 @@
 
                         <li
 
-                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/sponsortree')}}{{set_active('user/tree')}} mt-1">
+                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/tree')}} mt-1">
 
                         <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
 
@@ -337,7 +339,7 @@
                         </a>
                                  <ul class="nav nav-group-sub p-1"
 
-                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
+                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
 
                                 data-submenu-title="Network Explorers">
 
@@ -379,7 +381,7 @@
 
                         <li
 
-                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/sponsortree')}}{{set_active('user/tree')}} mt-1">
+                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/tree')}} mt-1">
 
                         <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
 
@@ -395,7 +397,7 @@
                         </a>
                                  <ul class="nav nav-group-sub p-1"
 
-                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
+                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
 
                                 data-submenu-title="Network Explorers">
 
@@ -435,7 +437,7 @@
 
                          <li
 
-                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/sponsortree')}}{{set_active('user/tree')}} mt-1">
+                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/tree')}} mt-1">
 
                         <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
 
@@ -451,7 +453,7 @@
                         </a>
                                  <ul class="nav nav-group-sub p-1"
 
-                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
+                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
 
                                 data-submenu-title="Network Explorers">
 
@@ -491,7 +493,7 @@
 
                          <li
 
-                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/sponsortree')}}{{set_active('user/tree')}} mt-1">
+                        class="nav-item nav-item-submenu {{set_active('user/genealogy')}}{{set_active('user/genealogy1')}} {{set_active('user/genealogy2')}} {{set_active('user/genealogy3')}} {{set_active('user/genealogy4')}} {{set_active('user/genealogy5')}} {{set_active('user/genealogy6')}} {{set_active('user/genealogy7')}} {{set_active('user/tree')}} mt-1">
 
                         <a href="javascript:void(0);" class="nav-link pt-2 pb-1">
 
@@ -507,7 +509,7 @@
                         </a>
                                  <ul class="nav nav-group-sub p-1"
 
-                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/sponsortree')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
+                                style="{{set_active_display('user/genealogy')}}{{set_active_display('user/tree')}} {{set_active('user/referral_list')}}"
 
                                 data-submenu-title="Network Explorers">
 
@@ -548,11 +550,8 @@
 
 
 <!-- juan side bar tree start -->
-                        <!--  <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/2')}}">{{trans('Circle 1 Genealogy')}}</a></li>
-                         <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/3')}}">{{trans('Circle 2 Genealogy')}}</a></li>
-                         <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/4')}}">{{trans('Circle 3 Genealogy')}}</a></li>
-                         <li class="nav-item {{set_active('user/genealogy')}}"><a class="nav-link" href="{{url('user/genealogy/5')}}">{{trans('Circle 4 Genealogy')}}</a></li> -->
-
+                        
+                         
                        
 <!-- juan side bar tree end -->                           
 
