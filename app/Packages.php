@@ -130,10 +130,11 @@ class Packages extends Model
                         'payment_type'   => 'stage'.$phase.'_upgrade',
                         'payment_status' => 'Yes',
                   ]) ;
-                 // add this entry on staurday night--
-                User::upadteUserBalance($upline_user, $next_phase_settings->upgrade_fee);
+                 //1)$2)$3) cmnted because this amount some times used for payout request save this amount for next level upgarade
+                
+                //1) User::upadteUserBalance($upline_user, $next_phase_settings->upgrade_fee);
 
-                DB::table('user_balance')->where('user_id', $user_id)->decrement('balance', $next_phase_settings->upgrade_fee);
+                // 2)DB::table('user_balance')->where('user_id', $user_id)->decrement('balance', $next_phase_settings->upgrade_fee);
                 
                 /* charge */
 
@@ -158,10 +159,9 @@ class Packages extends Model
                         'payment_status' => 'Yes',
                   ]) ;
 
-                DB::table('user_balance')->where('user_id', $user_id)->decrement('balance', $next_phase_settings->charge);
+                // 3) DB::table('user_balance')->where('user_id', $user_id)->decrement('balance', $next_phase_settings->charge);
                 
-                // $upline_user= DB::table('tree_table')->where('user_id',$user_id)->value('placement_id');
-                // User::upadteUserBalance($upline_user, $next_phase_settings->charge);
+               
               }
 
                   /* memeber benift */
@@ -180,7 +180,7 @@ class Packages extends Model
                         'payment_status' => 'Yes',
                   ]) ;
 
-                // User::upadteUserBalance($user_id, $next_phase_settings->member_benefit);
+                User::upadteUserBalance($user_id, $next_phase_settings->member_benefit);
               }
 
                /* insurace_completing_fee */
