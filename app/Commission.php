@@ -123,29 +123,7 @@ class Commission extends Model
             ]);
         }
     }
-    // public static function phase_commission($account_id,$package_id,$from_id)
-    // {
-       
-    //     $user_id=UserAccounts::where('id',$account_id)->value('user_id');
-    //     $package_amount=Packages::find($package_id)->upgrade_fee;
 
-    //     // $package_amount=Packages::find($package_id)->upline_fee;
-        
-    //         $commision = self::create([
-    //               'user_id'        => $user_id,
-    //               'account_id'     => $user_id,
-    //               'from_id'        => $from_id,
-    //               'total_amount'   => $package_amount,
-    //               'tds'            => '0',
-    //               'service_charge' => '0',
-    //               'payable_amount' => $package_amount,
-    //               'payment_type'   => 'stage'.$package_id.'_commission',
-    //               'payment_status' => 'Yes',
-    //         ]);
-
-    //         User::upadteUserBalance($user_id, $package_amount);
-        
-    // }
 
      public static function phase_commission($account_id,$package_id,$from_id)
     {
@@ -154,15 +132,8 @@ class Commission extends Model
         $package_amount=Packages::find($package_id)->upgrade_fee;
         if($package_id ==1)
         { 
-          $package_amount=Packages::find($package_id)->upline_fee;
+          $package_amount=Packages::find($package_id)->upline_fee;        
         
-        // else
-        // { 
-         
-        //   $package_amount=Packages::find($package_id -1)->upgrade_fee;
-        // }
-
-        // dd($package_id);
        
             $commision = self::create([
                   'user_id'        => $user_id,
@@ -176,7 +147,9 @@ class Commission extends Model
                   'payment_status' => 'Yes',
             ]);
 
-            User::upadteUserBalance($user_id, $package_amount);
+            // cmnted because this amount some times used for payout request save this amount for next level upgarade
+
+            // User::upadteUserBalance($user_id, $package_amount);
      }
 
         
