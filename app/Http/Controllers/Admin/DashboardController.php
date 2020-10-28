@@ -70,7 +70,10 @@ class DashboardController extends AdminController
 
          $approved_positions =UserAccounts::where('account_type','positions')->where('approved','approved')->count();
          $pending_positions =UserAccounts::where('account_type','positions')->where('approved','=','pending')->count();
-        $total_payout =  Payout::where('user_id','>',2)->where('account_type','account')->sum('amount') ;
+        // $total_payout =  Payout::where('user_id','>',2)->where('account_type','account')->sum('amount') ;
+
+        $total_payout =  Payout::where('status','=','released')->where('account_type','account')->sum('amount') ;
+
         $positions_wallet =  Payout::where('user_id','>',2)->where('account_type','positions')->sum('amount') ;
         $admin_wallet =  Payout::where('user_id',1)->where('account_type','account')->sum('amount') ;
         $system_wallet =  Payout::where('user_id',2)->where('account_type','account')->sum('amount') ;
