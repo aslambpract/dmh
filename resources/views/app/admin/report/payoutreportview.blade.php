@@ -63,13 +63,14 @@
                           <span style="font-weight: 700;">  {{trans('report.acc_no')}}:</span><br> {{$report->account_number}} <br>
                           <span style="font-weight: 700;">  {{trans('report.bank_name')}}:</span><br> {{$report->sort_code}} <br>
                             </td>
+                          <td>{{$report->amount}}</td>  
                        
 	                    <td>{{date('d-M-Y H:i:s',strtotime($report->created_at))}}</td>
 					</tr>
 	                @endforeach   
 				</tbody>
            <tfoot align = "left" class="headerfooter">
-          <th></th><th></th><th></th><th> {{trans('report.total')}}</th> <th>
+          <th></th><th></th><th></th><th> <th></th>{{trans('report.total')}}</th> <th>
 
          </tfoot>
         	</table>
