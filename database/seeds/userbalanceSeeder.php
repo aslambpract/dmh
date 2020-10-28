@@ -11,7 +11,11 @@ class userbalanceSeeder extends Seeder
      */
     public function run()
     {
-        \App\Balance::create(['user_id'        => 1,'balance'   => 0]);
-        \App\Balance::create(['user_id'        => 2,'balance'   => 0]);
+        \App\Balance::create([
+            'user_id'        => 1,
+            'balance'   => 0]);
+        // \App\Balance::create([
+        //     'user_id'        => 2,
+        //     'balance'   => 0]);
     }
 }
