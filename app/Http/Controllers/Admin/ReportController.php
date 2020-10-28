@@ -696,7 +696,7 @@ class ReportController extends AdminController
 
             ->where('payout_request.created_at', '<', date('Y-m-d 23:59:59', strtotime($request->end)))
 
-            // ->where('status', '=', 'released')
+            ->where('payout_request.status', '=', 'released')
 
             ->join('users', 'users.id', '=', 'payout_request.user_id')
 
@@ -735,7 +735,7 @@ class ReportController extends AdminController
             $end_date=$request->end;
 
 
-
+// dd($reportdata);
         return view('app.admin.report.payoutreportview', compact('title', 'reportdata', 'totalamount', 'sub_title', 'base', 'method', 'company', 'start_date', 'end_date'));
 
     }
