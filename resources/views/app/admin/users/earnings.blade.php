@@ -4,9 +4,9 @@
 
 <div class="row">
 
-    <div class="col-lg-4">
+ <!--    <div class="col-lg-4">
 
-        <!-- Members online -->
+       
 
         <div class="card bgs-teal-400">
 
@@ -42,9 +42,9 @@
 
         </div>
 
-        <!-- /members online -->
+      
 
-    </div>
+    </div> -->
 
     <!-- <div class="col-lg-4"> -->
 
@@ -148,7 +148,7 @@
 
                 <h3 class="no-margin">
 
-                  
+                  {{$total_income}}
 
                 </h3>
 

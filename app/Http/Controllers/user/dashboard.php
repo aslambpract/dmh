@@ -64,8 +64,11 @@ class dashboard extends UserAdminController
         {
           $maximum_level =1;
         }
+
+        $total_balance=Balance::where('user_id',Auth::user()->id)->value('balance');
+        $total_income=Commission::where('user_id',Auth::user()->id)->sum('payable_amount');
         
-        return view('app.user.dashboard.index', compact( 'title', 'sub_title', 'base', 'method','user_phase1','user_phase2','user_phase3','user_phase4','user_phase5','total_credit','maximum_level'));
+        return view('app.user.dashboard.index', compact( 'title', 'sub_title', 'base', 'method','user_phase1','user_phase2','user_phase3','user_phase4','user_phase5','total_credit','maximum_level','total_balance','total_income'));
     }  
 
     public function getmonthusers()
