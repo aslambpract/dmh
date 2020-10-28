@@ -61,7 +61,7 @@
 
 					    <div class="card-body pt-0 pb-0 text-dark">
 
-					            <h3 class="text-4xl no-margin  font-weight-semibold mt-1 mb-0">{{ 00 }} </h3>
+					            <h3 class="text-4xl no-margin  font-weight-semibold mt-1 mb-0">{{$total_income}} </h3>
 					        
 					         
 
@@ -113,7 +113,7 @@
 
 					    <div class="card-body pt-0 pb-0 text-dark">
 
-					            <h3 class="text-4xl no-margin  font-weight-semibold mt-1 mb-0">{{ 00 }} </h3>
+					            <h3 class="text-4xl no-margin  font-weight-semibold mt-1 mb-0">{{$total_balance}} </h3>
 					        
 					         
 

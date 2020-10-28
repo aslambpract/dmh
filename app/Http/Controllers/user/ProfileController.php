@@ -48,7 +48,7 @@ class ProfileController extends UserAdminController
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Response 
      */
 
     public function index()
@@ -153,8 +153,10 @@ class ProfileController extends UserAdminController
 
         $total_payout=Payout::where('user_id','=',Auth::user()->id)->where('payout_request.status','=','approve')->sum('amount');
 
+        $total_income=Commission::where('user_id',Auth::user()->id)->sum('payable_amount');
+
         
-        return view('app.user.profile.index', compact('title', 'sub_title', 'base', 'method', 'mail_count', 'voucher_count', 'balance', 'referrals', 'countries', 'selecteduser', 'sponsor', 'referals', 'left_bv', 'right_bv', 'user_package', 'profile_infos', 'country', 'state', 'referrals_count', 'user_rank_name', 'profile_photo', 'cover_photo', 'total_payout', 'notes', 'states', 'Manual_Bank', 'Hyperwallet', 'Bitaps', 'paypal'));
+        return view('app.user.profile.index', compact('title', 'sub_title', 'base', 'method', 'mail_count', 'voucher_count', 'balance', 'referrals', 'countries', 'selecteduser', 'sponsor', 'referals', 'left_bv', 'right_bv', 'user_package', 'profile_infos', 'country', 'state', 'referrals_count', 'user_rank_name', 'profile_photo', 'cover_photo', 'total_payout', 'notes', 'states', 'Manual_Bank', 'Hyperwallet', 'Bitaps', 'paypal','total_income'));
     }
 
     // public function index()

@@ -339,7 +339,7 @@
 
                                            
 
-                                            <div class="form-group">
+                                          <!--   <div class="form-group">
 
                                                 <label class="text-semibold">
 
@@ -353,7 +353,7 @@
 
                                                 </span>
 
-                                            </div>
+                                            </div> -->
 
                                             <div class="form-group">
 
@@ -1388,7 +1388,7 @@
 
         <div class="row text-center">
 
-            <div class="col">
+           <!--  <div class="col">
 
                 <p>
 
@@ -1410,7 +1410,7 @@
 
                 </span>
 
-            </div>
+            </div> -->
 
             <div class="col">
 
