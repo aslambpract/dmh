@@ -264,16 +264,16 @@ class EwalletController extends AdminController
 
     }
 
-
-
-    public function creditfund(Request $request)
-
+     public function creditfund(Request $request)
     {
-         // dd($request->all());
-
+        // dd($request->all());
         $input = $request->all();
         $input['username'] = $request->username;
-        $request->merge($input); 
+
+        $request->merge($input);
+
+   
+
         $validator = Validator::make($request->all(), [
             'username' => 'required|exists:users',
             'amount'   => 'required|numeric',
@@ -282,15 +282,18 @@ class EwalletController extends AdminController
         if($request->amount <= 0)
         {
          Session::flash('flash_notification', array('level' => 'error', 'message' => trans('Invalid Amount'))); 
-          return Redirect::back();
+          return Redirect::back(); 
         }
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         } else {
             $user_id = User::where('username', $request->username)->value('id');
             if (isset($request->debit_amount)) {
                 $use_bal=Balance::where('user_id', $user_id)->value('balance');
-                if ($request->category =="cash_wallet" && $use_bal >= $request->amount ) {        
+                if ($use_bal >= $request->amount) {
+                   
+
                     Commission::create([
                     'user_id'        => $user_id,
                     'from_id'        => Auth::user()->id,
@@ -299,59 +302,16 @@ class EwalletController extends AdminController
                     'payment_type'   => 'fund_debit',
                     'note'           => $request->note,
                     ]);
+
+                    // Balance::where('user_id', 1)->increment('balance', $request->amount);
                     Balance::where('user_id', $user_id)->decrement('balance', $request->amount);
                     Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_ewallet'), 'level' => 'success'));
                     return redirect()->back();
-                }
-                    if ($request->category =="red_wallet" && $use_bal >= $request->amount )
-                     {        
-                    RedemptionCommission::create([
-                    'user_id'        => $user_id,
-                    'from_id'        => Auth::user()->id,
-                    'total_amount'   => -$request->amount,
-                    'payable_amount' => -$request->amount,
-                    'payment_type'   => 'fund_debit',
-                    // 'note'           => $request->note,
-                    ]);
-                    Balance::where('user_id', $user_id)->decrement('redemption_balance', $request->amount);
-                    Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_redemption_balance'), 'level' => 'success'));
-                    return redirect()->back();
-                }
-                    if ($request->category =="reward_wallet" && $use_bal >= $request->amount )
-                     {        
-                    RewardCommission::create([
-                    'user_id'        => $user_id,
-                    'from_id'        => Auth::user()->id,
-                    'total_amount'   => -$request->amount,
-                    'payable_amount' => -$request->amount,
-                    'payment_type'   => 'fund_debit',
-                    // 'note'           => $request->note,
-                    ]);
-                    Balance::where('user_id', $user_id)->decrement('reward_balance', $request->amount);
-                    Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_reward_balance'), 'level' => 'success'));
-                    return redirect()->back();
-                } 
-                 if ($request->category =="salary_wallet" && $use_bal >= $request->amount )
-                     {        
-                    SalaryCommission::create([
-                    'user_id'        => $user_id,
-                    'from_id'        => Auth::user()->id,
-                    'total_amount'   => -$request->amount,
-                    'payable_amount' => -$request->amount,
-                    'payment_type'   => 'fund_debit',
-                    // 'note'           => $request->note,
-                    ]);
-                    Balance::where('user_id', $user_id)->decrement('salary_balance', $request->amount);
-                    Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_reward_balance'), 'level' => 'success'));
-                    return redirect()->back();
-                    }
-                else {
+                } else {
                     Session::flash('flash_notification', array('message' => trans("users.sorry_there_is_no_enough_balance_in_user_account!!"), 'level' => 'danger'));
                     return redirect()->back();
                 }
             } else {
-                if ($request->category =="cash_wallet")
-                { 
                 Commission::create([
                 'user_id'        => $user_id,
                 'from_id'        => Auth::user()->id,
@@ -360,63 +320,168 @@ class EwalletController extends AdminController
                 'payment_type'   => 'fund_credit',
                 'note'           => $request->note,
                 ]);
+
                 Balance::where('user_id', $user_id)->increment('balance', $request->amount);
-                Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_cash_ewallet'), 'level' => 'success'));
+                Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_user_ewallet'), 'level' => 'success'));
                    return redirect()->back();
                 return redirect()->back();
             }
-            if ($request->category =="red_wallet")
-                { 
-                RedemptionCommission::create([
-                'user_id'        => $user_id,
-                'from_id'        => Auth::user()->id,
-                'total_amount'   => $request->amount,
-                'payable_amount' => $request->amount,
-                'payment_type'   => 'fund_credit',
-                // 'note'           => $request->note,
-                ]);
-                Balance::where('user_id', $user_id)->increment('redemption_balance', $request->amount);
-                Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_redemption_ewallet'), 'level' => 'success'));
-                   return redirect()->back();
-                return redirect()->back();
-            }
-            if ($request->category =="reward_wallet")
-                { 
-                RewardCommission::create([
-                'user_id'        => $user_id,
-                'from_id'        => Auth::user()->id,
-                'total_amount'   => $request->amount,
-                'payable_amount' => $request->amount,
-                'payment_type'   => 'fund_credit',
-                // 'note'           => $request->note,
-                ]);
-                Balance::where('user_id', $user_id)->increment('reward_balance', $request->amount);
-                Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_reward_wallet'), 'level' => 'success'));
-                   return redirect()->back();
-                return redirect()->back();
-            }
-             if ($request->category =="salary_wallet")
-                { 
-                SalaryCommission::create([
-                'user_id'        => $user_id,
-                'from_id'        => Auth::user()->id,
-                'total_amount'   => $request->amount,
-                'payable_amount' => $request->amount,
-                'payment_type'   => 'fund_credit',
-                // 'note'           => $request->note,
-                ]);
-                Balance::where('user_id', $user_id)->increment('salary_balance', $request->amount);
-                Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_salary_wallet'), 'level' => 'success'));
-                   return redirect()->back();
-                return redirect()->back();
-            }
-
-
-            }
-
         }
-
     }
+
+
+
+    // public function creditfund(Request $request)
+
+    // {
+    //      // dd($request->all());
+
+    //     $input = $request->all();
+    //     $input['username'] = $request->username;
+    //     $request->merge($input); 
+    //     $validator = Validator::make($request->all(), [
+    //         'username' => 'required|exists:users',
+    //         'amount'   => 'required|numeric',
+    //         'note'   => 'required',
+    //     ]);
+    //     if($request->amount <= 0)
+    //     {
+    //      Session::flash('flash_notification', array('level' => 'error', 'message' => trans('Invalid Amount'))); 
+    //       return Redirect::back();
+    //     }
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator);
+    //     } else {
+    //         $user_id = User::where('username', $request->username)->value('id');
+    //         if (isset($request->debit_amount)) {
+    //             $use_bal=Balance::where('user_id', $user_id)->value('balance');
+    //             if ($request->category =="cash_wallet" && $use_bal >= $request->amount ) {        
+    //                 Commission::create([
+    //                 'user_id'        => $user_id,
+    //                 'from_id'        => Auth::user()->id,
+    //                 'total_amount'   => -$request->amount,
+    //                 'payable_amount' => -$request->amount,
+    //                 'payment_type'   => 'fund_debit',
+    //                 'note'           => $request->note,
+    //                 ]);
+    //                 Balance::where('user_id', $user_id)->decrement('balance', $request->amount);
+    //                 Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_ewallet'), 'level' => 'success'));
+    //                 return redirect()->back();
+    //             }
+    //                 if ($request->category =="red_wallet" && $use_bal >= $request->amount )
+    //                  {        
+    //                 RedemptionCommission::create([
+    //                 'user_id'        => $user_id,
+    //                 'from_id'        => Auth::user()->id,
+    //                 'total_amount'   => -$request->amount,
+    //                 'payable_amount' => -$request->amount,
+    //                 'payment_type'   => 'fund_debit',
+    //                 // 'note'           => $request->note,
+    //                 ]);
+    //                 Balance::where('user_id', $user_id)->decrement('redemption_balance', $request->amount);
+    //                 Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_redemption_balance'), 'level' => 'success'));
+    //                 return redirect()->back();
+    //             }
+    //                 if ($request->category =="reward_wallet" && $use_bal >= $request->amount )
+    //                  {        
+    //                 RewardCommission::create([
+    //                 'user_id'        => $user_id,
+    //                 'from_id'        => Auth::user()->id,
+    //                 'total_amount'   => -$request->amount,
+    //                 'payable_amount' => -$request->amount,
+    //                 'payment_type'   => 'fund_debit',
+    //                 // 'note'           => $request->note,
+    //                 ]);
+    //                 Balance::where('user_id', $user_id)->decrement('reward_balance', $request->amount);
+    //                 Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_reward_balance'), 'level' => 'success'));
+    //                 return redirect()->back();
+    //             } 
+    //              if ($request->category =="salary_wallet" && $use_bal >= $request->amount )
+    //                  {        
+    //                 SalaryCommission::create([
+    //                 'user_id'        => $user_id,
+    //                 'from_id'        => Auth::user()->id,
+    //                 'total_amount'   => -$request->amount,
+    //                 'payable_amount' => -$request->amount,
+    //                 'payment_type'   => 'fund_debit',
+    //                 // 'note'           => $request->note,
+    //                 ]);
+    //                 Balance::where('user_id', $user_id)->decrement('salary_balance', $request->amount);
+    //                 Session::flash('flash_notification', array('message' => trans('users.amount_debited_from_user_reward_balance'), 'level' => 'success'));
+    //                 return redirect()->back();
+    //                 }
+    //             else {
+    //                 Session::flash('flash_notification', array('message' => trans("users.sorry_there_is_no_enough_balance_in_user_account!!"), 'level' => 'danger'));
+    //                 return redirect()->back();
+    //             }
+    //         } else {
+    //             if ($request->category =="cash_wallet")
+    //             { 
+    //             Commission::create([
+    //             'user_id'        => $user_id,
+    //             'from_id'        => Auth::user()->id,
+    //             'total_amount'   => $request->amount,
+    //             'payable_amount' => $request->amount,
+    //             'payment_type'   => 'fund_credit',
+    //             'note'           => $request->note,
+    //             ]);
+    //             Balance::where('user_id', $user_id)->increment('balance', $request->amount);
+    //             Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_cash_ewallet'), 'level' => 'success'));
+    //                return redirect()->back();
+    //             return redirect()->back();
+    //         }
+    //         if ($request->category =="red_wallet")
+    //             { 
+    //             RedemptionCommission::create([
+    //             'user_id'        => $user_id,
+    //             'from_id'        => Auth::user()->id,
+    //             'total_amount'   => $request->amount,
+    //             'payable_amount' => $request->amount,
+    //             'payment_type'   => 'fund_credit',
+    //             // 'note'           => $request->note,
+    //             ]);
+    //             Balance::where('user_id', $user_id)->increment('redemption_balance', $request->amount);
+    //             Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_redemption_ewallet'), 'level' => 'success'));
+    //                return redirect()->back();
+    //             return redirect()->back();
+    //         }
+    //         if ($request->category =="reward_wallet")
+    //             { 
+    //             RewardCommission::create([
+    //             'user_id'        => $user_id,
+    //             'from_id'        => Auth::user()->id,
+    //             'total_amount'   => $request->amount,
+    //             'payable_amount' => $request->amount,
+    //             'payment_type'   => 'fund_credit',
+    //             // 'note'           => $request->note,
+    //             ]);
+    //             Balance::where('user_id', $user_id)->increment('reward_balance', $request->amount);
+    //             Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_reward_wallet'), 'level' => 'success'));
+    //                return redirect()->back();
+    //             return redirect()->back();
+    //         }
+    //          if ($request->category =="salary_wallet")
+    //             { 
+    //             SalaryCommission::create([
+    //             'user_id'        => $user_id,
+    //             'from_id'        => Auth::user()->id,
+    //             'total_amount'   => $request->amount,
+    //             'payable_amount' => $request->amount,
+    //             'payment_type'   => 'fund_credit',
+    //             // 'note'           => $request->note,
+    //             ]);
+    //             Balance::where('user_id', $user_id)->increment('salary_balance', $request->amount);
+    //             Session::flash('flash_notification', array('message' => trans('users.amount_credited_to_salary_wallet'), 'level' => 'success'));
+    //                return redirect()->back();
+    //             return redirect()->back();
+    //         }
+
+
+    //         }
+
+    //     }
+
+    // }
 
 
 
