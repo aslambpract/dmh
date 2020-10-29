@@ -488,6 +488,30 @@ class RegisterController extends Controller
             return redirect("register/preview/" . Crypt::encrypt($userresult->id)); 
 
          }
+
+
+         if ($result =="CONFIRMED") {
+
+             $cust= PendingTransactions::where('paytoken','=',$request->pay_token)->value('username');
+           
+             $item = PendingTransactions::where('username','=',$cust)->first();  
+         
+             
+         if ($item->payment_status == 'pending') {
+
+                 $item->payment_status='complete';
+                 $item->approved_by='code';
+                 $item->save();
+            
+            Artisan::call("process:payment"); 
+            
+             $userresult = User::where('username','=',$cust)->first(); 
+             
+         }
+          
+            return redirect("register/preview/" . Crypt::encrypt($userresult->id)); 
+
+         }
          elseif ($result =="DISPUTED") {
 
     Session::flash('flash_notification', array( 'message' =>'When you or Slydepay cancelled the payment'));
