@@ -406,6 +406,7 @@ class RegisterController extends Controller
                  'request_data'  =>json_encode($data),
                  'payment_method'=>$request->payment,
                  'payment_type'  =>'register',
+                 'payment_data'  => json_encode($send),
                  'amount'        => $joiningfee,
                  'paytoken'      => $paytoken,
                  'ordercode'     => $ordercode ,
