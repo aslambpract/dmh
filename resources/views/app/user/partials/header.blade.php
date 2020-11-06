@@ -6,8 +6,9 @@
         <div class="navbar-header navbar-dark d-none d-md-flex align-items-md-center">
             <div class="navbar-brand navbar-brand-md">
                    <a href="{{ URL::to('/home') }}" class="d-inline-block">
-                    <img src="{{url('img/cache/logo/logo.png')}}" style="height: 30px; width: 100px" alt="{{ config('app.name', 'Cloud MLM Software') }}">
-                </a>
+                    <img src="{{ url('img/cache/original/'.$logo_light)}}"
+                       alt="{{ config('app.name', 'Cloud MLM Software') }}" style="height: 30px; width: 100px">
+               </a>
             </div>
             
             <div class="navbar-brand navbar-brand-xs">
