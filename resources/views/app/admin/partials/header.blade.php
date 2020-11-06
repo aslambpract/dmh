@@ -3,8 +3,10 @@
 
        <div class="navbar-header navbar-dark d-none d-md-flex align-items-md-center">
            <div class="navbar-brand navbar-brand-md">
-               <a href="{{ URL::to('/home') }}" class="d-inline-block">
-                   <img src="{{url('img/cache/logo/logo.png')}}" style="height: 30px; width: 100px" >
+               
+                  <a href="{{ URL::to('/home') }}" class="d-inline-block">
+                    <img src="{{ url('img/cache/original/'.$logo_light)}}"
+                       alt="{{ config('app.name', 'Cloud MLM Software') }}" style="height: 30px; width: 100px">
                </a>
                   <!-- {{ Html::image(route('imagecache', ['template' => 'profile', 'filename' => $logoimage]), 'Admin', array('class' => 'rounded-circle','style'=>'height:40px;width:40px')) }} -->
            </div>
