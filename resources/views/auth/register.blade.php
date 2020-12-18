@@ -163,7 +163,7 @@ background-color: #fff;
 
      <div class="row">
 
-    <div class="col-md-6">
+  <!--   <div class="col-md-6">
             <div class="required form-group {{ $errors->has('id_number') ? ' has-error' : '' }}">
                 {!! Form::label('name', trans("ID Number"), array('class' => 'col-form-label')) !!} {!! Form::text('id_number', Input::old('id_number'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("ID Number"),'data-parsley-group' => 'block-0']) !!}
                 <span class="form-text">
@@ -172,7 +172,21 @@ background-color: #fff;
                     <strong>{{ $errors->first('id_number') }}</strong>
                     @endif
                 </span>
+            </div> -->
+    <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('info') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Any other info you want to add"), array('class' => 'col-form-label')) !!} {!! Form::text('info', Input::old('info'), ['class' => 'form-control','data-parsley-required-message' => trans("Info"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter other Information") !!}</small>
+                    @if ($errors->has('info'))
+                    <strong>{{ $errors->first('info') }}</strong>
+                    @endif
+                </span>
             </div>
+    
+          
+
+              
     
           
 
@@ -194,7 +208,7 @@ background-color: #fff;
             
         </div>  
 
-        <div class="row">
+      <!--   <div class="row">
 
     <div class="col-md-6">
             <div class="required form-group {{ $errors->has('branch') ? ' has-error' : '' }}">
@@ -260,9 +274,9 @@ background-color: #fff;
 
             </div>
             
-        </div>   
+        </div>    -->
 
-      <div class="row">
+    <!--   <div class="row">
 
     <div class="col-md-12">
             <div class="required form-group {{ $errors->has('info') ? ' has-error' : '' }}">
@@ -280,7 +294,7 @@ background-color: #fff;
             </div>
   
             
-        </div>                    
+        </div>                     -->
     <div class="row">
         <!-- begin col-6 -->
         
