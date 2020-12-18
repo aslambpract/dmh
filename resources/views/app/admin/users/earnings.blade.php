@@ -148,7 +148,7 @@
 
                 <h3 class="no-margin">
 
-                  {{$total_income}}
+                <!--   {{$total_income}} -->
 
                 </h3>
 
