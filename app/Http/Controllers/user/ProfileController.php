@@ -281,12 +281,12 @@ class ProfileController extends UserAdminController
     
         $user->name=$request->name;
         $user->lastname=$request->lastname;
-        $user->id_number = $request->id_number;
-        $user->account_number = $request->account_number;
-        $user->branch = $request->branch;
-        $user->bank_name = $request->bank_name;
+        // $user->id_number = $request->id_number;
+        // $user->account_number = $request->account_number;
+        // $user->branch = $request->branch;
+        // $user->bank_name = $request->bank_name;
        
-        $user->next_of_kin = $request->next_of_kin; 
+        // $user->next_of_kin = $request->next_of_kin; 
         $user->info = $request->info; 
         $user->save();
 
@@ -297,7 +297,7 @@ class ProfileController extends UserAdminController
         $new_user->address2=$request->address2;
 
         $new_user->location=$request->location;
-        $new_user->account_holder_name = $request->account_holder_name; 
+        // $new_user->account_holder_name = $request->account_holder_name; 
 
         $new_user->city=$request->city;
         $new_user->country=$request->country;

@@ -442,7 +442,7 @@
                                                 </span>
 
                                             </div>
-                                            <div class="form-group">
+                                           <!--  <div class="form-group">
 
                                                 <label class="text-semibold">
 
@@ -532,6 +532,36 @@
 
                                                 </span>
 
+                                            </div> -->
+                                                   <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('register.address') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->address1 }}
+
+                                                </span>
+
+                                            </div>
+                                              <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Address 2') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->address2 }}
+
+                                                </span>
+
                                             </div>
 
                                         </div>
@@ -602,36 +632,7 @@
 
                                             </div>
 
-                                            <div class="form-group">
-
-                                                <label class="text-semibold">
-
-                                                    {{ trans('register.address') }} :
-
-                                                </label>
-
-                                                <span class="float-right-sm">
-
-                                                    {{ $selecteduser->profile_info->address1 }}
-
-                                                </span>
-
-                                            </div>
-                                              <div class="form-group">
-
-                                                <label class="text-semibold">
-
-                                                    {{ trans('Address 2') }} :
-
-                                                </label>
-
-                                                <span class="float-right-sm">
-
-                                                    {{ $selecteduser->profile_info->address2 }}
-
-                                                </span>
-
-                                            </div>
+                                     
 
                                             <div class="form-group">
 
@@ -1030,182 +1031,7 @@
 </div>
 
 </div>
-<div class="row">
 
-<!-- begin col-4 -->
-
-<div class="col-md-4">
-
-<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('location') ? ' has-error' : '' }}">
-
-     {!! Form::label('Location', trans("Location"), array('class' => 'col-form-label')) !!} {!! Form::text('location', null !==(Input::old('location')) ? Input::old('location') : $selecteduser->profile_info->location, ['class' => 'form-control','id' => 'location','data-parsley-required-message' => trans("Please Enter Location"),'data-parsley-group' => 'block-1']) !!}
-
-    <div class="form-control-feedback">
-
-        <i class=" icon-mobile3 text-muted"></i>
-
-    </div>
-
-    <span class="form-text">
-
-        <small>{!! trans("Enter Your Location") !!}</small>
-
-        @if ($errors->has('location'))
-
-        <strong>{{ $errors->first('location') }}</strong>
-
-        @endif
-
-    </span>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('id_number') ? ' has-error' : '' }}">
-
-   {!! Form::label('Id Number', trans("Id Number"), array('class' => 'col-form-label')) !!} {!! Form::text('id_number', Input::old('id_number'), ['class' => 'form-control','required' => 'required','id' => 'id_number','data-parsley-required-message' => trans("Please Enter Id Number"),'data-parsley-group' => 'block-1']) !!}
-
-    <div class="form-control-feedback">
-
-        <i class="icon-mail5 text-muted"></i>
-
-    </div>
-
-    <span class="form-text">
-
-        <small>{!! trans("Type Your Id Number") !!}</small>
-
-        @if ($errors->has('id_number'))
-
-        <strong>{{ $errors->first('id_number') }}</strong>
-
-        @endif
-
-    </span>
-
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('account_number') ? ' has-error' : '' }}">
-
-     {!! Form::label('Account Number', trans("Account Number"), array('class' => 'col-form-label')) !!} {!! Form::text('account_number', null !==(Input::old('account_number')) ? Input::old('account_number') : $selecteduser->account_number, ['class' => 'form-control','id' => 'account_number','data-parsley-required-message' => trans("Please Enter Account Number"),'data-parsley-group' => 'block-1']) !!}
-
-    <div class="form-control-feedback">
-
-        <i class=" icon-mobile3 text-muted"></i>
-
-    </div>
-
-    <span class="form-text">
-
-        <small>{!! trans("Enter Your Account Number") !!}</small>
-
-        @if ($errors->has('account_number'))
-
-        <strong>{{ $errors->first('account_number') }}</strong>
-
-        @endif
-
-    </span>
-
-</div>
-
-</div>
-
-</div>
-<div class="row">
-
-<!-- begin col-4 -->
-
-<div class="col-md-4">
-
-<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('branch') ? ' has-error' : '' }}">
-
-     {!! Form::label('Branch', trans("Branch"), array('class' => 'col-form-label')) !!} {!! Form::text('branch', null !==(Input::old('branch')) ? Input::old('branch') : $selecteduser->branch, ['class' => 'form-control','id' => 'branch','data-parsley-required-message' => trans("Please Enter Branch"),'data-parsley-group' => 'block-1']) !!}
-
-    <div class="form-control-feedback">
-
-        <i class=" icon-mobile3 text-muted"></i>
-
-    </div>
-
-    <span class="form-text">
-
-        <small>{!! trans("Enter Your Branch") !!}</small>
-
-        @if ($errors->has('branch'))
-
-        <strong>{{ $errors->first('branch') }}</strong>
-
-        @endif
-
-    </span>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('bank_name') ? ' has-error' : '' }}">
-
-   {!! Form::label('bank_name', trans("Bank Name"), array('class' => 'col-form-label')) !!} {!! Form::text('bank_name', Input::old('bank_name'), ['class' => 'form-control','required' => 'required','id' => 'bank_name','data-parsley-required-message' => trans("Please Enter Bank Name"),'data-parsley-group' => 'block-1']) !!}
-
-    <div class="form-control-feedback">
-
-        <i class="icon-mail5 text-muted"></i>
-
-    </div>
-
-    <span class="form-text">
-
-        <small>{!! trans("Type Your Bank Name") !!}</small>
-
-        @if ($errors->has('bank_name'))
-
-        <strong>{{ $errors->first('bank_name') }}</strong>
-
-        @endif
-
-    </span>
-
-</div>
-
-</div>
-<div class="col-md-4">
-
-<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('account_holder_name') ? ' has-error' : '' }}">
-
-     {!! Form::label('Account Holder Name', trans("Account Holder Name"), array('class' => 'col-form-label')) !!} {!! Form::text('account_holder_name', null !==(Input::old('account_holder_name')) ? Input::old('account_holder_name') : $selecteduser->profile_info->account_holder_name, ['class' => 'form-control','id' => 'account_holder_name','data-parsley-required-message' => trans("Please Enter Account Holder Name"),'data-parsley-group' => 'block-1']) !!}
-
-    <div class="form-control-feedback">
-
-        <i class=" icon-mobile3 text-muted"></i>
-
-    </div>
-
-    <span class="form-text">
-
-        <small>{!! trans("Enter Your Account Holder Name") !!}</small>
-
-        @if ($errors->has('account_holder_name'))
-
-        <strong>{{ $errors->first('account_holder_name') }}</strong>
-
-        @endif
-
-    </span>
-
-</div>
-
-</div>
-
-</div>
 
 <!-- end row -->
 
@@ -1389,7 +1215,7 @@
 
 <div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('next_of_kin') ? ' has-error' : '' }}">
 
-     {!! Form::label('Next of Kin', trans("Next of Kin"), array('class' => 'col-form-label')) !!} {!! Form::text('next_of_kin', null !==(Input::old('next_of_kin')) ? Input::old('next_of_kin') : $selecteduser->next_of_kin, ['class' => 'form-control','id' => 'next_of_kin','data-parsley-required-message' => trans("Next of Kin"),'data-parsley-group' => 'block-1']) !!}
+      {!! Form::label('Location', trans("Location"), array('class' => 'col-form-label')) !!} {!! Form::text('location', null !==(Input::old('location')) ? Input::old('location') : $selecteduser->profile_info->location, ['class' => 'form-control','id' => 'location','data-parsley-required-message' => trans("Please Enter Location"),'data-parsley-group' => 'block-1']) !!}
 
     <div class="form-control-feedback">
 
@@ -1399,11 +1225,11 @@
 
     <span class="form-text">
 
-        <small>{!! trans("Next of Kin") !!}</small>
+        <small>{!! trans("Enter Your Location") !!}</small>
 
-        @if ($errors->has('next_of_kin'))
+        @if ($errors->has('location'))
 
-        <strong>{{ $errors->first('next_of_kin') }}</strong>
+        <strong>{{ $errors->first('location') }}</strong>
 
         @endif
 
