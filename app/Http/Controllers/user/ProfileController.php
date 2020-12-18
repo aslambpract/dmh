@@ -18,6 +18,7 @@ use App\Packages;
 use App\PointTable;
 use App\ProfileInfo;
 use App\PurchaseHistory;
+use App\PendingTransactions;
 use App\RsHistory;
 use App\Sponsortree;
 use App\Tree_Table;
@@ -48,7 +49,7 @@ class ProfileController extends UserAdminController
     /**
      * Display a listing of the resource.
      *
-     * @return Response 
+     * @return Response
      */
 
     public function index()
@@ -72,8 +73,10 @@ class ProfileController extends UserAdminController
  
 
         $selecteduser = User::with('profile_info')->find($user_id);
-
-        // dd($selecteduser->username) ;
+        
+       
+       
+       
         //$admin_openPayoutOptions=Payoutmanagemt::where('status',1)->get();
         $Hyperwallet=Payoutmanagemt::where('payment_mode', 'Hyperwallet')->value('status');
         $paypal=Payoutmanagemt::where('payment_mode', 'Paypal')->value('status');
@@ -153,10 +156,8 @@ class ProfileController extends UserAdminController
 
         $total_payout=Payout::where('user_id','=',Auth::user()->id)->where('payout_request.status','=','approve')->sum('amount');
 
-        $total_income=Commission::where('user_id',Auth::user()->id)->sum('payable_amount');
-
         
-        return view('app.user.profile.index', compact('title', 'sub_title', 'base', 'method', 'mail_count', 'voucher_count', 'balance', 'referrals', 'countries', 'selecteduser', 'sponsor', 'referals', 'left_bv', 'right_bv', 'user_package', 'profile_infos', 'country', 'state', 'referrals_count', 'user_rank_name', 'profile_photo', 'cover_photo', 'total_payout', 'notes', 'states', 'Manual_Bank', 'Hyperwallet', 'Bitaps', 'paypal','total_income'));
+        return view('app.user.profile.index', compact('title', 'sub_title', 'base', 'method', 'mail_count', 'voucher_count', 'balance', 'referrals', 'countries', 'selecteduser', 'sponsor', 'referals', 'left_bv', 'right_bv', 'user_package', 'profile_infos', 'country', 'state', 'referrals_count', 'user_rank_name', 'profile_photo', 'cover_photo', 'total_payout', 'notes', 'states', 'Manual_Bank', 'Hyperwallet', 'Bitaps', 'paypal'));
     }
 
     // public function index()
@@ -270,7 +271,7 @@ class ProfileController extends UserAdminController
     public function update(ProfileEditRequest $request, $id)
     {
 
-      // dd($request->all());
+   
         $email=User::where('email', $request->email)->value('id');
         if ($email <> null && $request->email <> Auth::user()->email) {
              return redirect()->back()->withErrors([trans('users.email_already_taken')]);
@@ -280,7 +281,13 @@ class ProfileController extends UserAdminController
     
         $user->name=$request->name;
         $user->lastname=$request->lastname;
-        $user->email = $request->email;
+        $user->id_number = $request->id_number;
+        $user->account_number = $request->account_number;
+        $user->branch = $request->branch;
+        $user->bank_name = $request->bank_name;
+       
+        $user->next_of_kin = $request->next_of_kin; 
+        $user->info = $request->info; 
         $user->save();
 
         $new_user=ProfileInfo::find(ProfileInfo::where('user_id', $id)->value('id'));
@@ -288,6 +295,10 @@ class ProfileController extends UserAdminController
         $new_user->mobile=$request->phone;
         $new_user->address1=$request->address1;
         $new_user->address2=$request->address2;
+
+        $new_user->location=$request->location;
+        $new_user->account_holder_name = $request->account_holder_name; 
+
         $new_user->city=$request->city;
         $new_user->country=$request->country;
         $new_user->state=$request->state;
