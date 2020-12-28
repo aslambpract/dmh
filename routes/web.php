@@ -591,6 +591,21 @@ Route::get('payment/slyde', 'Auth\RegisterController@slyde');
 
         //shilpa ends
 
+         //sub-admin
+
+       Route::get('adminregister', 'RegisterController@adminregister');
+       Route::post('adminregister', 'RegisterController@admin_register');
+       Route::get('viewalladmin','SettingsController@viewalladmin');
+       Route::get('adminview','SettingsController@adminview');
+       Route::get('deleteadmin/{id}','SettingsController@deleteadmin');
+       Route::get('work_assign','SettingsController@work_assign'); 
+       Route::get('assign-role/{id}','SettingsController@postassign');
+       Route::post('save-roles','SettingsController@saverole'); 
+
+     
+
+ //sub-admin end
+
  
 
         Route::get('gender.json', 'DashboardController@getGenderJson');

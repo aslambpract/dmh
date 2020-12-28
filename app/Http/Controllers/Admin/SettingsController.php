@@ -12,6 +12,9 @@ use App\Ranksetting;
 use App\Settings;
 use App\User;
 use App\Welcome;
+use App\SubadminRole;
+use App\MyRole;
+use App\ProfileInfo;
 use Auth;
 use Illuminate\Http\Request;
 use Input;
@@ -562,5 +565,96 @@ class SettingsController extends AdminController
             }
         }
         echo "ok";
+    }
+
+    public function viewalladmin(){
+
+        $title     = "Admin";
+        $sub_title = "View All Sub Admin";
+        $base      = "View All Admin";
+        $method    = "View All Admin";
+
+        $userss=User::where('register_by','=','adminregister')->get();
+// dd($userss);
+        return view('app.admin.settings.adminview', compact('title', 'sub_title', 'base', 'method','userss'));
+
+    }
+     public function deleteadmin($id){
+  
+        $deleteid=User::find($id);
+
+        //  if ($deleteid != null) {
+        // $deleteid->delete();
+
+        $profileid = ProfileInfo::find($id);
+        // $profileid->delete();
+
+
+    if ($deleteid != null) {
+        $deleteid->delete();
+       Session::flash('flash_notification', array('level' => 'success', 'message' => 'SubAdmin deleted  successfully'));
+        return redirect()->back();
+    }
+        
+        Session::flash('flash_notification', array('level' => 'success', 'message' => 'SubAdmin deleted  successfully'));
+        
+        return redirect()->back();
+// }
+    }
+
+     public function postassign($id)
+    {
+          
+        $title     = "Assign Role";
+        $sub_title = "Assign Role";
+        $base      = "Assign Role";
+        $method    = "Assign Role";
+
+        $my_roles  = MyRole::where('user_id',$id)->value('role_id');
+      
+        if(isset($my_roles)){
+        $menu_id = json_decode($my_roles, true); 
+        }else {
+        $menu_id=Null;
+        }
+
+        $roles      = SubadminRole::where('is_root','yes')->get();
+       
+        $sub_roles   = SubadminRole::where('is_root','no')->get();
+       
+        $emp_id     = $id;
+        $employee   = User::where('id',$id)->value('username'); 
+    
+        return view('app.admin.settings.postassignroles',compact('title','sub_title','base','method','roles','employee','emp_id','sub_roles','menu_id'));
+    }
+
+    public function saverole(Request $request)
+    {
+      
+        $menus=array();
+        $menu_id=$request->menu;
+   
+        if(!isset($menu_id)){
+            Session::flash('flash_notification', array('level' => 'danger', 'message' => 'Please select Roles'));
+            return Redirect::action('Admin\SettingsController@viewalladmin'); 
+        }
+        $limit=count($menu_id);
+        for ($i=0; $i <$limit ; $i++) { 
+      
+        $menus[]=SubadminRole::where('id','=',$menu_id[$i])->value('id');
+      
+        }
+     
+  
+        MyRole::where('user_id',$request->emp_id)->delete();
+        $a= MyRole::create([
+               'user_id' => $request->emp_id,
+               'role_id' => json_encode($menus)
+               ]);
+   
+
+        Session::flash('flash_notification', array('level' => 'success', 'message' => 'Roles assigned  successfully'));
+        return Redirect::action('Admin\SettingsController@viewalladmin'); 
+
     }
 }

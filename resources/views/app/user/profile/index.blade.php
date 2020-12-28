@@ -339,7 +339,7 @@
 
                                            
 
-                                          <!--   <div class="form-group">
+                                            <div class="form-group">
 
                                                 <label class="text-semibold">
 
@@ -353,7 +353,7 @@
 
                                                 </span>
 
-                                            </div> -->
+                                            </div>
 
                                             <div class="form-group">
 
@@ -415,6 +415,22 @@
 
                                                 <label class="text-semibold">
 
+                                                    {{ trans('Date of Birth') }}:
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->dateofbirth }}
+
+                                                </span>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="text-semibold">
+
                                                     {{ trans('register.phone') }}:
 
                                                 </label>
@@ -426,22 +442,127 @@
                                                 </span>
 
                                             </div>
-
                                            <!--  <div class="form-group">
 
                                                 <label class="text-semibold">
 
-                                                    {{ trans('register.wechat') }}
+                                                    {{ trans('Branch :') }}
 
                                                 </label>
 
                                                 <span class="float-right-sm">
 
-                                                    {{ $selecteduser->id }}
+                                                    {{ $selecteduser->branch }}
+
+                                                </span>
+
+                                            </div>
+                                             <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Bank Name :') }}
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->bank_name }}
+
+                                                </span>
+
+                                            </div>
+                                             <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Account Holder Name :') }}
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->account_holder_name }}
+
+                                                </span>
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Account Number :') }}
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->account_number }}
+
+                                                </span>
+
+                                            </div>
+                                             <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Id Number :') }}
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->id_number }}
+
+                                                </span>
+
+                                            </div>
+                                            <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Next of Kin' ) }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->next_of_kin }}
 
                                                 </span>
 
                                             </div> -->
+                                                   <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('register.address') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->address1 }}
+
+                                                </span>
+
+                                            </div>
+                                              <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Address 2') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->address2 }}
+
+                                                </span>
+
+                                            </div>
 
                                         </div>
 
@@ -478,7 +599,21 @@
                                                 </span>
 
                                             </div>
+                                            <div class="form-group">
 
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Region') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->state }}
+
+                                                </span>
+
+                                            </div>
                                            
 
                                             <div class="form-group">
@@ -497,21 +632,7 @@
 
                                             </div>
 
-                                            <div class="form-group">
-
-                                                <label class="text-semibold">
-
-                                                    {{ trans('register.address') }} :
-
-                                                </label>
-
-                                                <span class="float-right-sm">
-
-                                                    {{ $selecteduser->profile_info->address1 }}
-
-                                                </span>
-
-                                            </div>
+                                     
 
                                             <div class="form-group">
 
@@ -524,6 +645,51 @@
                                                 <span class="float-right-sm">
 
                                                     {{ $selecteduser->profile_info->city }}
+
+                                                </span>
+
+                                            </div>
+                                            <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Location') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->profile_info->location }}
+
+                                                </span>
+
+                                            </div>
+                                             <!-- <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Next of Kin') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->next_of_kin }}
+
+                                                </span>
+
+                                            </div> -->
+                                             <div class="form-group">
+
+                                                <label class="text-semibold">
+
+                                                    {{ trans('Any other Info') }} :
+
+                                                </label>
+
+                                                <span class="float-right-sm">
+
+                                                    {{ $selecteduser->info }}
 
                                                 </span>
 
@@ -807,7 +973,33 @@
 
 </div>
 
+<div class="col-md-4">
 
+<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('city') ? ' has-error' : '' }}">
+
+    {!! Form::label('state', trans("Region"), array('class' => 'col-form-label')) !!} {!! Form::text('state', null !==(Input::old('state')) ? Input::old('state') : $selecteduser->profile_info->state, ['class' => 'form-control','required' => 'required','id' => 'city','data-parsley-required-message' => trans("Please Enter Region"),'data-parsley-group' => 'block-1']) !!}
+
+    <div class="form-control-feedback">
+
+        <i class="icon-city text-muted"></i>
+
+    </div>
+
+    <span class="form-text">
+
+        <small>{!! trans("Your Region") !!}</small>
+
+        @if ($errors->has('state'))
+
+        <strong>{{ $errors->first('state') }}</strong>
+
+        @endif
+
+    </span>
+
+</div>
+
+</div>
 
  
 <div class="col-md-4">
@@ -839,6 +1031,7 @@
 </div>
 
 </div>
+
 
 <!-- end row -->
 
@@ -1013,6 +1206,71 @@
 </div>
 
 </div>
+
+<div class="row">
+
+<!-- begin col-6 -->
+
+<div class="col-md-6">
+
+<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('next_of_kin') ? ' has-error' : '' }}">
+
+      {!! Form::label('Location', trans("Location"), array('class' => 'col-form-label')) !!} {!! Form::text('location', null !==(Input::old('location')) ? Input::old('location') : $selecteduser->profile_info->location, ['class' => 'form-control','id' => 'location','data-parsley-required-message' => trans("Please Enter Location"),'data-parsley-group' => 'block-1']) !!}
+
+    <div class="form-control-feedback">
+
+        <i class=" icon-mobile3 text-muted"></i>
+
+    </div>
+
+    <span class="form-text">
+
+        <small>{!! trans("Enter Your Location") !!}</small>
+
+        @if ($errors->has('location'))
+
+        <strong>{{ $errors->first('location') }}</strong>
+
+        @endif
+
+    </span>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="required form-group has-feedbackX has-feedback-leftx {{ $errors->has('info') ? ' has-error' : '' }}">
+
+   {!! Form::label('email', trans("Any Other Info"), array('class' => 'col-form-label')) !!} {!! Form::text('info', Input::old('info'), ['class' => 'form-control','required' => 'required','id' => 'info','data-parsley-required-message' => trans("Any Other Info"),'data-parsley-group' => 'block-1']) !!}
+
+    <div class="form-control-feedback">
+
+        <i class="icon-mail5 text-muted"></i>
+
+    </div>
+
+    <span class="form-text">
+
+        <small>{!! trans("Any Other Info") !!}</small>
+
+        @if ($errors->has('info'))
+
+        <strong>{{ $errors->first('info') }}</strong>
+
+        @endif
+
+    </span>
+
+</div>
+
+</div>
+
+</div>
+
+
+
 
  <div class="text-right">
 
@@ -1388,7 +1646,7 @@
 
         <div class="row text-center">
 
-           <!--  <div class="col">
+            <div class="col">
 
                 <p>
 
@@ -1410,7 +1668,7 @@
 
                 </span>
 
-            </div> -->
+            </div>
 
             <div class="col">
 

@@ -119,7 +119,95 @@
         </div>
 
 
+ @if(Auth::user()->id >1)
+        <!-- Main navigation -->
 
+        <div class="card card-sidebar-mobile">
+
+
+
+            <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                @if(true==false)
+
+                @include('app.admin.partials.menu')
+
+                @endif
+
+                <li class="nav-item-header">
+
+                    <div class="text-uppercase font-size-xs line-height-xs">{{trans('menu.main')}}</div> 
+
+                </li>
+            <!--       <li class="nav-item {{set_active('admin/dashboard')}}">
+                    <a class="nav-link" href="{{url('admin/dashboard')}}" class="nav-link active">
+                        <svg class="feather">
+                            <use xlink:href="/backend/icons/feather/feather-sprite.svg#home" />
+                        </svg>
+                        <span class="text">{{trans('menu.dashboard')}}</span>
+                    </a>
+                </li> -->
+
+                
+                 @foreach($role_names as $item)
+                 @if($item->id != '33')
+                            @if($item->is_root == 'yes')
+                                @if($item->main_role == 1)  
+                                <li class="nav-item nav-item-submenu  @foreach($role_names as $sub_key=>$item_sub)
+                                    @if(isset($item_sub->link))
+                                        @if( $item_sub->parent_id == $item->id)
+                                            {{set_active($item_sub->link)}}
+                                        @endif
+                                    @endif
+                                    @endforeach" >
+                                @else
+                                    <li class="nav-item {{set_active($item->link)}}" >
+                                @endif
+                                    <a class="nav-link" href="{{ url($item->link) }}" class="nav-link active" >
+                                    <i class="{{$item->icon}}"></i>
+                                      <span class="text">{{trans($item->role_name)}}</span>
+                            @endif
+
+                            <!-- @if($item->main_role == 1)<b class="caret pull-right"></b> @endif -->
+
+                           </a>
+
+                        @if($item->is_root == 'yes') 
+
+                            <ul class="nav nav-group-sub " >
+                                @foreach($role_names as $sub_key=>$item_sub) 
+                                    @if($item_sub->parent_id == $item->id)   
+                                                    
+                                        <li class="nav-item  {{set_active($item_sub->link)}}"><a class="nav-link" href="{{ url($item_sub->link) }}"> {{trans($item_sub->role_name)}} </a></li>
+                                       <?php  unset($role_names[$sub_key]) ; ?>
+                                    @endif
+                                @endforeach
+                            </ul>
+
+
+                        @endif
+                    </li>
+                   @endif  
+                @endforeach
+                @if(in_array('33', $myrole_parent_data))
+                    @include('app.admin.partials.slidegenealogy')
+                @endif
+             
+                 <li class="nav-item {{set_active('auth/logout')}}">
+                    <a class="nav-link" href="{{ url('/logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        <svg class="feather">
+                            <use xlink:href="/backend/icons/feather/feather-sprite.svg#log-out" />
+                        </svg>
+                        <span class="text"> {{trans('menu.logout')}}</span></a>
+                </li>
+
+                    </ul>
+            </li>
+        </ul>
+   
+</div>
+@else
 
 
 
@@ -590,7 +678,32 @@
 
                 </li> -->
 
+                 <li class="nav-item-header">
+                    <div class="text-uppercase font-size-xs line-height-xs">Sub Admin</div>
+                   
+                </li>
+                <li
+                    class="nav-item nav-item-submenu {{set_active('admin/users')}}{{set_active('admin/users/*')}}{{set_active('admin/useraccounts')}}{{set_active('admin/register')}}{{set_active('admin/lead')}}">
+                    <a href="javascript:void(0);" class="nav-link">
+                        <svg class="feather">
+                            <use xlink:href="/backend/icons/feather/feather-sprite.svg#users" />
+                        </svg>
+                        <span class="text"> Sub Admin </span>
+                    </a>
+                    <ul class="nav nav-group-sub "
+                        style="{{set_active_display('admin/users')}}{{set_active_display('admin/useraccounts')}}{{set_active_display('admin/lead')}}{{set_active_display('admin/register')}}{{set_active_display('admin/approve_payments')}}{{set_active_display('admin/users/*')}}"
+                        data-submenu-title="Member Management">
 
+                     
+                        <li class="nav-item {{set_active('admin/adminregister')}}"><a class="nav-link"
+                                href="{{url('admin/adminregister')}}">Sub Admin</a></li>
+
+                       
+                        <li class="nav-item {{set_active('admin/viewalladmin')}}"><a class="nav-link"
+                                href="{{url('admin/viewalladmin')}}">View All</a></li>
+                     
+                    </ul>
+                </li>
 
 
 
@@ -1201,7 +1314,7 @@
 
         </div>
 
-        <!-- /main navigation -->
+    @endif <!-- /main navigation -->
 
     </div>
 

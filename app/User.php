@@ -542,13 +542,13 @@ class User extends Authenticatable
             'transaction_pass' => 123456,
             'password'         => bcrypt($data['password']),
             'confirmation_code' => $data['confirmation_code'],
-            'id_number'        => $data['id_number'],
-            'account_number'   => $data['account_number'],
-            'branch'           => $data['branch'],
-            'next_of_kin'      => $data['next_of_kin'],
+            // 'id_number'        => $data['id_number'],
+            // 'account_number'   => $data['account_number'],
+            // 'branch'           => $data['branch'],
+            // 'next_of_kin'      => $data['next_of_kin'],
             'info'             => $data['info'],
             'date_of_birth'    => $data['date_of_birth'],
-            'bank_name'        => $data['bank_name'],
+            // 'bank_name'        => $data['bank_name'],
           //  'bitcoin_address' =>$data['bitcoin_address'],
            
                 
@@ -563,7 +563,7 @@ class User extends Authenticatable
              'account_no'   => "001",            
              'approved'   => "approved",            
             ]);  
-
+          
 
         /**
          * Creates Profile info for the created User
@@ -587,7 +587,7 @@ class User extends Authenticatable
 
 
          
-
+           
  
          /**
          * Get sponsor tree id where there is a vacant under specified sponsor

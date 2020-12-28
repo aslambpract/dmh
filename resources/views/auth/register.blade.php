@@ -254,31 +254,195 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <!-- begin col-6 -->
-                    <div class="col-md-6">
-                        <div class="required form-group {{ $errors->has('branch') ? ' has-error' : '' }}">
-                            {!! Form::label('name', trans("Branch"), array('class' => 'col-form-label')) !!} {!! Form::text('branch', Input::old('branch'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Branch"),'data-parsley-group' => 'block-1']) !!}
-                            <span class="form-text">
-                                <small>{!!trans("Enter Your Branch") !!}</small>
-                                @if ($errors->has('branch'))
-                                <strong>{{ $errors->first('branch') }}</strong>
-                                @endif
-                            </span>
-                        </div>
-                    </div>
+                <span class="form-text">
+                    <small>{!!trans("all.select_your_gender_from_list") !!}</small>
+                    @if ($errors->has('gender'))
+                    <strong>{{ $errors->first('gender') }}</strong>
+                    @endif
+                </span>
+            </div>
+        </div>
+        
+    </div>
 
-                    <div class="col-md-6">
-                        <div class="required form-group {{ $errors->has('account_number') ? ' has-error' : '' }}">
-                            {!! Form::label('name', trans("Account Number"), array('class' => 'col-form-label')) !!} {!! Form::text('account_number', Input::old('account_number'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Account Number"),'data-parsley-group' => 'block-1']) !!}
-                            <span class="form-text">
-                                <small>{!!trans("Enter Your Account Number") !!}</small>
-                                @if ($errors->has('account_number'))
-                                <strong>{{ $errors->first('Account Number') }}</strong>
-                                @endif
-                            </span>
-                        </div>
-                    </div>
+     <div class="row">
+
+  <!--   <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('id_number') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("ID Number"), array('class' => 'col-form-label')) !!} {!! Form::text('id_number', Input::old('id_number'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("ID Number"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your ID Number") !!}</small>
+                    @if ($errors->has('id_number'))
+                    <strong>{{ $errors->first('id_number') }}</strong>
+                    @endif
+                </span>
+            </div> -->
+    <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('info') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Any other info you want to add"), array('class' => 'col-form-label')) !!} {!! Form::text('info', Input::old('info'), ['class' => 'form-control','data-parsley-required-message' => trans("Info"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter other Information") !!}</small>
+                    @if ($errors->has('info'))
+                    <strong>{{ $errors->first('info') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+              
+    
+          
+
+            </div>
+      <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Date of Birth"), array('class' => 'col-form-label')) !!} {!! Form::text('date_of_birth', Input::old('date_of_birth'), ['class' => 'form-control daterange-single ','id' => 'dob','required' => 'required','data-parsley-required-message' => trans("Date of Birth"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your Date of birth") !!}</small>
+                    @if ($errors->has('date_of_birth'))
+                    <strong>{{ $errors->first('date_of_birth') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+            
+        </div>  
+
+      <!--   <div class="row">
+
+    <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('branch') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Branch"), array('class' => 'col-form-label')) !!} {!! Form::text('branch', Input::old('branch'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Branch"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your Branch") !!}</small>
+                    @if ($errors->has('branch'))
+                    <strong>{{ $errors->first('branch') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+      <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('account_number') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Account Number"), array('class' => 'col-form-label')) !!} {!! Form::text('account_number', Input::old('account_number'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Account Number"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter Your Account Number") !!}</small>
+                    @if ($errors->has('account_number'))
+                    <strong>{{ $errors->first('Account Number') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+            
+        </div> 
+
+       <div class="row">
+
+    <div class="col-md-6">
+           <div class="required form-group {{ $errors->has('bank_name') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Bank Name"), array('class' => 'col-form-label')) !!} {!! Form::text('bank_name', Input::old('bank_name'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Bank Name"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Bank Name") !!}</small>
+                    @if ($errors->has('bank_name'))
+                    <strong>{{ $errors->first('bank_name') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+    
+          
+
+            </div>
+      <div class="col-md-6">
+            <div class="required form-group {{ $errors->has('next_of_kin') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Next of kin"), array('class' => 'col-form-label')) !!} {!! Form::text('next_of_kin', Input::old('next_of_kin'), ['class' => 'form-control','required' => 'required','data-parsley-required-message' => trans("Next of kin"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Next of Kin") !!}</small>
+                    @if ($errors->has('next_of_kin'))
+                    <strong>{{ $errors->first('next_of_kin') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+    
+          
+
+            </div>
+            
+        </div>    -->
+
+    <!--   <div class="row">
+
+    <div class="col-md-12">
+            <div class="required form-group {{ $errors->has('info') ? ' has-error' : '' }}">
+                {!! Form::label('name', trans("Any other info you want to add"), array('class' => 'col-form-label')) !!} {!! Form::text('info', Input::old('info'), ['class' => 'form-control','data-parsley-required-message' => trans("Info"),'data-parsley-group' => 'block-0']) !!}
+                <span class="form-text">
+                    <small>{!!trans("Enter other Information") !!}</small>
+                    @if ($errors->has('info'))
+                    <strong>{{ $errors->first('info') }}</strong>
+                    @endif
+                </span>
+            </div>
+    
+          
+
+            </div>
+  
+            
+        </div>                     -->
+    <div class="row">
+        <!-- begin col-6 -->
+        
+        <div class="col-md-6">
+            <div class="required form-group-feedback-right {{ $errors->has('email') ? ' has-error' : '' }}">
+                {!! Form::label('email', trans("register.email"), array('class' => 'col-form-label')) !!} {!! Form::email('email', Input::old('email'), ['class' => 'form-control','required' => 'required','id' => 'email','data-parsley-required-message' => trans("all.please_enter_email"),'data-parsley-group' => 'block-0','data-parsley-email'=>"null"]) !!}
+                <div class="form-control-feedback">
+                    <i class="icon-mail5 text-muted"></i>
+                </div>
+                <span class="form-text">
+                    <small>{!!trans("all.type_your_email") !!}</small>
+                    @if ($errors->has('email'))
+                    <strong>{{ $errors->first('email') }}</strong>
+                    @endif
+                </span>
+            </div>
+        </div>
+         <div class="col-md-6">
+            <div class="required form-group-feedback-right {{ $errors->has('username') ? ' has-error' : '' }}">
+                {!! Form::label('username', trans("register.username"), array('class' => 'col-form-label')) !!} {!! Form::text('username', Input::old('username'), ['class' => 'form-control','required' => 'required','id' => 'username','data-parsley-required-message' => trans("all.please_enter_username"),'data-parsley-type' => 'alphanum','data-parsley-group' => 'block-0','data-parsley-username'=>"null"]) !!}
+                <div class="form-control-feedback">
+                    <i class="icon-user-check text-muted"></i>
+                </div>
+                <span class="form-text">
+                    <small>{!!trans("all.desired_username_used_to_login") !!}</small>
+                    @if ($errors->has('username'))
+                    <strong>{{ $errors->first('username') }}</strong>
+                    @endif
+                </span>
+            </div>
+        </div>
+    </div> 
+     
+    
+    <div class="row"> 
+        <div class="col-md-6">
+            <div class="passy required form-group-feedback-right {{ $errors->has('password') ? ' has-error' : '' }}">
+                {!! Form::label('password', trans("register.password"), array('class' => 'col-form-label')) !!}
+                <div class="form-group label-indicator-absolute">
+                    {!! Form::password('password', ['class' => 'form-control pwstrength','required' => 'required','id' => 'password','data-parsley-required-message' => trans("all.please_enter_password"),'data-parsley-minlength'=>'6','data-parsley-group' => 'block-0']) !!}
+                    <span class="label password-indicator-label-abs"></span> 
+                <div class="form-control-feedback">
+                    <i class="icon-user-check text-muted"></i>
+
                 </div>
                 <div class="row">
                     <div class="col-md-6">
