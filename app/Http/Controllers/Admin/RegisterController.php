@@ -56,6 +56,10 @@ use App\Voucher;
 
 use App\PendingTransactions;
 
+use App\SubadminRole;
+
+use App\MyRole;
+
 use Auth;
 
 use CountryState;
@@ -106,6 +110,7 @@ use App\Models\ControlPanel\Options;
 
 use Rave;
 
+use Artisan;
 
 
 
@@ -1816,6 +1821,86 @@ $joiningfee = Packages::value('amount');
 
     }
 
+      public function adminregister()
+    {
+       
+
+        $title     = "SubAdmin";
+        $sub_title = "Create New SubAdmin";
+        $base      = "Create New SubAdmin";
+        $method    = "Create New SubAdmin";
+            
+        return view('app.admin.register.adminregister', compact('title', 'sub_title', 'base', 'method'));
+    }
+     public function admin_register(Request $request){
+                // dd($request->all());
+                $data = array();
+                $data['firstname'] = $request->firstname;        
+                $data['phone']     = $request->phone;
+                $data['email']     = $request->email;
+                $data['username']  = $request->username;
+                $data['password']  = $request->password;
+                $data['reg_type']  = 'adminregister';
+
+
+                    
+                $messages = [
+                    'unique'   => 'The :attribute already existis in the system',
+                    'exists'   => 'The :attribute not found in the system',   
+                ];
+                $validator = Validator::make($data, [
+                    'email'    => 'required|unique:users,email|email|max:255',
+                    'username' => 'required|unique:users,username|alpha_num|max:255',
+                    'password' => 'required|min:6',
+                ]);
+
+                if ($validator->fails()) {
+                        return redirect()->back()->withErrors($validator)->withInput();
+                } else {
+
+                        DB::beginTransaction();
+                            $usercode = self::RandomString();
+                           
+                            $userresult=User::create([
+                                'name'             => $data['firstname'],
+                                'email'            => $data['email'],           
+                                'username'         => $data['username'],
+                                'phone'            => $data['phone'],  
+                                'register_by'      => $data['reg_type'],
+                                'password'         => bcrypt($data['password']), 
+                               
+                              
+                            ]);
+                              
+                          $update_admin=User::where('username','=', $userresult->username)->update(['admin'=>'1']);
+                         
+                          $userProfile=ProfileInfo::create([
+                                'user_id'   => $userresult->id,
+                                'mobile'    => $data['phone'],
+                                'country'   =>'US',        //can be change from profile edit option
+                            ]);
+
+                            #add existing roles to subadmin
+                            $not_ids = [4,5,23,24,25,33,34,35,36,37,38,39,40];//default off
+                            $sub_roles   = SubadminRole::where('is_root','no')
+                                                        ->whereNotIn('id', $not_ids)
+                                                        ->pluck('id');
+                            MyRole::create([
+                            'user_id' => $userresult->id,
+                            'role_id' => json_encode($sub_roles)
+                            ]);
+   
+                        // activity('new admin register')->log($data['username'].' '.'Joined in system as Sub Admin'); 
+                        Activity::add("Joined as $userresult->username","Joined in system as Sub Admin");
+           
+                        DB::commit();
+
+                        Artisan::call('lead:AddtoBulder') ;
+       
+                        Session::flash('flash_notification', array('level' => 'success', 'message' =>'Your registration completed successfully'));
+                        return redirect('admin/assign-role/'.$userresult->id);
+                }
+    }
 
 
     public function ipayipn(Request $request)

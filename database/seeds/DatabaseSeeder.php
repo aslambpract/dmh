@@ -143,6 +143,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('StagesTableSeeder');
         $this->call('TreeTable6n18Seeder');
+        $this->call('SubadminRoleTableSeeder'); 
 
 
 

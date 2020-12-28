@@ -48,14 +48,15 @@
 
 
            <ul class="navbar-nav">
-
+        
+           @if(Auth::user()->id==1)
                <li class="nav-item dropdown currency-switch">
                    <a class="navbar-nav-link dropdown-toggle caret-0 d-flex" href="{{url('admin/control-panel')}}">
                    <svg class="feather d-inline-block mr-2" style="height: 18px;"> <use xlink:href="/backend/icons/feather/feather-sprite.svg#settings"></use></svg>
                        {{trans('menu.control_panel')}}
                    </a>
                </li>
-
+          @endif
                @include('app.admin.partials.developer-panel')
 
 

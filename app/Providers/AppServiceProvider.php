@@ -41,6 +41,8 @@ use App\Tree_Table15;
 use App\Tree_Table16;
 use App\Tree_Table17;
 use App\Tree_Table18;
+use App\SubadminRole;
+use App\MyRole; 
 
 
 class AppServiceProvider extends ServiceProvider
@@ -232,6 +234,40 @@ class AppServiceProvider extends ServiceProvider
 
            
             ->with('activities', $activities);
+            if(Auth::user()->id >1){
+
+                $menu=SubadminRole::orderby('id','asc')->where('id','>',1)->get();
+                $emp_id=Auth::user()->id;
+                $assigned_roles = MyRole::where('user_id',$emp_id)->distinct()->orderby('id','asc')->get();
+                $asignd_roles= MyRole::where('user_id',$emp_id)->pluck('role_id');
+                $data = json_decode($asignd_roles, true);
+              
+                if($data)
+                $myrole_data=json_decode($data[0]);    
+                $data = json_decode($data[0]);
+                $sub_list = json_decode($data[0]);
+                $mainmenu_id=SubadminRole::whereIn('id', $data)->pluck('parent_id');
+                $myrole_parent_data = json_decode( $mainmenu_id, true);
+
+                // $limit=count($data);
+                // $menu_id=array();
+                // $mainmenu_id=array();
+
+                // for ($i=0; $i < $limit ; $i++) { 
+                //         $menu_id[]=$data[$i]->id;
+                //         $mainmenu_id[]=$data[$i]->parent_id;
+                // }
+                $role_name=SubadminRole::select('id','role_name','link','is_root','parent_id','main_role','icon','submenu_count')
+                            ->whereIn('id', $data)
+                            ->orwhereIn('id', $mainmenu_id)
+                            ->orderby('id','asc')->get();
+                $sub_list=$data;
+               
+                View::share('role_names', $role_name);
+                View::share('myrole_parent_data', $myrole_parent_data);
+                View::share('sub_list', $sub_list);
+
+            }
         });
 
 
