@@ -306,6 +306,7 @@ Route::get('payment/slyde', 'Auth\RegisterController@slyde');
 
 
  Route::get('lock', 'CloudMLMController@performLogoutToLock');
+ Route::get('MoMo', 'CloudMLMController@MoMo');
 
 
 
