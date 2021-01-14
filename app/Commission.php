@@ -6,6 +6,7 @@ use DB;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\BinaryCommissionSettings;
 
 class Commission extends Model
 {
@@ -161,21 +162,21 @@ class Commission extends Model
        
         $package_amount=Packages::find($package_id)->fee;
         $account_id=UserAccounts::where('user_id',$from_id)->value('id');
-        
+        $refferal_bonus=BinaryCommissionSettings::where('id','1')->value('refferal');
         
             $commision = self::create([
                   'user_id'        => $user_id,
                   'account_id'     => $user_id,
                   'from_id'        => $from_id,
-                  'total_amount'   =>'25',
+                  'total_amount'   => $refferal_bonus,
                   'tds'            => '0',
                   'service_charge' => '0',
-                  'payable_amount' => '25',
+                  'payable_amount' => $refferal_bonus,
                   'payment_type'   => 'refferal_bonus',
                   'payment_status' => 'Yes',
             ]);
 
-            User::upadteUserBalance($user_id, '25');
+            User::upadteUserBalance($user_id,$refferal_bonus);
              /* charge */
 
                 $charge=Packages::find($package_id)->charge;
