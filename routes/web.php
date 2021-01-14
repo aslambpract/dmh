@@ -2277,6 +2277,7 @@ Route::get('payment/slyde', 'Auth\RegisterController@slyde');
          *
 
          */
+         Route::get('control-panel/update_refferal_bonus', 'ControlPanel\PackageManager\PackageManagerControlPanelController@update_refferal_bonus');
 
         Route::get('control-panel/package-manager', 'ControlPanel\PackageManager\PackageManagerControlPanelController@index');
 

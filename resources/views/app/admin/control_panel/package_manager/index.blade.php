@@ -31,9 +31,39 @@
         {{-- Content --}}
 
         @section('main')
+<form action="{{URL::to('admin/control-panel/update_refferal_bonus')}}" method="get">
+<div id="refferal">
+    <div class="card card-white">
+        <div class="card-header pb-1 pt-1 bg-dark" style="">
+            <h5 class="mb-0 font-weight-light">
+               Refferal Settings
+            </h5>
+             <div class="text-right d-lg-none w-100">
+                    <a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a> 
+                </div>
+        </div>
+        <div class="card-body bordered">
+        <div class="form-group row">
 
+        <label class="col-form-label col-lg-5">Refferal Bonus</label>
 
+         <div class="col-lg-6">
 
+       
+        <div class="input-group">
+            <input class="form-control" type="text" name="refferal_bonus" value="{{$refferal_bonus}}" >
+                                 
+                                 
+         </div>
+                                    
+        </div>
+           <button class="btn bg-dark Content-center" type="submit">Save</button>  
+</div>   
+
+        </div>
+    </div>
+</div>
+</form>
 <div id="settings-page">
     <div class="card card-white">
         <div class="card-header pb-1 pt-1 bg-dark" style="">

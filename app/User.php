@@ -654,8 +654,8 @@ class User extends Authenticatable
 
             $placement_id = $tree->placement_id ;
 
-
-            Commission::registerFee($useraccounts->id,1);
+         
+            Commission::registerFee($useraccounts->id,1,$sponsor_id);
 
             $vaccant_count=Tree_Table::where('placement_id',$placement_id)->where('type','vaccant')->count();
 

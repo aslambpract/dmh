@@ -11,7 +11,7 @@ class BinaryCommissionSettings extends Model
 
     protected $table = 'binary_commission_settings';
 
-    protected $fillable = ['period','type','pair_value','pair_commission','pair_commission_percent','binary_cap','ceiling'];
+    protected $fillable = ['period','type','pair_value','pair_commission','pair_commission_percent','binary_cap','ceiling','refferal'];
 
     public static function BinaryCommsion($binary, $user, $period)
     {

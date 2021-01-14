@@ -155,7 +155,7 @@ class Commission extends Model
         
     }
 
-     public static function registerFee($from_id,$package_id)
+     public static function registerFee($from_id,$package_id,$user_id="")
     {
        
        
@@ -163,20 +163,19 @@ class Commission extends Model
         $account_id=UserAccounts::where('user_id',$from_id)->value('id');
         
         
-            // $commision = self::create([
-            //       'user_id'        => 1,
-            //       'account_id'     => 1,
-            //       'from_id'        => $from_id,
-            //       'total_amount'   => $package_amount,
-            //       'tds'            => '0',
-            //       'service_charge' => '0',
-            //       'payable_amount' => $package_amount,
-            //       'payment_type'   => 'register_fee',
-            //       'payment_status' => 'Yes',
-            // ]);
+            $commision = self::create([
+                  'user_id'        => $user_id,
+                  'account_id'     => $user_id,
+                  'from_id'        => $from_id,
+                  'total_amount'   =>'25',
+                  'tds'            => '0',
+                  'service_charge' => '0',
+                  'payable_amount' => '25',
+                  'payment_type'   => 'refferal_bonus',
+                  'payment_status' => 'Yes',
+            ]);
 
-            // User::upadteUserBalance(1, $package_amount);
-
+            User::upadteUserBalance($user_id, '25');
              /* charge */
 
                 $charge=Packages::find($package_id)->charge;
