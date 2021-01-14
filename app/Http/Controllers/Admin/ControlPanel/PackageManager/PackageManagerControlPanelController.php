@@ -14,6 +14,7 @@ use App\Settings;
 use App\Packages;
 use App\User;
 use App\Welcome;
+use App\BinaryCommissionSettings;
 use Auth;
 use Illuminate\Http\Request;
 use Input;
@@ -43,8 +44,8 @@ class PackageManagerControlPanelController extends AdminController
         $platinum = Packages::where('stage',4)->get();
         $diamond  = Packages::where('stage',5)->get();
         $diamond1 = Packages::where('stage',6)->get();
-       
-        return view('app.admin.control_panel.package_manager.index', compact('title', 'sub_title', 'base', 'method', 'packages','bronze','silver','gold','platinum','diamond','diamond1'));
+        $refferal_bonus=BinaryCommissionSettings::where('id','1')->value('refferal');
+        return view('app.admin.control_panel.package_manager.index', compact('title', 'sub_title', 'base', 'method', 'packages','bronze','silver','gold','platinum','diamond','diamond1','refferal_bonus'));
     }
 
 
@@ -60,6 +61,23 @@ class PackageManagerControlPanelController extends AdminController
         return view('app.admin.control_panel.package_manager.view_edit', compact('title', 'sub_title', 'base', 'method', 'package'));
     }
 
+    public function update_refferal_bonus(Request $request){
+
+           $validator = Validator::make($request->all(), [
+                    'refferal_bonus' => 'required|numeric',
+                   
+                ]);
+               
+                if ($validator->fails()) {
+                    return redirect()->back()->withErrors($validator);
+                }
+
+          $update_refferal_bonus=BinaryCommissionSettings::where('id','1')->update(['refferal'=>$request->refferal_bonus]);
+
+           Session::flash('flash_notification', array('level' => 'success', 'message' => trans('Successfully Updated Refferal Bonus!')));
+
+             return redirect('admin/control-panel/package-manager');
+    }
 
     public function update(Request $request, $id)
     {
