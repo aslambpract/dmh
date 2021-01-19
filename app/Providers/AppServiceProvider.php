@@ -241,8 +241,9 @@ class AppServiceProvider extends ServiceProvider
                 $assigned_roles = MyRole::where('user_id',$emp_id)->distinct()->orderby('id','asc')->get();
                 $asignd_roles= MyRole::where('user_id',$emp_id)->pluck('role_id');
                 $data = json_decode($asignd_roles, true);
-              
-                if($data)
+               
+                if($data){
+
                 $myrole_data=json_decode($data[0]);    
                 $data = json_decode($data[0]);
                 $sub_list = json_decode($data[0]);
@@ -266,6 +267,7 @@ class AppServiceProvider extends ServiceProvider
                 View::share('role_names', $role_name);
                 View::share('myrole_parent_data', $myrole_parent_data);
                 View::share('sub_list', $sub_list);
+               } 
 
             }
         });
