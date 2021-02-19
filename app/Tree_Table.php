@@ -509,27 +509,47 @@ class Tree_Table extends Model
             return 1 ;
     }
 
-      public static function maximum_level($user_id,$max)
-   {
+   //    public static function maximum_level($user_id,$max)
+   // {
 
-     if($max==1)
-     {
-        $max="";
-     }
+   //   if($max==1)
+   //   {
+   //      $max="";
+   //   }
 
-      $id=DB::table('tree_table'.$max)->where('user_id',$user_id)->count();
+   //    $id=DB::table('tree_table'.$max)->where('user_id',$user_id)->count();
      
      
-            if($id == 0){  
+   //          if($id == 0){  
             
-           $maxa=$max-1;
-          return self::maximum_level($user_id,$maxa);
+   //         $maxa=$max-1;
+   //        return self::maximum_level($user_id,$maxa);
          
-     }
+   //   }
 
 
 
-      return $max;        
+   //    return $max;        
+
+   // }
+
+    public static function maximum_level($user_id,$max){
+    
+    if($max == 1){
+        $max="";
+    }
+    $count=DB::table('tree_table'.$max)->where('user_id',$user_id)->count();
+
+    if($count == 0 && $max !=""){
+
+        $max = $max-1;
+        return self::maximum_level($user_id,$max);
+
+    }else{
+            return $max;  
+
+    }
+
 
    }
 }
