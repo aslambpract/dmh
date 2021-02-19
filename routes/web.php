@@ -85,6 +85,38 @@ use Vsch\TranslationManager\Translator;
 
 
 
+Route::get('email/test/payoutss', function () {
+
+
+    // Auth::loginUsingId(1);
+    // die();
+
+    $user_data_array['email'] ='shabintc@bpract.com';
+
+    $user_data_array['company_name'] ='RoyalReturns';
+
+    $user_data_array['name'] ='shabin';
+
+    $user_data_array['lastname'] ='tc';
+
+    $user_data_array['username'] ='shabintc@bpract.com';
+
+    $user_data_array['firstname'] ='tc';
+
+    $user_data_array['password'] ='230';
+
+   
+
+    $job=App\Jobs\SendEmail::dispatch($user_data_array, 'shabintc@bpract.com','shabintc', 'payout', 12)
+        ->delay(Carbon::now()->addSeconds(10)); 
+
+    // SendEmail::dispatch($user_data_array,'anitta@bpract.com','anitta', 'rank_acheived', 12);
+
+  
+
+ }) ;
+
+
 
 
 /*
