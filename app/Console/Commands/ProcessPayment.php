@@ -64,7 +64,7 @@ class ProcessPayment extends Command
 
         $pending_payments=PendingTransactions::where('payment_type', '<>', 'store_purchase')
                                              ->where('payment_status', 'complete')
-                                             ->where('approved_by', 'manual')
+                                             // ->where('approved_by', 'manual')
                                              //->where('id', '>',5830)
                                              ->get();
 

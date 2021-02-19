@@ -104,7 +104,7 @@ console.log('custom.js file for site only');
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vincy/DMH/resources/assets/frontend/frontend.js */"./resources/assets/frontend/frontend.js");
+module.exports = __webpack_require__(/*! /home/dmhuser/backoffice/resources/assets/frontend/frontend.js */"./resources/assets/frontend/frontend.js");
 
 
 /***/ })

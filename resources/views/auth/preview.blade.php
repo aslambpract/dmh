@@ -18,10 +18,8 @@
             <strong>
                 {{$userresult->username}} ({{$userresult->name}} {{$userresult->lastname}})
             </strong>
-            {{trans('register.in')}}!
-            <strong>
-                {{($userresult->tree_table->leg==='L'? 'Left' : 'Right' )}} leg
-            </strong>
+            
+           
             {{trans('register.under_sponsor')}}!,
             <strong>
                 {{$sponsorUserName}}
@@ -90,14 +88,7 @@
                                     {{$sponsorUserName}}
                                 </td>
                             </tr>
-                            <tr>
-                                <th>
-                                    {{trans('register.position') }}
-                                </th>
-                                <td>
-                                    {{($userresult->tree_table->leg==='L'? 'Left' : 'Right' )}}
-                                </td>
-                            </tr>
+                          
                             <tr>
                                 <th>
                                     {{trans('register.package') }}

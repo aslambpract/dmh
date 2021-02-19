@@ -190,7 +190,7 @@ return [
         Vsch\TranslationManager\ManagerServiceProvider::class,
         Vsch\TranslationManager\TranslationServiceProvider::class,
         Torann\Currency\CurrencyServiceProvider::class,
-        App\Providers\DropboxFilesystemServiceProvider::class,
+        // App\Providers\DropboxFilesystemServiceProvider::class,
         // Backup\BackupServiceProvider::class,
 
         // Yajra\Datatables\DatatablesServiceProvider::class,

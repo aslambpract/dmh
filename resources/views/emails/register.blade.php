@@ -32,9 +32,10 @@
 
                 <tr>
 
-                  <td style="padding:22px 30px 18px 30px; border-bottom:2px solid #1e2064"><img src="{{ url('files/images/icons/logo-old.png') }}" height="60" alt="Dream makers home"><p>Dream makers home</p></td>   
+                 <!--  <td style="padding:22px 30px 18px 30px; border-bottom:2px solid #1e2064"><img src="{{ url('files/images/icons/logo-old.png') }}" height="60" alt="Dream makers home"><p>Dream makers home</p></td> -->
 
-
+                  <td style="padding:22px 30px 18px 30px; border-bottom:2px solid #1e2064"><img src="{{ url('img/cache/original/dmhlogo.png') }}" height="60" alt="Dream makers home"><p>Dream makers home</p></td>   
+               
                 </tr>
 
             </thead>

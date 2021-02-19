@@ -9,8 +9,8 @@
   array (
     'name' => 'Dream Makers Home',
     'env' => 'local',
-    'debug' => true,
-    'url' => 'http://dmh.cloudmlm.online/',
+    'debug' => false,
+    'url' => 'https://office.thedreammakershome.com/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'en',
@@ -54,21 +54,20 @@
       31 => 'Vsch\\TranslationManager\\ManagerServiceProvider',
       32 => 'Vsch\\TranslationManager\\TranslationServiceProvider',
       33 => 'Torann\\Currency\\CurrencyServiceProvider',
-      34 => 'App\\Providers\\DropboxFilesystemServiceProvider',
-      35 => 'Yajra\\DataTables\\DataTablesServiceProvider',
-      36 => 'Yajra\\DataTables\\ButtonsServiceProvider',
-      37 => 'HTMLMin\\HTMLMin\\HTMLMinServiceProvider',
-      38 => 'Barryvdh\\Debugbar\\ServiceProvider',
-      39 => 'Matriphe\\Larinfo\\LarinfoServiceProvider',
-      40 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
-      41 => 'KingFlamez\\Rave\\RaveServiceProvider',
-      42 => 'Laravel\\Passport\\PassportServiceProvider',
-      43 => 'App\\Providers\\MailConfigServiceProvider',
-      44 => 'Spatie\\Backup\\BackupServiceProvider',
-      45 => 'App\\Providers\\GoogleDriveServiceProvider',
-      46 => 'Cohensive\\Embed\\EmbedServiceProvider',
-      47 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-      48 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+      34 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+      35 => 'Yajra\\DataTables\\ButtonsServiceProvider',
+      36 => 'HTMLMin\\HTMLMin\\HTMLMinServiceProvider',
+      37 => 'Barryvdh\\Debugbar\\ServiceProvider',
+      38 => 'Matriphe\\Larinfo\\LarinfoServiceProvider',
+      39 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
+      40 => 'KingFlamez\\Rave\\RaveServiceProvider',
+      41 => 'Laravel\\Passport\\PassportServiceProvider',
+      42 => 'App\\Providers\\MailConfigServiceProvider',
+      43 => 'Spatie\\Backup\\BackupServiceProvider',
+      44 => 'App\\Providers\\GoogleDriveServiceProvider',
+      45 => 'Cohensive\\Embed\\EmbedServiceProvider',
+      46 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+      47 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     ),
     'aliases' => 
     array (
@@ -176,12 +175,12 @@
         array (
           'include' => 
           array (
-            0 => '/home/vincy/DMH',
+            0 => '/home/dmhuser/backoffice',
           ),
           'exclude' => 
           array (
-            0 => '/home/vincy/DMH/vendor',
-            1 => '/home/vincy/DMH/node_modules',
+            0 => '/home/dmhuser/backoffice/vendor',
+            1 => '/home/dmhuser/backoffice/node_modules',
           ),
           'followLinks' => false,
         ),
@@ -200,7 +199,7 @@
           1 => 'local',
         ),
       ),
-      'temporary_directory' => '/home/vincy/DMH/storage/app/backup-temp',
+      'temporary_directory' => '/home/dmhuser/backoffice/storage/app/backup-temp',
     ),
     'notifications' => 
     array (
@@ -301,7 +300,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/home/vincy/DMH/storage/framework/cache/data',
+        'path' => '/home/dmhuser/backoffice/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -397,7 +396,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'vincy_dmh',
+        'database' => 'dmhdb',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -407,9 +406,9 @@
         'url' => NULL,
         'host' => 'localhost',
         'port' => '3306',
-        'database' => 'vincy_dmh',
-        'username' => 'vincy',
-        'password' => 'k~TS@VU+0Xy',
+        'database' => 'dmhdb',
+        'username' => 'root',
+        'password' => 'Drea#1Make',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -431,9 +430,9 @@
         'url' => NULL,
         'host' => 'localhost',
         'port' => '3306',
-        'database' => 'vincy_dmh',
-        'username' => 'vincy',
-        'password' => 'k~TS@VU+0Xy',
+        'database' => 'dmhdb',
+        'username' => 'root',
+        'password' => 'Drea#1Make',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -446,9 +445,9 @@
         'url' => NULL,
         'host' => 'localhost',
         'port' => '3306',
-        'database' => 'vincy_dmh',
-        'username' => 'vincy',
-        'password' => 'k~TS@VU+0Xy',
+        'database' => 'dmhdb',
+        'username' => 'root',
+        'password' => 'Drea#1Make',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -609,7 +608,7 @@
     array (
       'enabled' => true,
       'driver' => 'file',
-      'path' => '/home/vincy/DMH/storage/debugbar',
+      'path' => '/home/dmhuser/backoffice/storage/debugbar',
       'connection' => NULL,
       'provider' => '',
     ),
@@ -696,10 +695,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => '/home/vincy/DMH/storage/fonts/',
-      'font_cache' => '/home/vincy/DMH/storage/fonts/',
+      'font_dir' => '/home/dmhuser/backoffice/storage/fonts/',
+      'font_cache' => '/home/dmhuser/backoffice/storage/fonts/',
       'temp_dir' => '/tmp',
-      'chroot' => '/home/vincy/DMH',
+      'chroot' => '/home/dmhuser/backoffice',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
@@ -1458,7 +1457,7 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/home/vincy/DMH/storage/app',
+        'root' => '/home/dmhuser/backoffice/storage/app',
       ),
       'google' => 
       array (
@@ -1471,18 +1470,18 @@
       'images' => 
       array (
         'driver' => 'local',
-        'root' => '/home/vincy/DMH/storage/files/images',
+        'root' => '/home/dmhuser/backoffice/storage/files/images',
       ),
       'logo' => 
       array (
         'driver' => 'local',
-        'root' => '/home/vincy/DMH/storage/files/logo',
+        'root' => '/home/dmhuser/backoffice/storage/files/logo',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/home/vincy/DMH/storage/app/public',
-        'url' => 'http://dmh.cloudmlm.online//storage',
+        'root' => '/home/dmhuser/backoffice/storage/app/public',
+        'url' => 'https://office.thedreammakershome.com//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -1512,7 +1511,7 @@
       'maxmind_database' => 
       array (
         'class' => 'Torann\\GeoIP\\Services\\MaxMindDatabase',
-        'database_path' => '/home/vincy/DMH/storage/app/geoip.mmdb',
+        'database_path' => '/home/dmhuser/backoffice/storage/app/geoip.mmdb',
         'update_url' => 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz',
         'locales' => 
         array (
@@ -1534,7 +1533,7 @@
         'class' => 'Torann\\GeoIP\\Services\\IPApi',
         'secure' => true,
         'key' => NULL,
-        'continent_path' => '/home/vincy/DMH/storage/app/continents.json',
+        'continent_path' => '/home/dmhuser/backoffice/storage/app/continents.json',
         'lang' => 'en',
       ),
     ),
@@ -1589,18 +1588,18 @@
     'route' => 'img/cache',
     'paths' => 
     array (
-      0 => '/home/vincy/DMH/public/files/images/',
-      1 => '/home/vincy/DMH/public/files/images/icons/',
-      2 => '/home/vincy/DMH/public/files/images/extra/',
-      3 => '/home/vincy/DMH/public/files/images/users/default/',
-      4 => '/home/vincy/DMH/public/files/images/users/profile_photos/',
-      5 => '/home/vincy/DMH/public/files/images/users/profile_photos/thumbs/',
-      6 => '/home/vincy/DMH/public/files/images/users/profile_cover_photos/',
-      7 => '/home/vincy/DMH/public/files/images/users/profile_cover_photos/thumbs/',
-      8 => '/home/vincy/DMH/public/files/images/users/demo/male/',
-      9 => '/home/vincy/DMH/public/files/images/users/demo/female/',
-      10 => '/home/vincy/DMH/storage/files/images/',
-      11 => '/home/vincy/DMH/storage/files/logo/',
+      0 => '/home/dmhuser/backoffice/public/files/images/',
+      1 => '/home/dmhuser/backoffice/public/files/images/icons/',
+      2 => '/home/dmhuser/backoffice/public/files/images/extra/',
+      3 => '/home/dmhuser/backoffice/public/files/images/users/default/',
+      4 => '/home/dmhuser/backoffice/public/files/images/users/profile_photos/',
+      5 => '/home/dmhuser/backoffice/public/files/images/users/profile_photos/thumbs/',
+      6 => '/home/dmhuser/backoffice/public/files/images/users/profile_cover_photos/',
+      7 => '/home/dmhuser/backoffice/public/files/images/users/profile_cover_photos/thumbs/',
+      8 => '/home/dmhuser/backoffice/public/files/images/users/demo/male/',
+      9 => '/home/dmhuser/backoffice/public/files/images/users/demo/female/',
+      10 => '/home/dmhuser/backoffice/storage/files/images/',
+      11 => '/home/dmhuser/backoffice/storage/files/logo/',
     ),
     'templates' => 
     array (
@@ -1738,13 +1737,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/home/vincy/DMH/storage/logs/laravel.log',
+        'path' => '/home/dmhuser/backoffice/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/home/vincy/DMH/storage/logs/laravel.log',
+        'path' => '/home/dmhuser/backoffice/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 7,
       ),
@@ -1780,23 +1779,23 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.mailtrap.io',
-    'port' => '465',
+    'host' => 'smtp.sendgrid.net',
+    'port' => '587',
     'from' => 
     array (
-      'address' => 'info@cloudmlmsoftware.com',
-      'name' => 'Cloudmlmsoftware',
+      'address' => 'baffour@thedreammakershome.com',
+      'name' => 'dreammakershome',
     ),
     'encryption' => 'tls',
-    'username' => 'b83833477d7230',
-    'password' => '295805f65b19ae',
+    'username' => 'apikey',
+    'password' => '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',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/home/vincy/DMH/resources/views/vendor/mail',
+        0 => '/home/dmhuser/backoffice/resources/views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
@@ -1838,7 +1837,7 @@
       'mode' => 'sandbox',
       'http.ConnectionTimeOut' => 1000,
       'log.LogEnabled' => true,
-      'log.FileName' => '/home/vincy/DMH/storage/logs/paypal.log',
+      'log.FileName' => '/home/dmhuser/backoffice/storage/logs/paypal.log',
       'log.LogLevel' => 'FINE',
     ),
   ),
@@ -1846,7 +1845,7 @@
   array (
     'encoding' => 'UTF-8',
     'finalize' => true,
-    'cachePath' => '/home/vincy/DMH/storage/app/purifier',
+    'cachePath' => '/home/dmhuser/backoffice/storage/app/purifier',
     'cacheFileMode' => 493,
     'settings' => 
     array (
@@ -2199,7 +2198,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/home/vincy/DMH/storage/framework/sessions',
+    'files' => '/home/dmhuser/backoffice/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -2237,9 +2236,9 @@
   array (
     'paths' => 
     array (
-      0 => '/home/vincy/DMH/resources/views',
+      0 => '/home/dmhuser/backoffice/resources/views',
     ),
-    'compiled' => '/home/vincy/DMH/storage/framework/views',
+    'compiled' => '/home/dmhuser/backoffice/storage/framework/views',
   ),
   'qodehub' => 
   array (

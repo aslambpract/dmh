@@ -147,7 +147,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
 
            
-            'username' => 'required|max:255|unique:pending_transactions',
+            'username' => 'required|alpha|max:255|unique:pending_transactions',
             'password' => 'required|min:6',
             'firstname' => 'required|max:255',
             'lastname' => 'max:255',//OPTIONAL
@@ -494,7 +494,9 @@ class RegisterController extends Controller
 
              $cust= PendingTransactions::where('paytoken','=',$request->pay_token)->value('username');
            
-             $item = PendingTransactions::where('username','=',$cust)->first();  
+             // $item = PendingTransactions::where('username','=',$cust)->first();  
+             
+             $item = PendingTransactions::where('paytoken','=',$request->pay_token)->first();  
          
              
          if ($item->payment_status == 'pending') {
